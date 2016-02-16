@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/myrect2"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/txtShareOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/txtShareAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"/>
+<EditText
+    android:id="@+id/addPhone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="9dp"
+    android:layout_toRightOf="@+id/deleteShareItem"
+    android:hint="أضف هاتف"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/deleteShareItem"
+        android:src="@drawable/ic_delete_white_24dp"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hiddenSubShareId"
+        android:visibility="gone"/>
+</RelativeLayout>

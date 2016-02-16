@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">جمعيتي</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="user_name">User Name</string>
+    <string name="user_phone">Phone Number</string>
+    <string name="user_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="parse_app_id">W4BiNGJnOVBjAqssRttv5R056NSqejcIPFyiFZna</string>
+    <string name="parse_client_key">2df1kC7vsbvv9Vrc7uoAg5FIoA28KdtcOOUSuo8c</string>
+    <string name="signup_error_message">خطأ حدث اثناء إنشاء المستخدم</string>
+    <string name="signup_error_title">signup error</string>
+    <string name="login_error_message">error</string>
+    <string name="login_error_title">خطأ حدث اثناء  المستخدم</string>
+    <string name="title_section1">جمعياتي</string>
+    <string name="title_section2">قاءىمة المشاركين</string>
+    <string name="empty_jams_msg">لا يوجد جمعيات حاليا</string>
+    <string name="empty_friends_msg">لا يوجد مشاركين متاخين حاليا</string>
+    <string name="menu_edit_friends_lbl">تعديل المشاركين</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="error_title">error friends tab</string>
+    <string name="title_activity_create_new_jam">أجمعية جديدية</string>
+    <string name="title_activity_participents">قاىمة المشاركين</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_jam_name">إسم الجمعية</string>
+    <string name="new_jam_share_value">قيمة السهم</string>
+    <string name="new_jam_shares_no">عدد الأسهم</string>
+    <string name="new_jam_share_period">Share Period</string>
+    <string name="new_jam_start_day">تاريخ بداية الجمعية</string>
+    <string name="new_jam_is_public">أظهر للكل</string>
+    <string name="share_delivery_date">تاريخ تسليم السهم</string>
+    <string name="lbl_current_jam_name">إسم الجمعية</string>
+    <string name="lbl_next_jam_date">موعد تسليم السهم</string>
+    <string name="lbl_owner">المالك</string>
+    <string name="title_activity_view_jam_details">الجمعية</string>
+    <string name="btn_create_jam">أنشىء الجمعية</string>
+    <string name="sub_shares_count_error">لقد تجاوزت الحد قيمة السهم</string>
+    <string name="data_filling_issue">الرجاء إدخال جميع البيانات المطلوبة</string>
+
+    <string-array name="period_array">
+        <item>شهري</item>
+    </string-array>
+</resources>

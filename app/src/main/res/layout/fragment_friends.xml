@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity$PlaceholderFragment"
+    android:layout_gravity="right"
+    android:layoutDirection="rtl"
+    >
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@android:id/list"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layoutDirection="rtl"
+        android:foregroundGravity="right"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@android:id/empty"
+    android:text="@string/empty_friends_msg"
+    android:gravity="right"/>
+
+</RelativeLayout>

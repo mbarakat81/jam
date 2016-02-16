@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jam.mbarakat.com.myshares.ViewJamDetailsFragment">
+<RelativeLayout
+    android:id="@+id/currentJamHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+    <TextView
+        android:id="@+id/lblDetailsJamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_current_jam_name"
+        android:layout_alignParentRight="true"
+        android:gravity="right"/>
+    <TextView
+        android:id="@+id/txtNewJamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/lblDetailsJamName"
+        android:gravity="right"/>
+
+    <TextView
+        android:id="@+id/lblNextOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_owner"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lblDetailsJamName"
+        android:gravity="right"/>
+    <TextView
+        android:id="@+id/txtNextOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblDetailsJamName"
+        android:layout_toLeftOf="@+id/lblNextOwner"
+        android:gravity="right"/>
+
+    <TextView
+        android:id="@+id/lblNextDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_next_jam_date"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtNextOwner"
+        android:gravity="right"/>
+    <TextView
+        android:id="@+id/txtNextDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblNextOwner"
+        android:layout_toLeftOf="@+id/lblNextDueDate"
+        android:gravity="right"/>
+</RelativeLayout>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/shareJamDetailsView"
+    android:layout_below="@+id/currentJamHeader"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    />
+</RelativeLayout>
