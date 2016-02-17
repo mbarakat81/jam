@@ -14,10 +14,7 @@ import jam.mbarakat.com.myshares.adapters.SharesAdapter;
 
 public class ViewJamDetailsActivity extends AppCompatActivity {
     TextView txtNewJamName, txtNextOwner, txtNextDueDate;
-    JamModel jamModel = new JamModel();
-    private SharesAdapter adapter;
-    static final int DATE_DIALOG_ID = 0;
-    private int mYear,mMonth,mDay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

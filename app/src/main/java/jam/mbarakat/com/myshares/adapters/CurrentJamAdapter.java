@@ -54,7 +54,7 @@ public class CurrentJamAdapter extends ArrayAdapter<JamModel> {
             jShares.findInBackground(new FindCallback<ParseObject>() {
                 @Override
                 public void done(List<ParseObject> list, ParseException e) {
-                    jamSharesObject = new ArrayList<SharesModel>();
+                    jamSharesObject = new ArrayList<>();
                     for (ParseObject share : list) {
 
                         SharesModel shareItem = new SharesModel();

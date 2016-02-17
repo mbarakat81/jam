@@ -167,7 +167,7 @@
                 android:layout_alignParentBottom="true"
                 android:gravity="center|center_vertical"
                 >
-                <ImageView
+                <ImageButton
                     android:id="@+id/share_jam"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

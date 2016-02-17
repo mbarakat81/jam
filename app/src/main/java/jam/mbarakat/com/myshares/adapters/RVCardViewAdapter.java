@@ -8,13 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +77,10 @@ public class RVCardViewAdapter extends RecyclerView.Adapter<RVCardViewAdapter.Ja
                 holder.jamId.setText(jamItem.getjId());
                 holder.jamName.setText(jamItem.getjName());
                 holder.jamAmount.setText(jamItem.getjAmount());
+                if(!jamItem.isMysJam(ParseUser.getCurrentUser().getObjectId())){
+                    holder.delete_jam.setVisibility(View.GONE);
+                    holder.share_jam.setVisibility(View.GONE);
+                }
             }
         });
         if(position > prevPos){
@@ -98,7 +105,8 @@ public class RVCardViewAdapter extends RecyclerView.Adapter<RVCardViewAdapter.Ja
         TextView jamName, jamShareDueDate, jamNextShareOwner
                 , jamAmount, lblJamName, lblNextJamDate, lblOwner, lblShareValue;
         EditText jamId;
-        ImageView share_jam, delete_jam, view_jam_details;
+        ImageView  delete_jam, view_jam_details;
+        ImageButton share_jam;
 
         JamViewHolder(View itemView, Context mContext) {
             super(itemView);
@@ -125,7 +133,7 @@ public class RVCardViewAdapter extends RecyclerView.Adapter<RVCardViewAdapter.Ja
             jamAmount = (TextView) itemView.findViewById(R.id.txtshareValue);
             jamAmount.setTypeface(tf);
 
-            share_jam = (ImageView) itemView.findViewById(R.id.share_jam);
+            share_jam = (ImageButton) itemView.findViewById(R.id.share_jam);
             delete_jam = (ImageView) itemView.findViewById(R.id.delete_jam);
             view_jam_details = (ImageView) itemView.findViewById(R.id.view_jam_details);
             share_jam.setOnClickListener(this);

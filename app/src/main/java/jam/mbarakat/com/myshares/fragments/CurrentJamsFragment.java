@@ -1,6 +1,7 @@
 package jam.mbarakat.com.myshares.fragments;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,6 +54,7 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
     RecyclerView rv ;
     private RVCardViewAdapter RVCardsdapter;
     boolean deleted = false;
+    ProgressDialog progress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -208,18 +210,23 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
         });
 
     }
-
+    String dialogMsgBody="";
     @Override
     public void OnItemClick(View view, int pos) {
         if(view.getContentDescription()!=null) {
             String action = view.getContentDescription().toString();
+
             if (action.equals("delete_jam")) {
+                dialogMsgBody= getResources().getString(R.string.progress_msg_delete);
                 onDeleteJamClick(view, pos);
             } else if (action.equals("share_jam")) {
+                dialogMsgBody= getResources().getString(R.string.progress_msg_share_jam);
                 onShareJamClick(view, pos);
             } else if (action.equals("view_jam")) {
+                dialogMsgBody= getResources().getString(R.string.progress_msg_show_jam);
                 onViewJamClick(view, pos);
             }
+
         }
     }
 
@@ -228,10 +235,11 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
     }
 
     private void onShareJamClick(View view, int pos){
-
+        shareIt(currentJams.get(pos).getjId(), currentJams.get(pos).getNextJamOwner(), currentJams.get(pos).getjAmount());
     }
 
     private void onViewJamClick(View view, int pos){
+        startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
         Bundle bundle = new Bundle();
         JamModel currentJam = currentJams.get(pos);
         Intent intent = new Intent(getActivity(), ViewJamDetailsActivity.class);
@@ -239,13 +247,23 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
         intent.putExtras(bundle);
         intent.putExtra("jId", currentJam.getjId());
         startActivity(intent);
+        endProgressDialod();
     }
-
+    private void shareIt(String jamId, String jamCreator, String jamShareValue) {
+        startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = getResources().getString(R.string.share_jam_body_msg).replace("_AMOUNT", jamShareValue);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        endProgressDialod();
+    }
     private void showDialog(final int id){
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle(R.string.delete_jam_title);
         alert.setMessage(R.string.delete_jam_msg);
-        alert.setNegativeButton(R.string.delete_jam_cancel_btn, new DialogInterface.OnClickListener(){
+        alert.setNegativeButton(R.string.delete_jam_cancel_btn, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -255,6 +273,7 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
         alert.setPositiveButton(R.string.delete_jam_confirm_btn, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
                 ParseQuery<ParseObject> query = new ParseQuery<>("Jam_header");
                 query.whereEqualTo("objectId", currentJams.get(id).getjId());
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -262,6 +281,7 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
                     public void done(ParseObject parseObject, ParseException e) {
                         if (e == null) {
                             deleteJam(parseObject, id);
+                            endProgressDialod();
                         }
                     }
                 });
@@ -275,7 +295,7 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
         parseObject.deleteInBackground(new DeleteCallback() {
             @Override
             public void done(ParseException e) {
-                if(e==null){
+                if (e == null) {
                     ParseQuery<ParseObject> queryShares = new ParseQuery<>("jShares");
                     ParseQuery<ParseObject> querySubShares = new ParseQuery<>("Share_owners");
                     queryShares.whereEqualTo("shares_jamNo", currentJams.get(id).getjId());
@@ -294,5 +314,14 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
                 }
             }
         });
+    }
+
+    private void startProgressDialog(String title, String msg){
+        progress = ProgressDialog.show(getContext(), "",
+                "", true);
+
+    }
+    private void endProgressDialod(){
+        progress.dismiss();
     }
 }

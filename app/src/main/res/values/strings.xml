@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">جمعيتي</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">الإعدادات</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="user_name">User Name</string>
@@ -45,6 +45,12 @@
     <string name="delete_jam_confirm_btn">نعم</string>
     <string name="delete_jam_msg">تأكيد حذف الجمعية؟</string>
     <string name="delete_jam_cancel_btn">إلغاء</string>
+    <string name="share_jam_body_msg">هل ترغب بالمشاركة في جمعية بمبلغ _AMOUNT للسهم الواحد؟ للتفاصيل إكبس على الرابط أدناه</string>
+    <string name="progress_title">الرجاء الإنتظار</string>
+    <string name="progress_msg_delete">حذف الجمعية</string>
+    <string name="progress_msg_show_jam">جاري عرض الجمعية</string>
+    <string name="progress_msg_share_jam">مشاركة الجمعية</string>
+    <string name="menu_logout">تسجيل الخروج</string>
 
     <string-array name="period_array">
         <item>شهري</item>

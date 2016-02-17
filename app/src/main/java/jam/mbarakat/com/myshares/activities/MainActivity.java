@@ -85,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.action_edit_friends){
             Intent intent = new Intent(this, EditFriendsActivity.class);
             startActivity(intent);
+        }else if(id == R.id.action_logout){
+            ParseUser.logOut();
+            navigateToLogin();
         }
 
         return super.onOptionsItemSelected(item);
