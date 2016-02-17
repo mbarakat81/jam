@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_participents"
-    tools:context="jam.mbarakat.com.myshares.ParticipentsActivity">
+    tools:context=".activities.ParticipentsActivity">
 
     <TextView
         android:layout_width="match_parent"

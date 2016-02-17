@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_view_jam_details"
-    tools:context="jam.mbarakat.com.myshares.ViewJamDetailsActivity">
+    tools:context=".activities.ViewJamDetailsActivity">
 
 
 
@@ -14,7 +14,7 @@
         android:id="@+id/sharesFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="jam.mbarakat.com.myshares.ViewJamDetailsFragment"
+        android:name="jam.mbarakat.com.myshares.fragments.ViewJamDetailsFragment"
         android:gravity="right"
         android:layout_centerVertical="true"
         tools:layout="@layout/fragment_view_jam_details"

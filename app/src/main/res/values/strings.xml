@@ -40,6 +40,11 @@
     <string name="btn_create_jam">أنشىء الجمعية</string>
     <string name="sub_shares_count_error">لقد تجاوزت الحد قيمة السهم</string>
     <string name="data_filling_issue">الرجاء إدخال جميع البيانات المطلوبة</string>
+    <string name="lbl_creator">مؤسس الجمعية</string>
+    <string name="delete_jam_title">حذف</string>
+    <string name="delete_jam_confirm_btn">نعم</string>
+    <string name="delete_jam_msg">تأكيد حذف الجمعية؟</string>
+    <string name="delete_jam_cancel_btn">إلغاء</string>
 
     <string-array name="period_array">
         <item>شهري</item>

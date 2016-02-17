@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    tools:context=".MainActivity$PlaceholderFragment">
+    tools:context=".activities.MainActivity$PlaceholderFragment">
     <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
@@ -23,13 +23,15 @@
         android:layout_height="match_parent"
         android:id="@+id/rvCardView"
         />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/noJams"
 
-            android:text="@string/empty_jams_msg"
-            android:textAlignment="center"
-            android:visibility="gone"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/noJams"
+
+        android:text="@string/empty_jams_msg"
+        android:textAlignment="center"
+        android:visibility="gone"
+        />
 
 </RelativeLayout>

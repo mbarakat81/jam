@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:animateLayoutChanges="true"
-    tools:context="jam.mbarakat.com.myshares.CreateNewJamActivity">
+    tools:context=".activities.CreateNewJamActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_edit_friends"
-    tools:context="jam.mbarakat.com.myshares.EditFriendsActivity">
+    tools:context=".activities.EditFriendsActivity">
 
     <ListView
         android:layout_width="match_parent"

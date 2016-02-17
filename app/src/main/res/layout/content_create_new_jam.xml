@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_create_new_jam"
-    tools:context="jam.mbarakat.com.myshares.CreateNewJamActivity"
+    tools:context=".activities.CreateNewJamActivity"
     android:gravity="right"
     android:id="@+id/contect_create_activity">
     <RelativeLayout
@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@+id/newJamHeader"
-        android:name="jam.mbarakat.com.myshares.SharesFragment"
+        android:name="jam.mbarakat.com.myshares.fragments.SharesFragment"
         android:gravity="right"
         tools:layout="@layout/fragment_shares"
         />
