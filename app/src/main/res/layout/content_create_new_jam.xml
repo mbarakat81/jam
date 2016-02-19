@@ -5,110 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_create_new_jam"
-    tools:context=".activities.CreateNewJamActivity"
-    android:gravity="right"
-    android:id="@+id/contect_create_activity">
-    <RelativeLayout
-        android:id="@+id/newJamHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:layout_marginBottom="3dp">
-
-    <EditText
-        android:id="@+id/txtNewJamName1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:ems="7"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:hint="@string/new_jam_name"/>
-
-    <EditText
-        android:id="@+id/txtNewJamAmount1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:gravity="right"
-        android:layout_toLeftOf="@+id/txtNewJamName1"
-        android:text="150"
-        android:hint="@string/new_jam_share_value"/>
-    <EditText
-        android:id="@+id/txtSharesNo"
-        android:text="12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:hint="@string/new_jam_shares_no"
-        android:layout_toLeftOf="@+id/txtNewJamAmount1"
-        android:inputType="numberDecimal"
-        />
-    <EditText
-        android:id="@+id/txtNewJamDate1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:gravity="right"
-        android:layout_below="@+id/txtNewJamName1"
-        android:layout_alignParentRight="true"
-        android:hint="@string/new_jam_start_day"/>
-
-    <Spinner
-        android:id="@+id/spinnerPeriod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNewJamAmount1"
-        android:gravity="right"/>
-
-    <EditText
-        android:id="@+id/txtSharePeriod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:layout_alignParentRight="true"
-        android:hint="@string/new_jam_share_period"
-        android:layout_below="@+id/txtNewJamAmount1"
-        android:inputType="numberDecimal"
-        android:text="30"
-        android:visibility="gone"
-        />
-
-
-    <CheckBox
-        android:id="@+id/cbNewJamIsPublic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_jam_is_public"
-        android:layout_below="@+id/txtNewJamDate1"
-        android:layout_alignParentRight="true"
-        android:checked="true" />
-
-    <Button
-        android:id="@+id/btnNewJamPaticipants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/myrect2"
-        android:text="@string/btn_create_jam"
-        android:layout_below="@+id/cbNewJamIsPublic"
-
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:layout_margin="7dp"/>
-</RelativeLayout>
-
+    tools:showIn="@layout/activity_create_new_jam">
     <fragment
         android:id="@+id/participantsFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/newJamHeader"
-        android:name="jam.mbarakat.com.myshares.fragments.SharesFragment"
-        android:gravity="right"
+        android:name="jam.mbarakat.com.myshares.fragments.NewJamFragment"
         tools:layout="@layout/fragment_shares"
         />
-
-
-
 </RelativeLayout>

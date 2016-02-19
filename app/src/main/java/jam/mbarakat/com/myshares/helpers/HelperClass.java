@@ -170,4 +170,19 @@ public class HelperClass {
         java.text.DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context);
         return dateFormat.format(date);
     }
+
+    public static String setDate(String date, int days)  {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String[] arr = date.split("/");
+        int day,year,month;
+        day = Integer.parseInt(arr[0]);
+        month = Integer.parseInt(arr[1]);
+        year = Integer.parseInt(arr[2]);
+        Calendar c = Calendar.getInstance();
+        c.set(year,month-1,day);
+        c.add(Calendar.DAY_OF_YEAR, days);
+
+        return sdf.format(c.getTime());
+    }
+
 }

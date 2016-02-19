@@ -13,8 +13,6 @@ import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.adapters.SharesAdapter;
 
 public class ViewJamDetailsActivity extends AppCompatActivity {
-    TextView txtNewJamName, txtNextOwner, txtNextDueDate;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +20,7 @@ public class ViewJamDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_jam_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        txtNewJamName = (TextView) findViewById(R.id.txtNewJamName);
-        txtNextOwner = (TextView) findViewById(R.id.txtNextOwner);
-        txtNextDueDate = (TextView) findViewById(R.id.txtNextDueDate);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

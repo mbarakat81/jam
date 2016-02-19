@@ -1,6 +1,8 @@
 package jam.mbarakat.com.myshares.adapters;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,51 +36,91 @@ import jam.mbarakat.com.myshares.modules.SharesModel;
 /**
  * Created by MBARAKAT on 2/7/2016.
  */
-public class JamSharesViewAdapter extends RecyclerView.Adapter<JamSharesViewAdapter.SharesViewHolder> {
+public class JamSharesViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private static final int TYPE_HEADER = 0;
+    private static final int TYPE_ITEM = 1;
+
     ClickListener clickListener;
     List<SharesModel> data = Collections.emptyList();
     Context context = null;
     private LayoutInflater layoutInflater;
-View parentView;
+    JamModel jamModel;
+    View parentView;
     boolean isMyJam;
 
     public JamSharesViewAdapter(Context context, JamModel data){
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
         this.isMyJam = data.isMysJam(ParseUser.getCurrentUser().getObjectId());
+        this.jamModel = data;
         this.data = data.getSharesModel();
     }
 
     @Override
-    public SharesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.shares_row, parent, false);
-        this.parentView = view;
-        SharesViewHolder holder = new SharesViewHolder(view);
-        return holder;
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if(viewType == TYPE_HEADER)
+        {
+            View view = layoutInflater.inflate(R.layout.jam_header, parent, false);
+            this.parentView = view;
+            JamHeaderViewHolder holder = new JamHeaderViewHolder(view);
+            return holder;
+        }else if(viewType == TYPE_ITEM)
+        {
+            View view = layoutInflater.inflate(R.layout.shares_row, parent, false);
+            this.parentView = view;
+            SharesViewHolder holder = new SharesViewHolder(view);
+            return holder;
+        }
+        throw new RuntimeException("there is no type that matches the type " + viewType + " + make sure your using types correctly");
     }
 
     @Override
-    public void onBindViewHolder(SharesViewHolder holder, int position) {
-        SharesModel sharesModel = data.get(position);
-        holder.startDay.setText(sharesModel.getStartDay());
-        holder.hiddenJID.setText(sharesModel.getJamId());
-        holder.hiddenShareNo.setText(String.valueOf(sharesModel.getShareOrder()));
-        holder.hiddenJAmount.setText(String.valueOf(sharesModel.getjAmount()));
-        holder.hiddenJAddedAmount.setText(String.valueOf(sharesModel.getAddedAmount()));
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof JamHeaderViewHolder)
+        {
+            JamHeaderViewHolder jamHeaderViewHolder = (JamHeaderViewHolder)holder;
+            jamHeaderViewHolder.jamAmount.setText(jamModel.getjAmount());
+            jamHeaderViewHolder.jamDate.setText(jamModel.getjDate());
+            jamHeaderViewHolder.jamName.setText(jamModel.getjName());
+            jamHeaderViewHolder.sharesNo.setText(jamModel.getSharesNo());
 
-        holder.shareItems = sharesModel.getShareItems();
-        holder.shareItemAdapter = new ShareItemAdapter(context, holder.shareItems, isMyJam, parentView);
-        holder.lvParticipants.setAdapter(holder.shareItemAdapter);
-        if(!isMyJam){
-            holder.btnAddRecToShare.setVisibility(View.GONE);
-            holder.amount.setVisibility(View.GONE);
-            holder.addRecName.setVisibility(View.GONE);
+        }else if(holder instanceof SharesViewHolder)
+        {
+            SharesViewHolder sharesViewHolder = (SharesViewHolder)holder;
+            SharesModel sharesModel = data.get(position-1);
+            sharesViewHolder.startDay.setText(HelperClass.getFormatedDateFromString(sharesModel.getStartDay()));
+            sharesViewHolder.hiddenJID.setText(sharesModel.getJamId());
+            sharesViewHolder.hiddenShareNo.setText(String.valueOf(sharesModel.getShareOrder()));
+            sharesViewHolder.hiddenJAmount.setText(String.valueOf(sharesModel.getjAmount()));
+            sharesViewHolder.hiddenJAddedAmount.setText(String.valueOf(sharesModel.getAddedAmount()));
+
+            sharesViewHolder.shareItems = sharesModel.getShareItems();
+            sharesViewHolder.shareItemAdapter = new ShareItemAdapter(context, sharesViewHolder.shareItems, isMyJam, parentView);
+            sharesViewHolder.lvParticipants.setAdapter(sharesViewHolder.shareItemAdapter);
+            if(!isMyJam){
+                sharesViewHolder.btnAddRecToShare.setVisibility(View.GONE);
+                sharesViewHolder.amount.setVisibility(View.GONE);
+                sharesViewHolder.addRecName.setVisibility(View.GONE);
+            }
         }
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if(isPositionHeader(position))
+            return TYPE_HEADER;
+        return TYPE_ITEM;
+    }
+
+    private boolean isPositionHeader(int position)
+    {
+        return position == 0;
+    }
+
+
+    @Override
     public int getItemCount() {
-        return data.size();
+        return data.size()+1;
     }
 
     public void updateData(List<SharesModel> sharesModel) {
@@ -84,12 +128,39 @@ View parentView;
         notifyDataSetChanged();
     }
 
+    class JamHeaderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        TextView jamName, jamAmount, sharesNo, jamDate;
+
+        CheckBox jamIsPublic;
+
+        public JamHeaderViewHolder(View itemView) {
+            super(itemView);
+            Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts/sheba.ttf");
+            jamName = (TextView)itemView.findViewById(R.id.txtNewJamName1);
+            jamName.setTypeface(tf);
+            jamAmount = (TextView)itemView.findViewById(R.id.txtNewJamAmount1);
+            jamAmount.setTypeface(tf);
+            sharesNo = (TextView)itemView.findViewById(R.id.txtSharesNo);
+            sharesNo.setTypeface(tf);
+            jamDate = (TextView)itemView.findViewById(R.id.txtNewJamDate1);
+            jamDate.setTypeface(tf);
+            jamIsPublic = (CheckBox)itemView.findViewById(R.id.cbNewJamIsPublic);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+
+        }
+    }
+
     class SharesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public View view;
         List<String []> contactList = Collections.emptyList();
         EditText hiddenJID, hiddenShareNo , amount,hiddenJAmount, hiddenJAddedAmount;
-        TextView startDay;
+        TextView startDay, lblStartDay;
         ListView lvParticipants;
         ImageView btnDeleteShareItem, btnAddRecToShare;
         AutoCompleteTextView addRecName;
@@ -101,24 +172,32 @@ View parentView;
 
         public SharesViewHolder(View itemView) {
             super(itemView);
+            Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts/sheba.ttf");
             itemView.setOnClickListener(this);
             contactList = HelperClass.fetchContacts(context);
             this.view = itemView;
             startDay = (TextView) view.findViewById(R.id.txtShareStartDay);
+            startDay.setTypeface(tf);
+            lblStartDay = (TextView) view.findViewById(R.id.lblShareStartDay);
+            lblStartDay.setTypeface(tf);
             edit = (Button) view.findViewById(R.id.sharesAddParticipants);
+            edit.setTypeface(tf);
             amount = (EditText)view.findViewById(R.id.subShareAmount);
+            amount.setTypeface(tf);
             addRecName = (AutoCompleteTextView) view.findViewById(R.id.addRecName1);
+            addRecName.setTypeface(tf);
             hiddenJID = (EditText)view.findViewById(R.id.hiddenJId);
             hiddenShareNo = (EditText)view.findViewById(R.id.hiddenShareNo);
             hiddenJAmount = (EditText)view.findViewById(R.id.hiddenJAmount);
             hiddenJAddedAmount = (EditText)view.findViewById(R.id.hiddenJAddedAmount);
             lvParticipants = (ListView) view.findViewById(R.id.lvSharesParticipants);
-            // TODO: 2/7/2016 set shares owners
 
             btnDeleteShareItem = (ImageView) view.findViewById(R.id.deleteShareItem);
             btnAddRecToShare = (ImageView)view.findViewById(R.id.btnAddRecToShare);
 
             btnAddRecToShare.setOnClickListener(new View.OnClickListener() {
+                public ProgressDialog progress;
+
                 @Override
                 public void onClick(View v) {
                     if(addRecName.getText().toString().isEmpty() || amount.getText().toString().isEmpty()){
@@ -133,6 +212,9 @@ View parentView;
                             shareAmountSum -= mAmount;
                             Toast.makeText(context, R.string.sub_shares_count_error, Toast.LENGTH_LONG).show();
                         }else{
+
+                            progress = ProgressDialog.show(context, "",
+                                    "", true);
                             hiddenJAddedAmount.setText(String.valueOf(shareAmountSum));
                             String[] arr = addRecName.getText().toString().split(",");
                             final String name = arr[0];
@@ -164,6 +246,7 @@ View parentView;
                                     addRecName.setText("");
                                     addRecName.requestFocus();
                                     amount.setText("");
+                                    progress.dismiss();
                                 }
                             });
                         }

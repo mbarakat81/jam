@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'jamKeyStore'
+            keyPassword 'M@123123r'
+            storeFile file('D:/jamKeyStore.jks')
+            storePassword 'M@123123r'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "jam.mbarakat.com.myshares"
         minSdkVersion 15
@@ -13,6 +20,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 }

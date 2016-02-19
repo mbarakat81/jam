@@ -49,5 +49,7 @@
         android:id="@+id/btnSignUpField"
         android:layout_below="@+id/userPasswordField"
         android:layout_alignParentLeft="true"
+        android:background="@color/colorAccent"
+
         android:layout_alignParentStart="true" />
 </RelativeLayout>

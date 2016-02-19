@@ -2,18 +2,18 @@
     <string name="app_name">جمعيتي</string>
     <string name="action_settings">الإعدادات</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="user_name">User Name</string>
-    <string name="user_phone">Phone Number</string>
-    <string name="user_password">Password</string>
-    <string name="btn_login">Login</string>
-    <string name="btn_signup">Sign Up</string>
-    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_login">تسجيل الدخول</string>
+    <string name="user_name">إسم المستخدم</string>
+    <string name="user_phone">رقم الهاتف</string>
+    <string name="user_password">كلمة المرور</string>
+    <string name="btn_login">تسجيل الدخول</string>
+    <string name="btn_signup">حساب جديد</string>
+    <string name="title_activity_sign_up">إنشاء حساب</string>
     <string name="parse_app_id">W4BiNGJnOVBjAqssRttv5R056NSqejcIPFyiFZna</string>
     <string name="parse_client_key">2df1kC7vsbvv9Vrc7uoAg5FIoA28KdtcOOUSuo8c</string>
     <string name="signup_error_message">خطأ حدث اثناء إنشاء المستخدم</string>
-    <string name="signup_error_title">signup error</string>
-    <string name="login_error_message">error</string>
+    <string name="signup_error_title">خطاء اثناء عملية التسجيل</string>
+    <string name="login_error_message">خطاء</string>
     <string name="login_error_title">خطأ حدث اثناء  المستخدم</string>
     <string name="title_section1">جمعياتي</string>
     <string name="title_section2">قاءىمة المشاركين</string>
@@ -32,7 +32,7 @@
     <string name="new_jam_share_period">Share Period</string>
     <string name="new_jam_start_day">تاريخ بداية الجمعية</string>
     <string name="new_jam_is_public">أظهر للكل</string>
-    <string name="share_delivery_date">تاريخ تسليم السهم</string>
+    <string name="share_delivery_date"> :تاريخ تسليم السهم</string>
     <string name="lbl_current_jam_name">إسم الجمعية</string>
     <string name="lbl_next_jam_date">موعد تسليم السهم</string>
     <string name="lbl_owner">المالك</string>
@@ -51,6 +51,8 @@
     <string name="progress_msg_show_jam">جاري عرض الجمعية</string>
     <string name="progress_msg_share_jam">مشاركة الجمعية</string>
     <string name="menu_logout">تسجيل الخروج</string>
+    <string name="hint_share_owner_name">الإسم</string>
+    <string name="hint_share_owner_amount">القيمة</string>
 
     <string-array name="period_array">
         <item>شهري</item>

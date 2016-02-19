@@ -1,6 +1,8 @@
 package jam.mbarakat.com.myshares.adapters;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +52,14 @@ public class ShareItemAdapter extends ArrayAdapter<ShareItem> {
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
         final ShareItemViewHolder shareItemViewHolder;
+        Typeface tf = Typeface.createFromAsset(mContext.getAssets(), "fonts/sheba.ttf");
         if(convertView==null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.shares_owner_layout, null);
             shareItemViewHolder = new ShareItemViewHolder();
             shareItemViewHolder.shareOwnerName = (TextView) convertView.findViewById(R.id.txtShareOwner);
+            shareItemViewHolder.shareOwnerName.setTypeface(tf);
             shareItemViewHolder.shareAmount = (TextView) convertView.findViewById(R.id.txtShareAmount);
+            shareItemViewHolder.shareAmount.setTypeface(tf);
             shareItemViewHolder.hiddenSubShareId = (EditText) convertView.findViewById(R.id.hiddenSubShareId);
             shareItemViewHolder.deleteShareItem = (ImageView) convertView.findViewById(R.id.deleteShareItem);
             shareItemViewHolder.addPhone = (EditText)convertView.findViewById(R.id.addPhone);
@@ -98,12 +103,16 @@ public class ShareItemAdapter extends ArrayAdapter<ShareItem> {
             @Override
             public void onClick(View view) {
 
+                final ProgressDialog progress;
                 final int tag = (Integer) view.getTag();
-
+                progress = ProgressDialog.show(getContext(), "",
+                        "", true);
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Share_owners");
                 query.getInBackground(shareId, new GetCallback<ParseObject>() {
                     public void done(ParseObject parseObject, ParseException e) {
                         if (e == null) {
+
+
                             parseObject.put("obs", true);
                             parseObject.saveInBackground();
                             mShareItems.remove(tag);
@@ -111,6 +120,7 @@ public class ShareItemAdapter extends ArrayAdapter<ShareItem> {
                             currentSubSharesSum -= shareAmount;
                             shareItemViewHolder.hiddenCurrentJamAmount.setText(String.valueOf(currentSubSharesSum));
                             notifyDataSetChanged();
+                            progress.dismiss();
                         }
                     }
                 });

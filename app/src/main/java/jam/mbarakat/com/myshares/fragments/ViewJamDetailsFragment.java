@@ -1,6 +1,7 @@
 package jam.mbarakat.com.myshares.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -31,24 +32,19 @@ import jam.mbarakat.com.myshares.adapters.JamSharesViewAdapter;
  */
 public class ViewJamDetailsFragment extends Fragment {
     JamModel jamModel = new JamModel();
-    List<SharesModel> jamSharesObject;
-    TextView txtNewJamName, txtNextOwner, txtNextDueDate;
-
     RecyclerView recyclerView;
     JamSharesViewAdapter adapter;
+    private ProgressDialog progress;
+
     public ViewJamDetailsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_view_jam_details,container,false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.shareJamDetailsView);
-        txtNewJamName = (TextView) layout.findViewById(R.id.txtNewJamName);
-        txtNextDueDate = (TextView) layout.findViewById(R.id.txtNextDueDate);
-        txtNextOwner = (TextView) layout.findViewById(R.id.txtNextOwner);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return layout;
@@ -61,13 +57,9 @@ public class ViewJamDetailsFragment extends Fragment {
     }
 
     public void getData(){
-        Intent intent = getActivity().getIntent();
-        String jId = intent.getExtras().get("jId").toString();
-        jamModel = intent.getParcelableExtra("currentJamModel");
 
-        txtNewJamName.setText(jamModel.getjName());
-        txtNextOwner.setText(jamModel.getNextJamOwner());
-        txtNextDueDate.setText(jamModel.getNextJamDate());
+        Intent intent = getActivity().getIntent();
+        jamModel = intent.getParcelableExtra("currentJamModel");
 
         ParseQuery<ParseObject> shareOwners = ParseQuery.getQuery("Share_owners");
         shareOwners.whereEqualTo("jamId", jamModel.getjId())
@@ -75,25 +67,30 @@ public class ViewJamDetailsFragment extends Fragment {
         shareOwners.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
-                for (SharesModel shareModel : jamModel.getSharesModel()) {
-                    List<ShareItem> shareItems = new ArrayList<>();
-                    for (int i = 0; i < list.size(); i++) {
-                        if (list.get(i).getInt("share_no") == shareModel.getShareOrder()) {
-                            ShareItem shareItem = new ShareItem(
-                                    list.get(i).getString("share_owner")
-                                    ,list.get(i).getString("owner_phone")
-                                    , list.get(i).getInt("share_amount")
-                                    , list.get(i).getObjectId()
-                                    , list.get(i).getInt("share_no"));
-                            shareItems.add(shareItem);
+                if(e==null) {
+                    progress = ProgressDialog.show(getActivity(), "",
+                            "", true);
+                    for (SharesModel shareModel : jamModel.getSharesModel()) {
+                        List<ShareItem> shareItems = new ArrayList<>();
+                        for (int i = 0; i < list.size(); i++) {
+                            if (list.get(i).getInt("share_no") == shareModel.getShareOrder()) {
+                                ShareItem shareItem = new ShareItem(
+                                        list.get(i).getString("share_owner")
+                                        , list.get(i).getString("owner_phone")
+                                        , list.get(i).getInt("share_amount")
+                                        , list.get(i).getObjectId()
+                                        , list.get(i).getInt("share_no"));
+                                shareItems.add(shareItem);
+                            }
                         }
-                    }
-                    if (shareItems.size() > 0)
-                        shareModel.setShareItems(shareItems);
+                        if (shareItems.size() > 0)
+                            shareModel.setShareItems(shareItems);
 
+                    }
+                    adapter = new JamSharesViewAdapter(getActivity(), jamModel);
+                    recyclerView.setAdapter(adapter);
+                    progress.dismiss();
                 }
-                adapter = new JamSharesViewAdapter(getActivity(),jamModel);
-                recyclerView.setAdapter(adapter);
             }
         });
     }
