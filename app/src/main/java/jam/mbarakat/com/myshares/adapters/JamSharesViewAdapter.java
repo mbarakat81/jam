@@ -84,16 +84,18 @@ public class JamSharesViewAdapter extends RecyclerView.Adapter<RecyclerView.View
             jamHeaderViewHolder.jamName.setText(jamModel.getjName());
             jamHeaderViewHolder.sharesNo.setText(jamModel.getSharesNo());
 
-        }else if(holder instanceof SharesViewHolder)
-        {
+        }else if(holder instanceof SharesViewHolder){
+
             SharesViewHolder sharesViewHolder = (SharesViewHolder)holder;
-            SharesModel sharesModel = data.get(position-1);
+            SharesModel sharesModel = data.get(position - 1);
             sharesViewHolder.startDay.setText(HelperClass.getFormatedDateFromString(sharesModel.getStartDay()));
             sharesViewHolder.hiddenJID.setText(sharesModel.getJamId());
             sharesViewHolder.hiddenShareNo.setText(String.valueOf(sharesModel.getShareOrder()));
             sharesViewHolder.hiddenJAmount.setText(String.valueOf(sharesModel.getjAmount()));
             sharesViewHolder.hiddenJAddedAmount.setText(String.valueOf(sharesModel.getAddedAmount()));
 
+            sharesViewHolder.amount.setText("");
+            sharesViewHolder.addRecName.setText("");
             sharesViewHolder.shareItems = sharesModel.getShareItems();
             sharesViewHolder.shareItemAdapter = new ShareItemAdapter(context, sharesViewHolder.shareItems, isMyJam, parentView);
             sharesViewHolder.lvParticipants.setAdapter(sharesViewHolder.shareItemAdapter);
@@ -111,12 +113,10 @@ public class JamSharesViewAdapter extends RecyclerView.Adapter<RecyclerView.View
             return TYPE_HEADER;
         return TYPE_ITEM;
     }
-
     private boolean isPositionHeader(int position)
     {
         return position == 0;
     }
-
 
     @Override
     public int getItemCount() {
@@ -154,7 +154,6 @@ public class JamSharesViewAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         }
     }
-
     class SharesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public View view;
@@ -246,6 +245,7 @@ public class JamSharesViewAdapter extends RecyclerView.Adapter<RecyclerView.View
                                     addRecName.setText("");
                                     addRecName.requestFocus();
                                     amount.setText("");
+                                    data.get(getPosition()).setShareItems(shareItems);
                                     progress.dismiss();
                                 }
                             });
@@ -264,6 +264,7 @@ public class JamSharesViewAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     }
+
     public interface ClickListener{
         public void OnItemClick(View view, int pos);
     }

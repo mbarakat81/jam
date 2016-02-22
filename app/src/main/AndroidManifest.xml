@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jam.mbarakat.com.myshares" android:versionCode="1"
+    package="jam.mbarakat.com.myshares" android:versionCode="2"
     android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -58,18 +58,21 @@
             android:name=".activities.CreateNewJamActivity"
             android:label="@string/title_activity_create_new_jam"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activities.ParticipentsActivity"
             android:label="@string/title_activity_participents"
             android:parentActivityName=".activities.CreateNewJamActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activities.ViewJamDetailsActivity"
             android:label="@string/title_activity_view_jam_details"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

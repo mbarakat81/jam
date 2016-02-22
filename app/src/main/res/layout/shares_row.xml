@@ -63,6 +63,7 @@
                 android:textColorHint="@android:color/white"
                 android:gravity="right"
                 android:textSize="15dp"
+                android:inputType="numberDecimal"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:layout_below="@+id/lblShareStartDay"
                 android:hint="@string/hint_share_owner_amount"

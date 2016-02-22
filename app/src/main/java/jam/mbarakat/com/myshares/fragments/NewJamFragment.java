@@ -12,10 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 
 import java.text.SimpleDateFormat;
@@ -26,10 +24,10 @@ import java.util.List;
 import jam.mbarakat.com.myshares.modules.JamModel;
 import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.modules.SharesModel;
-import jam.mbarakat.com.myshares.adapters.SharesAdapter;
+import jam.mbarakat.com.myshares.adapters.NewJamAdapter;
 
 
-public class NewJamFragment extends Fragment implements SharesAdapter.ClickListener {
+public class NewJamFragment extends Fragment implements NewJamAdapter.ClickListener {
 
     RecyclerView rv;
     EditText txtNewJamDate;
@@ -38,7 +36,7 @@ public class NewJamFragment extends Fragment implements SharesAdapter.ClickListe
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private SharesAdapter adapter;
+    private NewJamAdapter adapter;
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
@@ -70,6 +68,7 @@ public class NewJamFragment extends Fragment implements SharesAdapter.ClickListe
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_shares, container, false);
         rv  = (RecyclerView) layout.findViewById(R.id.rv);
+
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         return layout;
     }
@@ -142,7 +141,8 @@ public class NewJamFragment extends Fragment implements SharesAdapter.ClickListe
     public void onResume() {
         super.onResume();
         jamModel.setSharesModel(getData(0));
-        adapter = new SharesAdapter(getActivity(), getActivity(),jamModel);
+        adapter = new NewJamAdapter(getActivity(), getActivity(),jamModel);
+        adapter.hasStableIds();
         adapter.setClickListener(NewJamFragment.this);
         rv.setAdapter(adapter);
     }

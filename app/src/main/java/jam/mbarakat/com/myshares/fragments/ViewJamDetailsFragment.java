@@ -88,6 +88,7 @@ public class ViewJamDetailsFragment extends Fragment {
 
                     }
                     adapter = new JamSharesViewAdapter(getActivity(), jamModel);
+                    //adapter.setHasStableIds(true);
                     recyclerView.setAdapter(adapter);
                     progress.dismiss();
                 }

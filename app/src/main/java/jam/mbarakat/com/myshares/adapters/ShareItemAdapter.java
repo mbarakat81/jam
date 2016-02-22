@@ -83,12 +83,14 @@ public class ShareItemAdapter extends ArrayAdapter<ShareItem> {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if(!hasFocus){
+                    final int tag = (Integer) view.getTag();
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("Share_owners");
                     query.getInBackground(shareId, new GetCallback<ParseObject>() {
                         public void done(ParseObject parseObject, ParseException e) {
                             if (e == null) {
                                 parseObject.put("owner_phone", shareItemViewHolder.addPhone.getText().toString());
                                 parseObject.saveInBackground();
+                                mShareItems.get(tag).setShareOwnerPhone(shareItemViewHolder.addPhone.getText().toString());
                             }
                         }
                     });
@@ -99,6 +101,7 @@ public class ShareItemAdapter extends ArrayAdapter<ShareItem> {
         shareItemViewHolder.shareAmount.setText(String.valueOf(shareItem.getShareAmount()));
         shareItemViewHolder.hiddenSubShareId.setText(shareItem.getShareId());
         shareItemViewHolder.deleteShareItem.setTag(position);
+        shareItemViewHolder.addPhone.setTag(position);
         shareItemViewHolder.deleteShareItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,8 +114,6 @@ public class ShareItemAdapter extends ArrayAdapter<ShareItem> {
                 query.getInBackground(shareId, new GetCallback<ParseObject>() {
                     public void done(ParseObject parseObject, ParseException e) {
                         if (e == null) {
-
-
                             parseObject.put("obs", true);
                             parseObject.saveInBackground();
                             mShareItems.remove(tag);
