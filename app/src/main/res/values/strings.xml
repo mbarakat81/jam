@@ -22,7 +22,7 @@
     <string name="menu_edit_friends_lbl">تعديل المشاركين</string>
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="error_title">error friends tab</string>
-    <string name="title_activity_create_new_jam">أجمعية جديدية</string>
+    <string name="title_activity_create_new_jam">جمعية جديدة</string>
     <string name="title_activity_participents">قاىمة المشاركين</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -32,7 +32,7 @@
     <string name="new_jam_share_period">Share Period</string>
     <string name="new_jam_start_day">تاريخ بداية الجمعية</string>
     <string name="new_jam_is_public">أظهر للكل</string>
-    <string name="share_delivery_date"> :تاريخ تسليم السهم</string>
+    <string name="share_delivery_date">تاريخ تسليم السهم : </string>
     <string name="lbl_current_jam_name">إسم الجمعية</string>
     <string name="lbl_next_jam_date">موعد تسليم السهم</string>
     <string name="lbl_owner">المالك</string>
@@ -53,6 +53,10 @@
     <string name="menu_logout">تسجيل الخروج</string>
     <string name="hint_share_owner_name">الإسم</string>
     <string name="hint_share_owner_amount">القيمة</string>
+    <string name="lbl_delivered">سلمت</string>
+    <string name="msg_interuuption">لقد تمت مقاطعتك أثاء التعديل, قم بالعوده للصفحة الرئيسية للمتابعة.</string>
+    <string name="lbl_payers_list">قائمة المشاركين</string>
+    <string name="lbl_back_to_share">عودة الى السهم</string>
 
     <string-array name="period_array">
         <item>شهري</item>

@@ -3,6 +3,7 @@ package jam.mbarakat.com.myshares.fragments;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import java.text.SimpleDateFormat;
@@ -51,6 +53,7 @@ public class NewJamFragment extends Fragment implements NewJamAdapter.ClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -140,10 +143,25 @@ public class NewJamFragment extends Fragment implements NewJamAdapter.ClickListe
     @Override
     public void onResume() {
         super.onResume();
+        if (bundle!=null) {
+            //Toast.makeText(getActivity(), R.string.msg_interuuption, Toast.LENGTH_LONG).show();
+            return;
+        }
         jamModel.setSharesModel(getData(0));
         adapter = new NewJamAdapter(getActivity(), getActivity(),jamModel);
         adapter.hasStableIds();
         adapter.setClickListener(NewJamFragment.this);
         rv.setAdapter(adapter);
+    }
+Bundle bundle;
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        this.bundle = outState;
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
     }
 }

@@ -41,6 +41,13 @@ public class JamModel implements Parcelable {
         setObs("false");
     }
 
+    public boolean isJamDone(){
+        for(SharesModel sharesModel:getSharesModel()){
+            if(!sharesModel.isShareDelivered)
+                return false;
+        }
+        return true;
+    }
 
     public String getjOwnerName() {
         return jOwnerName;

@@ -13,24 +13,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.ProgressBar;
-
 import com.parse.ParseUser;
 
 import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.adapters.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    ProgressBar progressBar;
     public static final String TAG = MainActivity.class.getSimpleName();
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0 & getIntent().getExtras() == null) {
+            finish();
+            return;
+        }
         setContentView(R.layout.activity_main);
 
         final ParseUser currentUser = ParseUser.getCurrentUser();

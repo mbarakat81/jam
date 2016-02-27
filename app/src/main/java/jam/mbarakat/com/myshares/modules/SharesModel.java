@@ -24,7 +24,26 @@ public class SharesModel implements Parcelable {
     String jamId;
     List<ShareRow> shareRows = Collections.emptyList();
     List<ShareItem> shareItems = Collections.emptyList();
+    String shareId;
 
+    public String getShareId() {
+        return shareId;
+    }
+
+    public void setShareId(String shareId) {
+        this.shareId = shareId;
+    }
+
+
+    public List<SharePayersModel> getSharePayersModels() {
+        return sharePayersModels;
+    }
+
+    public void setSharePayersModels(List<SharePayersModel> sharePayersModels) {
+        this.sharePayersModels = sharePayersModels;
+    }
+
+    List<SharePayersModel> sharePayersModels;
     public int getAddedAmount() {
         int addedAmount = 0;
         for(int i=0;i<getShareItems().size();i++){
@@ -58,7 +77,7 @@ public class SharesModel implements Parcelable {
     }
 
     public boolean isShareDelivered() {
-        return !isShareDelivered;
+        return isShareDelivered;
     }
 
     public void setShareDelivered(boolean shareDelivered) {
@@ -108,15 +127,21 @@ public class SharesModel implements Parcelable {
         shareItems = new ArrayList<>();
         in.readTypedList(this.shareItems, ShareItem.CREATOR);
         jAmount = in.readInt();
+        isShareDelivered = in.readByte() != 0;
+        this.sharePayersModels = new ArrayList<>();
+        in.readTypedList(this.sharePayersModels, SharePayersModel.CREATOR);
+        shareId = in.readString();
     }
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
         dest.writeString(startDay);
         dest.writeInt(shareOrder);
         dest.writeString(jamId);
         dest.writeTypedList(shareItems);
         dest.writeInt(jAmount);
+        dest.writeByte((byte) (isShareDelivered ? 1 : 0));
+        dest.writeTypedList(this.sharePayersModels);
+        dest.writeString(shareId);
     }
 
     public static final Creator<SharesModel> CREATOR = new Creator<SharesModel>() {

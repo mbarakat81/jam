@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -38,32 +38,42 @@ import jam.mbarakat.com.myshares.modules.JamModel;
 import jam.mbarakat.com.myshares.helpers.ParseConstants;
 import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.activities.ViewJamDetailsActivity;
-import jam.mbarakat.com.myshares.adapters.CurrentJamAdapter;
-import jam.mbarakat.com.myshares.adapters.RVCardViewAdapter;
+import jam.mbarakat.com.myshares.adapters.MyJamsViewAdapter;
 
 /**
  * Created by MBARAKAT on 1/30/2016.
  */
-public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapter.ClickListener{
+public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapter.ClickListener{
     private SmoothProgressBar smoothProgressBar;
     TextView empty;
     protected ParseUser mCurrentUser;
     protected List<ParseObject> mJams;
-    CurrentJamAdapter adapter = null;
     List<JamModel> currentJams = Collections.emptyList();
-    RecyclerView rv ;
-    private RVCardViewAdapter RVCardsdapter;
+
+    RecyclerView recyclerView;
+    private LinearLayoutManager mLinearLayoutManager;
+    private MyJamsViewAdapter myJamsViewAdapter;
+
     boolean deleted = false;
     ProgressDialog progress;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        myJamsViewAdapter = new MyJamsViewAdapter(getContext(), currentJams);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_current_jams, container, false);
-        rv = (RecyclerView)rootView.findViewById(R.id.rvCardView);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rv.setLayoutManager(llm);
+
+        recyclerView = (RecyclerView)rootView.findViewById(R.id.rvCardView);
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mLinearLayoutManager);
+        recyclerView.setAdapter(myJamsViewAdapter);
+
         smoothProgressBar = (SmoothProgressBar) rootView.findViewById(R.id.progressBar);
         smoothProgressBar.setIndeterminateDrawable(new SmoothProgressDrawable.Builder(getContext())
                 .interpolator(new AccelerateInterpolator()).build());
@@ -80,64 +90,6 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
         boolean activeJams = true;
        // displayMyActiveCurrentJams();
         displayMyActiveCurrentJamsAsCardView();
-    }
-
-    private void displayMyActiveCurrentJams(){
-        mCurrentUser = ParseUser.getCurrentUser();
-        ParseQuery<ParseObject> q = ParseQuery.getQuery("Share_owners");
-        q.whereEqualTo("owner_phone", mCurrentUser.getString("phone"))
-        .whereEqualTo("obs", false);
-        q.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> list, ParseException e) {
-                if (e == null) {
-                    List<String> jamIds = new ArrayList<>();
-                    for (ParseObject jam : list) {
-                        jamIds.add(jam.getString("jamId"));
-                    }
-                    ParseQuery<ParseObject> queryByJamId = ParseQuery.getQuery(ParseConstants.CLASS_JAM);
-                    queryByJamId.whereContainedIn(ParseConstants.KEY_JAM_ID, jamIds)
-                            .whereEqualTo(ParseConstants.KEY_JSTATUS, true);
-                    ParseQuery<ParseObject> queryByOwnerId = ParseQuery.getQuery(ParseConstants.CLASS_JAM);
-                    queryByOwnerId.whereEqualTo("jCreator", mCurrentUser.getObjectId())
-                            .whereEqualTo(ParseConstants.KEY_JSTATUS, true);
-                    List<ParseQuery<ParseObject>> queries = new ArrayList<ParseQuery<ParseObject>>();
-                    queries.add(queryByJamId);
-                    queries.add(queryByOwnerId);
-
-                    ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
-                    mainQuery.findInBackground(new FindCallback<ParseObject>() {
-                        public void done(List<ParseObject> results, ParseException e) {
-                            if (e == null) {
-                                mJams = results;
-                                currentJams = new ArrayList<JamModel>();
-                                for (ParseObject parseObject : results) {
-                                    JamModel jamModel = new JamModel();
-                                    jamModel.setjId(parseObject.getObjectId());
-                                    jamModel.setjIsPublic(parseObject.getBoolean("jIsPublic") ? "true" : "false");
-                                    jamModel.setjOwnerId(parseObject.getString("jCreator"));
-                                    jamModel.setjAmount(String.valueOf(parseObject.getNumber("jAmount")));
-
-                                    jamModel.setjDate(HelperClass.getStringFormatDate(parseObject.getDate("jStart_date"), getContext()));
-                                    jamModel.setSharesNo(String.valueOf(parseObject.getNumber("jSharesNo")));
-                                    jamModel.setjPeriod(parseObject.getString("jPeriod"));
-                                    jamModel.setjName(parseObject.getString("jName"));
-                                    jamModel.setjStatus("true");
-                                    currentJams.add(jamModel);
-                                }
-
-                                adapter = new CurrentJamAdapter(getListView().getContext(), currentJams);
-                                setListAdapter(adapter);
-
-                            } else {
-
-                            }
-                        }
-                    });
-                }
-            }
-        });
-
     }
 
     @Override
@@ -192,9 +144,9 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
                                         jamModel.setjStatus("true");
                                         currentJams.add(jamModel);
                                     }
-                                    RVCardsdapter = new RVCardViewAdapter(getContext(), currentJams);
-                                    RVCardsdapter.setClickListener(CurrentJamsFragment.this);
-                                    rv.setAdapter(RVCardsdapter);
+                                    myJamsViewAdapter = new MyJamsViewAdapter(getContext(), currentJams);
+                                    myJamsViewAdapter.setClickListener(CurrentJamsFragment.this);
+                                    recyclerView.setAdapter(myJamsViewAdapter);
                                 } else {
                                     empty = (TextView) getActivity().findViewById(R.id.noJams);
                                     empty.setVisibility(View.VISIBLE);
@@ -239,15 +191,17 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
     }
 
     private void onViewJamClick(View view, int pos){
-        startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
+        //startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
         Bundle bundle = new Bundle();
         JamModel currentJam = currentJams.get(pos);
-        Intent intent = new Intent(getActivity(), ViewJamDetailsActivity.class);
+        Intent intent = new Intent(getActivity(),ViewJamDetailsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        intent.putExtra(Settings.EXTRA_AUTHORITIES, new String[]{"jam.mbarakat.com.myshares"});
         bundle.putParcelable("currentJamModel", currentJam);
         intent.putExtras(bundle);
         intent.putExtra("jId", currentJam.getjId());
+        //endProgressDialod();
         startActivity(intent);
-        endProgressDialod();
     }
     private void shareIt(String jamId, String jamCreator, String jamShareValue) {
         startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
@@ -306,7 +260,7 @@ public class CurrentJamsFragment extends ListFragment implements RVCardViewAdapt
                         Toast.makeText(getActivity(), "done", Toast.LENGTH_LONG).show();
                         deleted = true;
                         currentJams.remove(id);
-                        RVCardsdapter.notifyItemRemoved(id);
+                        myJamsViewAdapter.notifyItemRemoved(id);
 
                     } catch (ParseException e1) {
                         e1.printStackTrace();
