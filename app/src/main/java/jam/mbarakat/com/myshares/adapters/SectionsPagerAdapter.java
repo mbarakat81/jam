@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.Locale;
 
 import jam.mbarakat.com.myshares.fragments.CurrentJamsFragment;
-import jam.mbarakat.com.myshares.fragments.FriendsFragment;
+import jam.mbarakat.com.myshares.fragments.InboxFragment;
 import jam.mbarakat.com.myshares.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -28,14 +28,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new CurrentJamsFragment();
             case 1:
-                return new FriendsFragment();
+                return new InboxFragment();
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return 2;
     }
 
     @Override

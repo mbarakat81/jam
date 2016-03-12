@@ -1,10 +1,18 @@
 package jam.mbarakat.com.myshares.modules;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import jam.mbarakat.com.myshares.helpers.HelperClass;
 
 /**
  * Created by MBARAKAT on 1/31/2016.
@@ -23,10 +31,24 @@ public class JamModel implements Parcelable {
     String jPeriod;
     List<SharesModel> sharesModel = new ArrayList<>();
     String sharesNo;
-    ArrayList<Participants> jParticipants = null;
+    ArrayList<JamParticipants> jParticipants = null;
+    private boolean jamStarted;
 
     public JamModel() {
 
+    }
+
+    public JamModel(ParseObject parseObject, Context context) {
+        setjId(parseObject.getObjectId());
+        setjIsPublic(parseObject.getBoolean("jIsPublic") ? "true" : "false");
+        setjOwnerId(parseObject.getString("jCreator"));
+        setjAmount(String.valueOf(parseObject.getNumber("jAmount")));
+        setjOwnerName(parseObject.getString("jCreatorName"));
+        setjDate(HelperClass.getStringFormatDate(parseObject.getDate("jStart_date"), context));
+        setSharesNo(String.valueOf(parseObject.getNumber("jSharesNo")));
+        setjPeriod(parseObject.getString("jPeriod"));
+        setjName(parseObject.getString("jName"));
+        setjStatus("true");
     }
 
     public JamModel(String name, String ownerId, String amount, String period, String date, String sharesNo, String isPublic) {
@@ -145,11 +167,11 @@ public class JamModel implements Parcelable {
         this.jPeriod = jPeriod;
     }
 
-    public ArrayList<Participants> getjParticipants() {
+    public ArrayList<JamParticipants> getjParticipants() {
         return jParticipants;
     }
 
-    public void setjParticipants(ArrayList<Participants> jParticipants) {
+    public void setjParticipants(ArrayList<JamParticipants> jParticipants) {
         this.jParticipants = jParticipants;
     }
 
@@ -168,7 +190,7 @@ public class JamModel implements Parcelable {
         in.readTypedList(this.sharesModel, SharesModel.CREATOR);
         this.jOwnerName = in.readString();
        // this.sharesModel = in.r
-        //ArrayList<Participants> jParticipants = null;
+
 
     }
 
@@ -259,5 +281,25 @@ public class JamModel implements Parcelable {
             }
         }
         return shareDate;
+    }
+
+    public boolean isJamStarted() {
+        jamStarted = false;
+        Date date = new Date(getSharesModel().get(0).getStartDay());
+        jamStarted = date.before(new Date());
+        return jamStarted;
+    }
+
+    public List getJamUsers() throws ParseException {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Share_owners");
+        List<String> users = new ArrayList();
+        query.whereEqualTo("jamId", getjId())
+                .whereEqualTo("obs",false)
+                .whereNotEqualTo("share_owner_id","");
+        List<ParseObject> parseObjectList = query.find();
+        for(ParseObject object : parseObjectList){
+            users.add(object.getString("share_owner_id"));
+        }
+        return users;
     }
 }

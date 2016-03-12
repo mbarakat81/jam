@@ -13,7 +13,9 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+import jam.mbarakat.com.myshares.MySharesApplication;
 import jam.mbarakat.com.myshares.R;
+import jam.mbarakat.com.myshares.helpers.SessionUser;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -68,6 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                             if (e == null) {
                                 // Success!
+                                MySharesApplication.updateParseInstallation(ParseUser.getCurrentUser());
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

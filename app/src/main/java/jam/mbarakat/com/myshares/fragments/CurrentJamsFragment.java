@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -71,6 +70,7 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
         recyclerView = (RecyclerView)rootView.findViewById(R.id.rvCardView);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setAdapter(myJamsViewAdapter);
 
@@ -87,8 +87,6 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
     @Override
     public void onResume() {
         super.onResume();
-        boolean activeJams = true;
-       // displayMyActiveCurrentJams();
         displayMyActiveCurrentJamsAsCardView();
     }
 
@@ -102,7 +100,7 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
         smoothProgressBar.progressiveStart();
         mCurrentUser = ParseUser.getCurrentUser();
         ParseQuery<ParseObject> q = ParseQuery.getQuery("Share_owners");
-        q.whereEqualTo("owner_phone", mCurrentUser.getString("phone"))
+        q.whereEqualTo("share_owner_id", mCurrentUser.getObjectId())
                 .whereEqualTo("obs", false);
         q.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -181,28 +179,21 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
 
         }
     }
-
     private void onDeleteJamClick(View view, int pos){
         showDialog(pos);
     }
-
     private void onShareJamClick(View view, int pos){
         shareIt(currentJams.get(pos).getjId(), currentJams.get(pos).getNextJamOwner(), currentJams.get(pos).getjAmount());
     }
-
     private void onViewJamClick(View view, int pos){
-        //startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
         Bundle bundle = new Bundle();
         JamModel currentJam = currentJams.get(pos);
-        Intent intent = new Intent(getActivity(),ViewJamDetailsActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        intent.putExtra(Settings.EXTRA_AUTHORITIES, new String[]{"jam.mbarakat.com.myshares"});
+        Intent intent = new Intent(getContext(),ViewJamDetailsActivity.class);
         bundle.putParcelable("currentJamModel", currentJam);
         intent.putExtras(bundle);
-        intent.putExtra("jId", currentJam.getjId());
-        //endProgressDialod();
         startActivity(intent);
     }
+
     private void shareIt(String jamId, String jamCreator, String jamShareValue) {
         startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

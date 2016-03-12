@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="jam.mbarakat.com.myshares.fragments.ViewJamDetailsFragment"
-        android:layout_centerVertical="true"
         tools:layout="@layout/fragment_view_jam_details"
         />
 </RelativeLayout>

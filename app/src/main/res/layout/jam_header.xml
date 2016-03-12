@@ -6,7 +6,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width = "match_parent"
-        android:layout_height = "150dp"
+        android:layout_height = "170dp"
         card_view:cardElevation="4dp">
         <RelativeLayout
             android:id="@+id/newJamHeader"
@@ -45,6 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
+                    android:textStyle="italic"
                     android:layout_toLeftOf="@+id/lblNewJamName1"
                     android:clickable="true"/>
                 <ImageView
@@ -64,6 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imgJamName"
                     android:hint="@string/new_jam_shares_no"
+                    android:layout_marginTop="5dp"
                     android:layout_toLeftOf="@+id/imgJamSharesNo"
                     android:paddingLeft="10dp"
                     android:inputType="numberDecimal"
@@ -92,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="number"
+                    android:layout_marginTop="5dp"
                     android:layout_toLeftOf="@+id/imgJamValue"
                     android:layout_below="@+id/imgJamSharesNo"
                     android:paddingLeft="10dp"
@@ -119,15 +122,45 @@
                     android:inputType="date"
                     android:layout_below="@+id/imgJamValue"
                     android:layout_toLeftOf="@+id/imgJamDate"
+                    android:layout_marginTop="5dp"
                     android:paddingLeft="10dp"
                     android:hint="@string/new_jam_start_day"/>
                 <TextView
                     android:id="@+id/txtNewJamDate1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:inputType="date"
                     android:layout_below="@+id/imgJamValue"
                     android:layout_toLeftOf="@+id/lblNewJamDate1"/>
+            <TextView
+                android:id="@+id/lblNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_below="@+id/imgJamDate"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/ntf_all_jam_users_to_pay"/>
+            <ImageView
+                android:id="@+id/imgNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_notifications_active_white_24dp"
+                android:clickable="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:layout_toLeftOf="@+id/lblNotify"
+                android:layout_below="@+id/imgJamDate"/>
+            <TextView
+                android:id="@+id/txtNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_below="@+id/imgJamDate"
+                android:layout_toLeftOf="@+id/lblNotify"/>
                 <CheckBox
                     android:id="@+id/cbNewJamIsPublic"
                     android:layout_width="wrap_content"

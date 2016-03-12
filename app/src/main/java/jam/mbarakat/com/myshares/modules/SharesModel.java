@@ -1,5 +1,6 @@
 package jam.mbarakat.com.myshares.modules;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -18,32 +19,34 @@ import jam.mbarakat.com.myshares.helpers.HelperClass;
  * Created by MBARAKAT on 2/2/2016.
  */
 public class SharesModel implements Parcelable {
-    String startDay;
+    String startDay, shareOwnerId, shareId, jamId;
     int shareOrder, jAmount;
     boolean isShareDelivered;
-    String jamId;
+    List<SharePayersModel> sharePayersModels;
     List<ShareRow> shareRows = Collections.emptyList();
     List<ShareItem> shareItems = Collections.emptyList();
-    String shareId;
+
+    public String getShareOwnerId() {
+        return shareOwnerId;
+    }
+
+    public void setShareOwnerId(String shareOwnerId) {
+        this.shareOwnerId = shareOwnerId;
+    }
+
 
     public String getShareId() {
         return shareId;
     }
-
     public void setShareId(String shareId) {
         this.shareId = shareId;
     }
-
-
     public List<SharePayersModel> getSharePayersModels() {
         return sharePayersModels;
     }
-
     public void setSharePayersModels(List<SharePayersModel> sharePayersModels) {
         this.sharePayersModels = sharePayersModels;
     }
-
-    List<SharePayersModel> sharePayersModels;
     public int getAddedAmount() {
         int addedAmount = 0;
         for(int i=0;i<getShareItems().size();i++){
@@ -92,11 +95,13 @@ public class SharesModel implements Parcelable {
         this.jamId = jamId;
     }
 
-    public SharesModel(ParseObject parseObject, String date){
-        startDay = setDate(date);
+    public SharesModel(ParseObject parseObject, Context context){
+        startDay =  HelperClass.getStringFormatDate(parseObject.getDate("share_due_date"), context);
         shareOrder = parseObject.getInt("share_order");
         isShareDelivered = parseObject.getBoolean("share_status");
         jamId = parseObject.getString("shares_jamNo");
+        shareOwnerId = parseObject.getString("share_owner_id");
+        shareId = parseObject.getObjectId();
     }
 
     public SharesModel(){
@@ -131,6 +136,7 @@ public class SharesModel implements Parcelable {
         this.sharePayersModels = new ArrayList<>();
         in.readTypedList(this.sharePayersModels, SharePayersModel.CREATOR);
         shareId = in.readString();
+        shareOwnerId = in.readString();
     }
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -142,6 +148,7 @@ public class SharesModel implements Parcelable {
         dest.writeByte((byte) (isShareDelivered ? 1 : 0));
         dest.writeTypedList(this.sharePayersModels);
         dest.writeString(shareId);
+        dest.writeString(shareOwnerId);
     }
 
     public static final Creator<SharesModel> CREATOR = new Creator<SharesModel>() {
@@ -176,8 +183,6 @@ public class SharesModel implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-
 
     public class ShareRow {
         String shareOwner;
@@ -216,4 +221,12 @@ public class SharesModel implements Parcelable {
        // if(getStartDay())
         return false;
     }
+
+public boolean isSharePaid(){
+    for(SharePayersModel sharePayersModel: getSharePayersModels()){
+        if(!sharePayersModel.isPaid())
+            return false;
+    }
+    return true;
+}
 }

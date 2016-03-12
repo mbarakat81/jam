@@ -10,6 +10,7 @@ public final class ParseConstants {
     public static final String KEY_PARSE_DATE_FORMAT = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'";
 
     public static final String CLASS_JAM = "Jam_header";
+    public static final String CLASS_MSG = "message";
     //-------------------------------------------//
     public static final String KEY_JAM_ID = "objectId";
     public static final String KEY_JNAME = "jName";
@@ -19,9 +20,16 @@ public final class ParseConstants {
     public static final String KEY_JSTART_DAY = "jStart_day";
     public static final String KEY_JSTATUS = "jam_status";
     public static final String KEY_IS_PUBLIC = "jIsPublic";
+    public static final String KEY_CREATED_AT = "createdAt";
 
     public static final String CLASS_PERIOD = "peroid";
     public static final String KEY_PERIOD_ID = "objectId";
     public static final String KEY_DAYS_NO = "days_no";
     public static final String KEY_OBS = "obs";
+    public static final String KEY_USER_ID = "userId";
+    public static final String KEY_USERS_IDS = "users_ids";
+    public static final String KEY_SENDER_ID = "sender_id";
+    public static final String KEY_SENDER_NAME = "sender_name";
+    public static final String KEY_MSG_BODY = "msg_body";
+
 }

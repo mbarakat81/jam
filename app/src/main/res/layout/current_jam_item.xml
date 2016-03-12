@@ -75,7 +75,7 @@
                 android:id="@+id/lblNextJamDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_next_jam_date"
+                android:text="@string/new_jam_start_day"
                 android:layout_marginTop="@dimen/margin_to_jam_header_row"
                 android:layout_toLeftOf="@+id/imgDate"
                 android:layout_below="@+id/txtCurrentJamName"

@@ -5,14 +5,12 @@ import android.database.Cursor;
 import android.os.Build;
 import android.provider.ContactsContract;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,6 +21,8 @@ public class HelperClass {
 
     public static String getFormatedDateFromString(String deliverDate) {
         String[] dataSplitArray = deliverDate.split(" ");
+        if(dataSplitArray.length == 1)
+            return deliverDate;
         if(dataSplitArray[1].endsWith(",")){
             dataSplitArray[1] = dataSplitArray[1].substring(0,dataSplitArray[1].length()-1);
         }
@@ -44,14 +44,6 @@ public class HelperClass {
         Date dateObj = curFormater.parse(date);
         return dateObj;
     }
-
-    public static String getDateFromParse(String Date){
-       // SimpleDateFormat df = new SimpleDateFormat(DateFormat.getInstance().);
-
-        return "";
-    }
-    public void DateFormat(Date date){}
-
     public static Date getCurrentDatePlusMonth(int month)
     {
         Calendar calendar = Calendar.getInstance();
@@ -143,6 +135,7 @@ public class HelperClass {
 
     public static String getStringFormatDate(Date date, Context context){
         java.text.DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context);
+        ((SimpleDateFormat) dateFormat).applyPattern("dd/MM/yyyy");
         return dateFormat.format(date);
     }
 

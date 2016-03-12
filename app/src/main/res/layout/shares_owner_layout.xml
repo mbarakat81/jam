@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="25dp"
     android:background="@drawable/myrect2"
     android:layout_margin="5dp">
 
@@ -9,8 +9,8 @@
         android:id="@+id/txtShareOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:layout_marginRight="5dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true" />
@@ -19,26 +19,45 @@
         android:id="@+id/txtShareAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:inputType="numberDecimal"
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"/>
-<EditText
-    android:id="@+id/addPhone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="9dp"
-    android:inputType="numberDecimal"
-    android:layout_toRightOf="@+id/deleteShareItem"
-    android:hint="أضف هاتف"/>
 
     <ImageView
+        android:id="@+id/sharingInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/shareViaSocialMedia"
+        android:src="@drawable/ic_info_outline_black_24dp"/>
+
+        <ImageView
+            android:id="@+id/shareViaSocialMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/notifyUserToReceive"
+            android:src="@drawable/ic_share_white_24dp"/>
+    <ImageView
+        android:id="@+id/notifyUserToReceive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_toRightOf="@+id/deleteShareItem"
+        android:src="@drawable/ic_notifications_active_white_24dp"/>
+    <ImageView
         android:id="@+id/deleteShareItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:src="@drawable/ic_delete_white_24dp"
         android:layout_alignParentLeft="true"/>
     <EditText

@@ -16,9 +16,10 @@
     <string name="login_error_message">خطاء</string>
     <string name="login_error_title">خطأ حدث اثناء  المستخدم</string>
     <string name="title_section1">جمعياتي</string>
-    <string name="title_section2">قاءىمة المشاركين</string>
+    <string name="title_section2">الرسائل</string>
     <string name="empty_jams_msg">لا يوجد جمعيات حاليا</string>
-    <string name="empty_friends_msg">لا يوجد مشاركين متاخين حاليا</string>
+    <string name="empty_friends_msg">لا يوجد مشاركين متاحين حاليا</string>
+    <string name="empty_inbox_msg">لا يوجد  تنبيهات حاليا</string>
     <string name="menu_edit_friends_lbl">تعديل المشاركين</string>
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="error_title">error friends tab</string>
@@ -46,6 +47,8 @@
     <string name="delete_jam_msg">تأكيد حذف الجمعية؟</string>
     <string name="delete_jam_cancel_btn">إلغاء</string>
     <string name="share_jam_body_msg">هل ترغب بالمشاركة في جمعية بمبلغ _AMOUNT للسهم الواحد؟ للتفاصيل إكبس على الرابط أدناه</string>
+    <string name="share_invite_body_msg">تم دعوتك للمشاركه في جمعية , لمتابعة سهمك قم بالدخول على الرابط ادناه</string>
+    <string name="share_invite_link">http://bazsmm.com/myjam.html?jamId=_JAMID&amp;shareOwner=_SHAREID</string>
     <string name="progress_title">الرجاء الإنتظار</string>
     <string name="progress_msg_delete">حذف الجمعية</string>
     <string name="progress_msg_show_jam">جاري عرض الجمعية</string>
@@ -57,8 +60,21 @@
     <string name="msg_interuuption">لقد تمت مقاطعتك أثاء التعديل, قم بالعوده للصفحة الرئيسية للمتابعة.</string>
     <string name="lbl_payers_list">قائمة المشاركين</string>
     <string name="lbl_back_to_share">عودة الى السهم</string>
-
+    <string name="lbl_ask_if_paid">هل تم تحصيل الدفعة؟</string>
+    <string name="lbl_cancel_payment">تراجع عن تحصيل الدفعة؟</string>
+    <string name="new_jam_title">New Jam</string>
+    <string name="sd">fdsf</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7049990115818203/5559041976</string>
     <string-array name="period_array">
         <item>شهري</item>
     </string-array>
+    <string name="title_activity_open">OpenActivity</string>
+    <string name="msg_sharing_info_msg">قم بإرسال السهم لمالكه لكي يستطيع متابعة مواعيد الجمعية، وذلك عن طريق أيقونة المشاركة و من خلال إحدى طرق الإتصال مثل واتسب.</string>
+    <string name="share_info_with_friends_msg">بإمكان مالك السهم إعادة مشاركتة مع أصدقائه بنفس الطريقة.</string>
+    <string name="txt_new_notification">لديك تنبيه جديد من %s</string>
+    <string name="ntf_all_jam_users_to_pay">نبه الأعضاء بموعد الدفع</string>
+    <string name="ntf_msg_body">يرجى دفع قيمة السهم التابع لجمعية %s</string>
+    <string name="ntf_receive_msg_body">تنبيه لإستلام سهم جمعية %s</string>
+    <string name="alert_done">تم!</string>
+    <string name="ntf_from">المرسل : %s</string>
 </resources>
