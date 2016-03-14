@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/txtSenderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ntf_from"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:id="@+id/txtNotificationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="notifcation date"/>
+            <TextView
+                android:id="@+id/notificationBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSenderName"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:text="Message Body"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

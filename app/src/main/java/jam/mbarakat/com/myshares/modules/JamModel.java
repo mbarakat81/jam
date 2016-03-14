@@ -31,7 +31,6 @@ public class JamModel implements Parcelable {
     String jPeriod;
     List<SharesModel> sharesModel = new ArrayList<>();
     String sharesNo;
-    ArrayList<JamParticipants> jParticipants = null;
     private boolean jamStarted;
 
     public JamModel() {
@@ -165,14 +164,6 @@ public class JamModel implements Parcelable {
 
     public void setjPeriod(String jPeriod) {
         this.jPeriod = jPeriod;
-    }
-
-    public ArrayList<JamParticipants> getjParticipants() {
-        return jParticipants;
-    }
-
-    public void setjParticipants(ArrayList<JamParticipants> jParticipants) {
-        this.jParticipants = jParticipants;
     }
 
     protected JamModel(Parcel in) {

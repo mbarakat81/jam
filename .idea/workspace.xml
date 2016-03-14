@@ -49,63 +49,92 @@
       <file leaf-file-name="JamDetailsViewAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.103449">
-              <caret line="288" column="78" selection-start-line="288" selection-start-column="71" selection-end-line="288" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5010#5053#0" expanded="true" />
-                <element signature="e#8110#8358#0" expanded="true" />
-                <element signature="e#8357#8358#0" expanded="true" />
-                <element signature="e#9080#9141#0" expanded="true" />
-                <element signature="e#9267#10501#0" expanded="true" />
-                <element signature="e#9867#9952#0" expanded="true" />
-                <element signature="e#10010#10313#0" expanded="true" />
-                <element signature="e#10202#10221#0" expanded="true" />
-                <element signature="e#10312#10313#0" expanded="true" />
-                <element signature="e#10500#10501#0" expanded="true" />
-                <element signature="e#13071#15151#0" expanded="true" />
-                <element signature="e#14859#14904#0" expanded="true" />
-                <element signature="e#14954#14999#0" expanded="true" />
-                <element signature="e#15074#15117#0" expanded="true" />
-                <element signature="e#15150#15151#0" expanded="true" />
-                <element signature="e#16844#17857#0" expanded="true" />
-                <element signature="e#17856#17857#0" expanded="true" />
-                <element signature="e#18217#18244#0" expanded="true" />
-                <element signature="e#18856#18887#0" expanded="true" />
-                <element signature="e#22900#23480#0" expanded="true" />
-                <element signature="e#23479#23480#0" expanded="true" />
-                <element signature="e#23862#23923#0" expanded="true" />
-                <element signature="e#24130#25141#0" expanded="true" />
-                <element signature="e#24663#24748#0" expanded="true" />
-                <element signature="e#24802#25085#0" expanded="true" />
-                <element signature="e#24982#25001#0" expanded="true" />
-                <element signature="e#25084#25085#0" expanded="true" />
-                <element signature="e#25140#25141#0" expanded="true" />
+                <element signature="e#2065#2066#0" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+                <element signature="e#5315#5358#0" expanded="true" />
+                <element signature="class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+                <element signature="e#9990#10051#0" expanded="true" />
+                <element signature="e#10777#10862#0" expanded="true" />
+                <element signature="e#11112#11131#0" expanded="true" />
+                <element signature="e#13815#16172#0" expanded="true" />
+                <element signature="e#14304#15636#0" expanded="true" />
+                <element signature="e#15635#15636#0" expanded="true" />
+                <element signature="e#15780#15825#0" expanded="true" />
+                <element signature="e#15875#15920#0" expanded="true" />
+                <element signature="e#15997#16040#0" expanded="true" />
+                <element signature="e#16171#16172#0" expanded="true" />
+                <element signature="e#16618#16882#0" expanded="true" />
+                <element signature="e#16881#16882#0" expanded="true" />
+                <element signature="e#17014#17455#0" expanded="true" />
+                <element signature="e#17454#17455#0" expanded="true" />
+                <element signature="e#17684#18697#0" expanded="true" />
+                <element signature="e#18115#18663#0" expanded="true" />
+                <element signature="e#18662#18663#0" expanded="true" />
+                <element signature="e#18696#18697#0" expanded="true" />
+                <element signature="e#19100#19127#0" expanded="true" />
+                <element signature="e#19937#19968#0" expanded="true" />
+                <element signature="e#23963#24543#0" expanded="true" />
+                <element signature="e#24542#24543#0" expanded="true" />
+                <element signature="e#24925#24986#0" expanded="true" />
+                <element signature="e#25727#25812#0" expanded="true" />
+                <element signature="e#26046#26065#0" expanded="true" />
                 <element signature="class#ClickListener#0;class#JamDetailsViewAdapter#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SharePayersAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SharePayersAdapter.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-              <folding />
+              <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+              <folding>
+                <element signature="e#1570#1704#0" expanded="false" />
+                <element signature="e#1713#1843#0" expanded="false" />
+                <element signature="e#1862#3114#0" expanded="false" />
+                <element signature="e#3123#3359#0" expanded="false" />
+                <element signature="e#3368#3674#0" expanded="false" />
+                <element signature="e#3683#4015#0" expanded="false" />
+                <element signature="e#4024#4208#0" expanded="false" />
+                <element signature="e#4217#4354#0" expanded="false" />
+                <element signature="e#4420#4808#0" expanded="false" />
+                <element signature="e#4817#5392#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="share_cashing_user.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/share_cashing_user.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="CurrentJamsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/CurrentJamsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.62069">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+              <folding>
+                <element signature="method#onListItemClick#0;class#CurrentJamsFragment#0" expanded="false" />
+                <element signature="method#OnItemClick#0;class#CurrentJamsFragment#0" expanded="false" />
+                <element signature="e#9671#9684#0" expanded="true" />
+                <element signature="method#shareIt#0;class#CurrentJamsFragment#0" expanded="false" />
+                <element signature="method#showDialog#0;class#CurrentJamsFragment#0" expanded="false" />
+                <element signature="method#deleteJam#0;class#CurrentJamsFragment#0" expanded="false" />
+                <element signature="method#startProgressDialog#0;class#CurrentJamsFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShareOwnersAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.4938725">
+              <caret line="52" column="24" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#shareJamWithUser#0;class#ShareOwnersAdapter#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,62 +145,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.62069">
-              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-              <folding>
-                <element signature="e#1037#1744#0" expanded="false" />
-                <element signature="e#6146#6171#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewJamDetailsFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/ViewJamDetailsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5625">
-              <caret line="89" column="56" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="56" />
-              <folding>
-                <element signature="e#2437#3992#0" expanded="true" />
-                <element signature="e#3991#3992#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jam_header.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/jam_header.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.0">
-              <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
-              <folding>
-                <element signature="e#6254#6281#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_view_jam_details.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_jam_details.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.896552">
+              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -185,6 +160,8 @@
         <option value="layoutResourceFile_vertical" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -2165,56 +2142,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/NewJamAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/NewJamFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_jam_details.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_shares.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_jam_details.xml" />
-        <option value="$PROJECT_DIR$/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/OpenActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/Router.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/ViewJamDetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/RouterActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/CurrentJamsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/SessionUser.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/ViewJamDetailsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/HelperClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/ShareItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_toast.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharesModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/MyJamsViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/google-services.json" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/SignUpActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/MySharesApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharePayersModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/inbox_friends.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/InboxRecyclerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_current_jams.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SectionsPagerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/InboxModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/InboxRecyclerViewAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/inbox_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/ParseConstants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/InboxFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SharePayersAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/current_jam_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/shares_owner_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_view_jam_details.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/share_cashing_user.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/jam_header.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/inbox_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/shape.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/SignUpActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_sign_up.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/InboxFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/color_cursor.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/shares_owner_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/new_jam_header.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharePayersModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharesModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SharePayersAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/CurrentJamsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_current_jams.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/MyJamsViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/HelperClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/current_jam_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/InboxRecyclerViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/shares_row.xml" />
       </list>
     </option>
@@ -2416,36 +2393,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myShares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myShares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2477,40 +2424,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="myshares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myShares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myShares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myshares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2689,6 +2602,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MBARAKAT\Documents\myShares\app\src\main\res\drawable" />
       <recent name="C:\Users\MBARAKAT\Documents\myShares\app" />
       <recent name="C:\Users\MBARAKAT\Documents\myShares\app\src\main\assets\fonts" />
     </key>
@@ -2889,7 +2803,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2899,21 +2813,21 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819906" sideWeight="0.49676377" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33412322" sideWeight="0.47977346" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3471564" sideWeight="0.48462784" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.51943463" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3471564" sideWeight="0.51537216" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33412322" sideWeight="0.52022654" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2184466" sideWeight="0.53901994" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2184466" sideWeight="0.5391459" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.4514563" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2184466" sideWeight="0.46098003" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2184466" sideWeight="0.46085408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938388" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2969,257 +2883,79 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>374</line>
+          <line>395</line>
           <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>380</line>
+          <line>401</line>
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamParticipants.java</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java</url>
-          <line>119</line>
-          <properties />
-          <option name="timeStamp" value="204" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java</url>
-          <line>89</line>
-          <properties />
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java</url>
           <line>113</line>
           <properties />
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="237" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java</url>
+          <line>107</line>
+          <properties />
           <option name="timeStamp" value="256" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>243</line>
-          <properties />
-          <option name="timeStamp" value="268" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>240</line>
-          <properties />
-          <option name="timeStamp" value="270" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>229</line>
-          <properties />
-          <option name="timeStamp" value="271" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SharePayersAdapter.java</url>
-          <line>143</line>
+          <line>152</line>
           <properties />
           <option name="timeStamp" value="276" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>498</line>
+          <line>523</line>
           <properties />
           <option name="timeStamp" value="277" />
         </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SharePayersAdapter.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
+          <line>427</line>
+          <properties />
+          <option name="timeStamp" value="305" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="289" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="311" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
-        <watch expression="context.getString(R.string.txt_new_notification, SessionUser.getUser().getUserName())" />
+        <watch expression="getSharePaidAmount()" />
+        <watch expression="(sharesCount * getjAmount())" />
+        <watch expression="new Date()" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_open.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.14126395">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#622#623#0" expanded="false" />
-            <element signature="e#652#653#0" expanded="false" />
-            <element signature="e#2232#2233#0" expanded="false" />
-            <element signature="e#2280#2281#0" expanded="false" />
-            <element signature="e#2674#2675#0" expanded="false" />
-            <element signature="e#2717#2718#0" expanded="false" />
-            <element signature="e#2776#2777#0" expanded="false" />
-            <element signature="e#2818#2819#0" expanded="false" />
-            <element signature="e#2865#2866#0" expanded="false" />
-            <element signature="e#2910#2911#0" expanded="false" />
-            <element signature="e#2970#2971#0" expanded="false" />
-            <element signature="e#3019#3020#0" expanded="false" />
-            <element signature="e#3210#3211#0" expanded="false" />
-            <element signature="e#3260#3261#0" expanded="false" />
-            <element signature="e#3473#3496#0" expanded="false" />
-            <element signature="e#3607#3629#0" expanded="false" />
-            <element signature="e#3913#3914#0" expanded="false" />
-            <element signature="e#3953#3954#0" expanded="false" />
-            <element signature="e#4112#4113#0" expanded="false" />
-            <element signature="e#4151#4152#0" expanded="false" />
-            <element signature="e#4244#4245#0" expanded="false" />
-            <element signature="e#4280#4281#0" expanded="false" />
-            <element signature="e#5924#5925#0" expanded="false" />
-            <element signature="e#5963#5964#0" expanded="false" />
-            <element signature="e#6060#6061#0" expanded="false" />
-            <element signature="e#6096#6097#0" expanded="false" />
-            <element signature="e#6359#6360#0" expanded="false" />
-            <element signature="e#6412#6413#0" expanded="false" />
-            <element signature="e#6772#6773#0" expanded="false" />
-            <element signature="e#6825#6826#0" expanded="false" />
-            <element signature="e#8431#8432#0" expanded="false" />
-            <element signature="e#8476#8477#0" expanded="false" />
-            <element signature="e#8833#8834#0" expanded="false" />
-            <element signature="e#8886#8887#0" expanded="false" />
-            <element signature="e#9212#9213#0" expanded="false" />
-            <element signature="e#9257#9258#0" expanded="false" />
-            <element signature="e#15070#15086#0" expanded="false" />
-            <element signature="e#16142#16143#0" expanded="false" />
-            <element signature="e#16180#16181#0" expanded="false" />
-            <element signature="e#16446#16447#0" expanded="false" />
-            <element signature="e#16484#16485#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/ViewJamDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/RouterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/SessionUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="35" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="35" />
-          <folding>
-            <element signature="e#249#250#0" expanded="false" />
-            <element signature="e#280#281#0" expanded="false" />
-            <element signature="e#313#314#0" expanded="false" />
-            <element signature="e#342#343#0" expanded="false" />
-            <element signature="e#379#380#0" expanded="false" />
-            <element signature="e#411#412#0" expanded="false" />
-            <element signature="e#448#449#0" expanded="false" />
-            <element signature="e#480#481#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/HelperClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43958333">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="class#Period#0;class#HelperClass#0" expanded="false" />
-            <element signature="method#fetchContacts#0;class#HelperClass#0" expanded="false" />
-            <element signature="method#extractNumbers#0;class#HelperClass#0" expanded="false" />
-            <element signature="method#getStringDateFromString#0;class#HelperClass#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/widget/Toast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="163" column="16" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="16" />
-          <folding>
-            <element signature="e#5122#5123#0" expanded="false" />
-            <element signature="e#5158#5159#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_toast.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16831683">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/RegistrationIntentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7777777">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -3240,162 +2976,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/SignUpActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="102" selection-start-line="72" selection-start-column="102" selection-end-line="72" selection-end-column="102" />
-          <folding>
-            <element signature="e#2686#3992#0" expanded="false" />
-            <element signature="e#3991#3992#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding>
-            <element signature="e#1110#1351#0" expanded="false" />
-            <element signature="e#1350#1351#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="e#1642#1776#0" expanded="false" />
-            <element signature="e#1785#1915#0" expanded="false" />
-            <element signature="e#1934#3188#0" expanded="false" />
-            <element signature="e#3197#3433#0" expanded="false" />
-            <element signature="e#4579#5597#0" expanded="false" />
-            <element signature="e#5606#5790#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharePayersModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharesModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20833333">
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding>
-            <element signature="e#1132#1133#0" expanded="false" />
-            <element signature="e#1172#1173#0" expanded="false" />
-            <element signature="method#setSharePayersModels#0;class#SharesModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/ShareItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7083334">
-          <caret line="117" column="33" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="33" />
-          <folding>
-            <element signature="class#1219:1485" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1-sources.jar!/android/support/v4/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.42565057">
           <caret line="389" column="11" selection-start-line="389" selection-start-column="11" selection-end-line="389" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/ParticipentsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.25468165">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/CurrentJamsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8876405">
-          <caret line="7" column="43" selection-start-line="6" selection-start-column="25" selection-end-line="7" selection-end-column="43" />
-          <folding>
-            <element signature="method#onListItemClick#0;class#CurrentJamsFragment#0" expanded="false" />
-            <element signature="method#OnItemClick#0;class#CurrentJamsFragment#0" expanded="false" />
-            <element signature="method#showDialog#0;class#CurrentJamsFragment#0" expanded="false" />
-            <element signature="method#deleteJam#0;class#CurrentJamsFragment#0" expanded="false" />
-            <element signature="method#startProgressDialog#0;class#CurrentJamsFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7586207">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding>
-            <element signature="e#852#877#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.698502">
-          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CreateNewJam#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#saveJamShares#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#navigateToLogin#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getSimpleDateFormat#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateDialog#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/MyJamsViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73220974">
-          <caret line="63" column="44" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/inbox_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.034483">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <element signature="e#783#801#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/InboxRecyclerViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3409,112 +2994,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/MySharesApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/ParseConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/InboxFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="70" selection-start-line="69" selection-start-column="70" selection-end-line="69" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2373#3378#0" expanded="true" />
-            <element signature="e#3377#3378#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SectionsPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75">
-          <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
-          <folding>
-            <element signature="e#1172#1215#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.275862">
-          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="216" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7345#8367#0" expanded="true" />
-            <element signature="e#7606#7655#0" expanded="true" />
-            <element signature="e#7745#7801#0" expanded="true" />
-            <element signature="e#8366#8367#0" expanded="true" />
-            <element signature="e#8437#8774#0" expanded="true" />
-            <element signature="e#8773#8774#0" expanded="true" />
-            <element signature="e#9159#9215#0" expanded="true" />
-            <element signature="e#9375#10382#0" expanded="true" />
-            <element signature="e#9914#10000#0" expanded="true" />
-            <element signature="e#10054#10338#0" expanded="true" />
-            <element signature="e#10235#10254#0" expanded="true" />
-            <element signature="e#10337#10338#0" expanded="true" />
-            <element signature="e#10381#10382#0" expanded="true" />
-            <element signature="method#shareJamWithUser#0;class#ShareOwnersAdapter#0" expanded="false" />
-            <element signature="e#10616#10687#0" expanded="true" />
-            <element signature="e#10711#10778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.851851">
-          <caret line="75" column="30" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_current_jams.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48178136">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/new_jam_header.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4493927">
-          <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
-          <folding>
-            <element signature="e#1569#1977#0" expanded="false" />
-            <element signature="e#2371#2805#0" expanded="false" />
-            <element signature="e#3312#3750#0" expanded="false" />
-            <element signature="e#4193#4628#0" expanded="false" />
-            <element signature="e#4641#4916#0" expanded="false" />
-            <element signature="e#4929#5399#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3529,34 +3013,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/current_jam_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.551724">
-          <caret line="165" column="55" selection-start-line="164" selection-start-column="44" selection-end-line="165" selection-end-column="55" />
-          <folding>
-            <element signature="e#1345#1721#0" expanded="false" />
-            <element signature="e#1734#2248#0" expanded="false" />
-            <element signature="e#2262#2726#0" expanded="false" />
-            <element signature="e#2740#3328#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/shares_owner_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33663365">
-          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+        <state vertical-scroll-proportion="-0.10650887">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/jam_header.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8039604">
+          <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+          <folding>
+            <element signature="e#6254#6281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_jam_details.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.275862">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/share_cashing_user.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13465346">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="5" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
@@ -3567,90 +3067,413 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.10650887">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/inbox_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.62069">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/SignUpActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_login.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.62069">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="e#564#604#0" expanded="true" />
+            <element signature="e#1988#2008#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_sign_up.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43762377">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#1526#1546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/ShareItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="31" />
+          <folding>
+            <element signature="class#1219:1485" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/InboxFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61759084">
+          <caret line="49" column="33" selection-start-line="47" selection-start-column="67" selection-end-line="49" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2723#2735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/new_jam_header.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16435644">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#2372#2806#0" expanded="false" />
+            <element signature="e#4976#5446#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/shares_owner_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13465346">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/color_cursor.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031835206">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SectionsPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9681648">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding>
+            <element signature="e#1172#1215#0" expanded="false" />
+            <element signature="e#1275#1318#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09550562">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharePayersModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
+          <folding>
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="class#2364:2665" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/ViewJamDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_inbox.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.62069">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.310345">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_current_jams.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.068966">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6846011">
+          <caret line="44" column="46" selection-start-line="43" selection-start-column="56" selection-end-line="44" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19921875">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/SharePayersAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1875">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding>
+            <element signature="e#4435#6698#0" expanded="true" />
+            <element signature="e#5503#5530#0" expanded="true" />
+            <element signature="e#5975#5999#0" expanded="true" />
+            <element signature="e#6697#6698#0" expanded="true" />
+            <element signature="e#7586#7634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/ViewJamDetailsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/helpers/HelperClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8958334">
+          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/anim/AnimationUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+          <caret line="9" column="79" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/current_jam_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1821783">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+          <folding>
+            <element signature="e#1219#1595#0" expanded="false" />
+            <element signature="e#2616#3204#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/InboxRecyclerViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <folding>
+            <element signature="e#1390#1472#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/MyJamsViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="63" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2528#2529#0" expanded="false" />
+            <element signature="e#2569#2570#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharesModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+          <folding>
+            <element signature="method#setSharePayersModels#0;class#SharesModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/CurrentJamsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+          <folding>
+            <element signature="method#onListItemClick#0;class#CurrentJamsFragment#0" expanded="false" />
+            <element signature="method#OnItemClick#0;class#CurrentJamsFragment#0" expanded="false" />
+            <element signature="e#9671#9684#0" expanded="true" />
+            <element signature="method#shareIt#0;class#CurrentJamsFragment#0" expanded="false" />
+            <element signature="method#showDialog#0;class#CurrentJamsFragment#0" expanded="false" />
+            <element signature="method#deleteJam#0;class#CurrentJamsFragment#0" expanded="false" />
+            <element signature="method#startProgressDialog#0;class#CurrentJamsFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.66789216">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding>
+            <element signature="e#3700#3701#0" expanded="true" />
+            <element signature="e#3730#3731#0" expanded="true" />
+            <element signature="e#3776#3777#0" expanded="true" />
+            <element signature="e#3814#3815#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="80" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="80" />
+          <folding>
+            <element signature="e#1570#1704#0" expanded="false" />
+            <element signature="e#1713#1843#0" expanded="false" />
+            <element signature="e#1862#3114#0" expanded="false" />
+            <element signature="e#3123#3359#0" expanded="false" />
+            <element signature="e#3368#3674#0" expanded="false" />
+            <element signature="e#3683#4015#0" expanded="false" />
+            <element signature="e#4024#4208#0" expanded="false" />
+            <element signature="e#4217#4354#0" expanded="false" />
+            <element signature="e#4420#4808#0" expanded="false" />
+            <element signature="e#4817#5392#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CreateNewJam#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#navigateToLogin#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#getSimpleDateFormat#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateDialog#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/MySharesApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27083334">
+          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.103449">
-          <caret line="288" column="78" selection-start-line="288" selection-start-column="71" selection-end-line="288" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5010#5053#0" expanded="true" />
-            <element signature="e#8110#8358#0" expanded="true" />
-            <element signature="e#8357#8358#0" expanded="true" />
-            <element signature="e#9080#9141#0" expanded="true" />
-            <element signature="e#9267#10501#0" expanded="true" />
-            <element signature="e#9867#9952#0" expanded="true" />
-            <element signature="e#10010#10313#0" expanded="true" />
-            <element signature="e#10202#10221#0" expanded="true" />
-            <element signature="e#10312#10313#0" expanded="true" />
-            <element signature="e#10500#10501#0" expanded="true" />
-            <element signature="e#13071#15151#0" expanded="true" />
-            <element signature="e#14859#14904#0" expanded="true" />
-            <element signature="e#14954#14999#0" expanded="true" />
-            <element signature="e#15074#15117#0" expanded="true" />
-            <element signature="e#15150#15151#0" expanded="true" />
-            <element signature="e#16844#17857#0" expanded="true" />
-            <element signature="e#17856#17857#0" expanded="true" />
-            <element signature="e#18217#18244#0" expanded="true" />
-            <element signature="e#18856#18887#0" expanded="true" />
-            <element signature="e#22900#23480#0" expanded="true" />
-            <element signature="e#23479#23480#0" expanded="true" />
-            <element signature="e#23862#23923#0" expanded="true" />
-            <element signature="e#24130#25141#0" expanded="true" />
-            <element signature="e#24663#24748#0" expanded="true" />
-            <element signature="e#24802#25085#0" expanded="true" />
-            <element signature="e#24982#25001#0" expanded="true" />
-            <element signature="e#25084#25085#0" expanded="true" />
-            <element signature="e#25140#25141#0" expanded="true" />
+            <element signature="e#2065#2066#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#5315#5358#0" expanded="true" />
+            <element signature="class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+            <element signature="e#9990#10051#0" expanded="true" />
+            <element signature="e#10777#10862#0" expanded="true" />
+            <element signature="e#11112#11131#0" expanded="true" />
+            <element signature="e#13815#16172#0" expanded="true" />
+            <element signature="e#14304#15636#0" expanded="true" />
+            <element signature="e#15635#15636#0" expanded="true" />
+            <element signature="e#15780#15825#0" expanded="true" />
+            <element signature="e#15875#15920#0" expanded="true" />
+            <element signature="e#15997#16040#0" expanded="true" />
+            <element signature="e#16171#16172#0" expanded="true" />
+            <element signature="e#16618#16882#0" expanded="true" />
+            <element signature="e#16881#16882#0" expanded="true" />
+            <element signature="e#17014#17455#0" expanded="true" />
+            <element signature="e#17454#17455#0" expanded="true" />
+            <element signature="e#17684#18697#0" expanded="true" />
+            <element signature="e#18115#18663#0" expanded="true" />
+            <element signature="e#18662#18663#0" expanded="true" />
+            <element signature="e#18696#18697#0" expanded="true" />
+            <element signature="e#19100#19127#0" expanded="true" />
+            <element signature="e#19937#19968#0" expanded="true" />
+            <element signature="e#23963#24543#0" expanded="true" />
+            <element signature="e#24542#24543#0" expanded="true" />
+            <element signature="e#24925#24986#0" expanded="true" />
+            <element signature="e#25727#25812#0" expanded="true" />
+            <element signature="e#26046#26065#0" expanded="true" />
             <element signature="class#ClickListener#0;class#JamDetailsViewAdapter#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/jam_header.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.0">
-          <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
-          <folding>
-            <element signature="e#6254#6281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/share_cashing_user.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.62069">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3659,22 +3482,19 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.62069">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-          <folding>
-            <element signature="e#1037#1744#0" expanded="false" />
-            <element signature="e#6146#6171#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-9.896552">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/ViewJamDetailsFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5625">
-          <caret line="89" column="56" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="56" />
+        <state vertical-scroll-proportion="-1.4938725">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="24" />
           <folding>
-            <element signature="e#2437#3992#0" expanded="true" />
-            <element signature="e#3991#3992#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#shareJamWithUser#0;class#ShareOwnersAdapter#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_id": "myjam-1232",
+    "project_number": "932288062635",
+    "name": "MyJam"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932288062635:android:60d39fcf84860b27",
+        "client_id": "android:jam.mbarakat.com.myshares",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "jam.mbarakat.com.myshares",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932288062635-votmvke5lll0lam4jrs051sk16v3hk5a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jam.mbarakat.com.myshares",
+            "certificate_hash": "30016BEAA4FE75C97A0E6FFA544614BD38A20F7A"
+          }
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 2,
+          "test_banner_ad_unit_id": "ca-app-pub-3940256099942544/6300978111",
+          "test_interstitial_ad_unit_id": "ca-app-pub-3940256099942544/1033173712"
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

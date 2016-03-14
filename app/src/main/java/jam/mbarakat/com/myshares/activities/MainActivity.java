@@ -7,7 +7,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -29,11 +28,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -76,10 +72,8 @@ public class MainActivity extends AppCompatActivity {
     static final int DATE_DIALOG_ID = 0;
     ParseUser currentUser;
     List<SharesModel> jamSharesObject;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
+
     private GoogleApiClient client;
 
     @Override
@@ -309,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
             jamShares.put("share_due_date", new Date(year, month, _day));
             jamShares.put("share_order", shareOrder);
             jamShares.put("share_status", false);
-
+            jamShares.put("share_paid_amount", 0);
             sumDays += days;
             shareOrder++;
 
@@ -359,16 +353,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_edit_friends) {
-            Intent intent = new Intent(this, EditFriendsActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.action_logout) {
+        if (id == R.id.action_logout) {
             ParseUser.logOut();
             navigateToLogin();
         }
-
         return super.onOptionsItemSelected(item);
     }
 

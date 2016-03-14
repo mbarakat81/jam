@@ -75,63 +75,6 @@ public class HelperClass {
         }
     }
 
-    public static List<String[]> fetchContacts(Context context)
-    {
-
-        String[] name_Val=null;
-        String[] phone_Val=null;
-        ArrayList<String> c_Name = new ArrayList<String>();
-        ArrayList<String> c_Number = new ArrayList<String>();
-        String[] projection = new String[] {
-                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-                ContactsContract.CommonDataKinds.Phone.HAS_PHONE_NUMBER,
-                ContactsContract.CommonDataKinds.Phone.NUMBER,
-                ContactsContract.CommonDataKinds.Phone.CONTACT_ID};
-
-
-
-        String _ID = ContactsContract.CommonDataKinds.Phone.CONTACT_ID;
-        String DISPLAY_NAME =  Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ? ContactsContract.Contacts.DISPLAY_NAME_PRIMARY : ContactsContract.Contacts.DISPLAY_NAME;
-        String NUMBER = ContactsContract.CommonDataKinds.Phone.NUMBER;
-
-        Cursor cursor = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                projection, ContactsContract.CommonDataKinds.Phone.HAS_PHONE_NUMBER + "=?", new String[] { "1" },
-                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-
-        System.out.println("contact size.." + cursor.getCount());
-
-        if (cursor.getCount() > 0) {
-            while (cursor.moveToNext()) {
-
-                String contact_id = cursor.getString(cursor.getColumnIndex( _ID ));
-                String name = cursor.getString(cursor.getColumnIndex( DISPLAY_NAME ));
-                String phoneNumber = cursor.getString(cursor.getColumnIndex(NUMBER));
-
-
-                c_Name.add(name + ", " + extractNumbers(phoneNumber));
-                c_Number.add(extractNumbers(phoneNumber) + " : " + name);
-            }
-            name_Val = (String[]) c_Name.toArray(new String[c_Name.size()]);
-            phone_Val= (String[]) c_Number.toArray(new String[c_Name.size()]);
-        }
-        List<String[]> contactList = new ArrayList<String[]>();
-        contactList.add(name_Val);
-        contactList.add(phone_Val);
-        return contactList;
-    }
-    public static String extractNumbers(String s){
-        List<Integer> numbers = new ArrayList<Integer>();
-        String number = "";
-
-        Pattern p = Pattern.compile("\\d+");
-        Matcher m = p.matcher(s);
-
-        while(m.find()){
-           // numbers.add(Integer.parseInt(m.group()));
-            number+=m.group();
-        }
-        return number;
-    }
 
     public static String getStringFormatDate(Date date, Context context){
         java.text.DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context);

@@ -26,9 +26,9 @@
                 <Button
                     android:layout_alignParentTop="true"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="25dp"
                     android:text="Delivered"
-                    android:textSize="50dp"
+                    android:textSize="20dp"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:gravity="top|center"
@@ -37,7 +37,7 @@
                     android:background="@color/colorPrimary"
                     android:alpha="0.40"
                     android:id="@+id/btnDelivered"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
                 <TextView
                     android:id="@+id/lblShareStartDay"
                     android:layout_width="wrap_content"
@@ -56,19 +56,16 @@
                     android:layout_marginRight="10dp"
                     android:textColor="@android:color/white"
                     android:layout_toLeftOf="@+id/lblShareStartDay"/>
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/addRecName1"
                     android:ems="10"
                     android:textColorHint="@android:color/white"
-                    android:focusableInTouchMode="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
                     android:layout_alignParentRight="true"
                     android:textCursorDrawable="@drawable/color_cursor"
                     android:layout_below="@+id/txtShareStartDay"
                     android:layout_marginRight="10dp"
-                    android:completionThreshold="15"
                     android:clickable="true"
                     android:textSize="12dp"
                     android:hint="@string/hint_share_owner_name"/>

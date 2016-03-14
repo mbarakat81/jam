@@ -2,6 +2,7 @@ package jam.mbarakat.com.myshares.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     protected EditText mUsername;
     protected EditText mPassword;
     protected Button mLoginButton;
-    protected EditText mPhone;
+    Typeface tf;
 
     protected TextView mSignUpTextView;
 
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 //        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
 
+        tf = Typeface.createFromAsset(this.getAssets(), "fonts/sheba.ttf");
         mSignUpTextView = (TextView) findViewById(R.id.txtSignUp);
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,20 +44,20 @@ public class LoginActivity extends AppCompatActivity {
         mUsername = (EditText)findViewById(R.id.userName);
         mPassword = (EditText)findViewById(R.id.userPassword);
         mLoginButton = (Button)findViewById(R.id.btnLogin);
-        mPhone = (EditText)findViewById(R.id.userPhone);
-
+        mUsername.setTypeface(tf);
+        mPassword.setTypeface(tf);
+        mLoginButton.setTypeface(tf);
+        mSignUpTextView.setTypeface(tf);
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = mUsername.getText().toString();
-                String phone = mPhone.getText().toString();
                 String password = mPassword.getText().toString();
 
                 username = username.trim();
                 password = password.trim();
-                phone = phone.trim();
 
-                if (username.isEmpty() || password.isEmpty() || phone.isEmpty()) {
+                if (username.isEmpty() || password.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                     builder.setMessage(R.string.login_error_message)
                             .setTitle(R.string.login_error_title)

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,6 +39,7 @@ import jam.mbarakat.com.myshares.helpers.ParseConstants;
 import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.activities.ViewJamDetailsActivity;
 import jam.mbarakat.com.myshares.adapters.MyJamsViewAdapter;
+import jam.mbarakat.com.myshares.modules.SharesModel;
 
 /**
  * Created by MBARAKAT on 1/30/2016.
@@ -70,9 +72,12 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
         recyclerView = (RecyclerView)rootView.findViewById(R.id.rvCardView);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setAdapter(myJamsViewAdapter);
+
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/sheba.ttf");
+        empty = (TextView) rootView.findViewById(R.id.noJams);
+        empty.setTypeface(tf);
 
         smoothProgressBar = (SmoothProgressBar) rootView.findViewById(R.id.progressBar);
         smoothProgressBar.setIndeterminateDrawable(new SmoothProgressDrawable.Builder(getContext())
@@ -145,8 +150,9 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
                                     myJamsViewAdapter = new MyJamsViewAdapter(getContext(), currentJams);
                                     myJamsViewAdapter.setClickListener(CurrentJamsFragment.this);
                                     recyclerView.setAdapter(myJamsViewAdapter);
+
+                                    empty.setVisibility(View.GONE);
                                 } else {
-                                    empty = (TextView) getActivity().findViewById(R.id.noJams);
                                     empty.setVisibility(View.VISIBLE);
                                 }
                             }
@@ -186,87 +192,114 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
         shareIt(currentJams.get(pos).getjId(), currentJams.get(pos).getNextJamOwner(), currentJams.get(pos).getjAmount());
     }
     private void onViewJamClick(View view, int pos){
-        Bundle bundle = new Bundle();
-        JamModel currentJam = currentJams.get(pos);
-        Intent intent = new Intent(getContext(),ViewJamDetailsActivity.class);
-        bundle.putParcelable("currentJamModel", currentJam);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
+        ParseQuery<ParseObject> jShares = ParseQuery.getQuery("jShares");
+        final JamModel jamItem = currentJams.get(pos);
+        jShares.whereEqualTo("shares_jamNo",jamItem.getjId())
+                .orderByAscending("share_order");
+        jShares.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e == null) {
+                    ArrayList<SharesModel> jamSharesObject = new ArrayList<SharesModel>();
+                    for (ParseObject share : list) {
+                        SharesModel shareItem = new SharesModel();
+                        shareItem.setJamId(share.getString("shares_jamNo"));
+                        shareItem.setShareOrder(share.getInt("share_order"));
+                        shareItem.setShareDelivered(share.getBoolean("share_status"));
+                        shareItem.setjAmount(Integer.parseInt(jamItem.getjAmount()));
+                        shareItem.setStartDay(share.getDate("share_due_date").toLocaleString().toString());
+                        shareItem.setShareId(share.getObjectId());
+                        shareItem.setSharePaidAmount(share.getInt("share_paid_amount"));
+                        jamSharesObject.add(shareItem);
+                    }
+                    jamItem.setSharesModel(jamSharesObject);
+                    Bundle bundle = new Bundle();
+                    Intent intent = new Intent(getContext(), ViewJamDetailsActivity.class);
+                    bundle.putParcelable("currentJamModel", jamItem);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            }
+        });
 
-    private void shareIt(String jamId, String jamCreator, String jamShareValue) {
-        startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        String shareBody = getResources().getString(R.string.share_jam_body_msg).replace("_AMOUNT", jamShareValue);
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        startActivity(Intent.createChooser(sharingIntent, "Share via"));
-        endProgressDialod();
-    }
-    private void showDialog(final int id){
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-        alert.setTitle(R.string.delete_jam_title);
-        alert.setMessage(R.string.delete_jam_msg);
-        alert.setNegativeButton(R.string.delete_jam_cancel_btn, new DialogInterface.OnClickListener() {
+
+            }
+
+            private void shareIt(String jamId, String jamCreator, String jamShareValue) {
+                startProgressDialog(getResources().getString(R.string.progress_title), dialogMsgBody);
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = getResources().getString(R.string.share_jam_body_msg).replace("_AMOUNT", jamShareValue);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                endProgressDialod();
+            }
+
+            private void showDialog(final int id) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                alert.setTitle(R.string.delete_jam_title);
+                alert.setMessage(R.string.delete_jam_msg);
+                alert.setNegativeButton(R.string.delete_jam_cancel_btn, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }
+                );
+                alert.setPositiveButton(R.string.delete_jam_confirm_btn, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        startProgressDialog(getResources().getString(R.string.progress_title), dialogMsgBody);
+                        ParseQuery<ParseObject> query = new ParseQuery<>("Jam_header");
+                        query.whereEqualTo("objectId", currentJams.get(id).getjId());
+                        query.getFirstInBackground(new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject parseObject, ParseException e) {
+                                if (e == null) {
+                                    deleteJam(parseObject, id);
+                                    endProgressDialod();
+                                }
+                            }
+                        });
 
                     }
-                }
-        );
-        alert.setPositiveButton(R.string.delete_jam_confirm_btn, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startProgressDialog(getResources().getString(R.string.progress_title),dialogMsgBody);
-                ParseQuery<ParseObject> query = new ParseQuery<>("Jam_header");
-                query.whereEqualTo("objectId", currentJams.get(id).getjId());
-                query.getFirstInBackground(new GetCallback<ParseObject>() {
+                });
+                alert.show();
+            }
+
+            private void deleteJam(ParseObject parseObject, final int id) {
+                parseObject.deleteInBackground(new DeleteCallback() {
                     @Override
-                    public void done(ParseObject parseObject, ParseException e) {
+                    public void done(ParseException e) {
                         if (e == null) {
-                            deleteJam(parseObject, id);
-                            endProgressDialod();
+                            ParseQuery<ParseObject> queryShares = new ParseQuery<>("jShares");
+                            ParseQuery<ParseObject> querySubShares = new ParseQuery<>("Share_owners");
+                            queryShares.whereEqualTo("shares_jamNo", currentJams.get(id).getjId());
+                            querySubShares.whereEqualTo("jamId", currentJams.get(id).getjId());
+                            try {
+                                ParseObject.deleteAll(queryShares.find());
+                                ParseObject.deleteAll(querySubShares.find());
+                                Toast.makeText(getActivity(), "done", Toast.LENGTH_LONG).show();
+                                deleted = true;
+                                currentJams.remove(id);
+                                myJamsViewAdapter.notifyItemRemoved(id);
+
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
                         }
                     }
                 });
+            }
+
+            private void startProgressDialog(String title, String msg) {
+                progress = ProgressDialog.show(getContext(), "",
+                        "", true);
 
             }
-        });
-        alert.show();
-    }
 
-    private void deleteJam(ParseObject parseObject, final int id) {
-        parseObject.deleteInBackground(new DeleteCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    ParseQuery<ParseObject> queryShares = new ParseQuery<>("jShares");
-                    ParseQuery<ParseObject> querySubShares = new ParseQuery<>("Share_owners");
-                    queryShares.whereEqualTo("shares_jamNo", currentJams.get(id).getjId());
-                    querySubShares.whereEqualTo("jamId", currentJams.get(id).getjId());
-                    try {
-                        ParseObject.deleteAll(queryShares.find());
-                        ParseObject.deleteAll(querySubShares.find());
-                        Toast.makeText(getActivity(), "done", Toast.LENGTH_LONG).show();
-                        deleted = true;
-                        currentJams.remove(id);
-                        myJamsViewAdapter.notifyItemRemoved(id);
-
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
-                    }
-                }
+            private void endProgressDialod() {
+                progress.dismiss();
             }
-        });
-    }
-
-    private void startProgressDialog(String title, String msg){
-        progress = ProgressDialog.show(getContext(), "",
-                "", true);
-
-    }
-    private void endProgressDialod(){
-        progress.dismiss();
-    }
-}
+        }

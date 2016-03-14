@@ -8,48 +8,35 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_sign_up"
-    tools:context=".activities.SignUpActivity">
+    tools:context=".activities.SignUpActivity"
+    android:background="@drawable/shape">
 
     <EditText
+        android:id="@+id/userNameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/userNameField"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:gravity="right"
         android:hint="@string/user_name"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/userPhoneField"
-        android:layout_below="@+id/userNameField"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="@string/user_phone"/>
 
     <EditText
+        android:id="@+id/userPasswordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/userPasswordField"
-        android:layout_below="@+id/userPhoneField"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/userNameField"
+        android:gravity="right"
         android:hint="@string/user_password"
         />
 
     <Button
+        android:id="@+id/btnSignUpField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_signup"
-        android:id="@+id/btnSignUpField"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/userPasswordField"
-        android:layout_alignParentLeft="true"
-        android:background="@color/colorAccent"
-
-        android:layout_alignParentStart="true" />
+        android:background="@color/colorAccent"/>
 </RelativeLayout>

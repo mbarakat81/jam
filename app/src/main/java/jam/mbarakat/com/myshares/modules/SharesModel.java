@@ -20,10 +20,20 @@ import jam.mbarakat.com.myshares.helpers.HelperClass;
  */
 public class SharesModel implements Parcelable {
     String startDay, shareOwnerId, shareId, jamId;
-    int shareOrder, jAmount;
+    int shareOrder;
+    int jAmount;
+    int sharePaidAmount;
+
+    public int getSharePaidAmount() {
+        return sharePaidAmount;
+    }
+
+    public void setSharePaidAmount(int sharePaidAmount) {
+        this.sharePaidAmount = sharePaidAmount;
+    }
+
     boolean isShareDelivered;
     List<SharePayersModel> sharePayersModels;
-    List<ShareRow> shareRows = Collections.emptyList();
     List<ShareItem> shareItems = Collections.emptyList();
 
     public String getShareOwnerId() {
@@ -102,6 +112,7 @@ public class SharesModel implements Parcelable {
         jamId = parseObject.getString("shares_jamNo");
         shareOwnerId = parseObject.getString("share_owner_id");
         shareId = parseObject.getObjectId();
+        sharePaidAmount = parseObject.getInt("share_paid_amount");
     }
 
     public SharesModel(){
@@ -137,6 +148,7 @@ public class SharesModel implements Parcelable {
         in.readTypedList(this.sharePayersModels, SharePayersModel.CREATOR);
         shareId = in.readString();
         shareOwnerId = in.readString();
+        sharePaidAmount = in.readInt();
     }
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -149,6 +161,7 @@ public class SharesModel implements Parcelable {
         dest.writeTypedList(this.sharePayersModels);
         dest.writeString(shareId);
         dest.writeString(shareOwnerId);
+        dest.writeInt(sharePaidAmount);
     }
 
     public static final Creator<SharesModel> CREATOR = new Creator<SharesModel>() {
@@ -171,38 +184,10 @@ public class SharesModel implements Parcelable {
         this.startDay = startDay;
     }
 
-    public List<ShareRow> getShareRows() {
-        return shareRows;
-    }
-
-    public void setShareRows(List<ShareRow> shareRows) {
-        this.shareRows = shareRows;
-    }
 
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    public class ShareRow {
-        String shareOwner;
-        String value;
-
-        public String getShareOwner() {
-            return shareOwner;
-        }
-
-        public void setShareOwner(String shareOwner) {
-            this.shareOwner = shareOwner;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
     }
 
     /** Helpers Methods **/
@@ -222,11 +207,9 @@ public class SharesModel implements Parcelable {
         return false;
     }
 
-public boolean isSharePaid(){
-    for(SharePayersModel sharePayersModel: getSharePayersModels()){
-        if(!sharePayersModel.isPaid())
-            return false;
+    public boolean isSharePaid(int sharesCount){
+        if(getSharePaidAmount() == (sharesCount * getjAmount()))
+            return true;
+        return false;
     }
-    return true;
-}
 }
