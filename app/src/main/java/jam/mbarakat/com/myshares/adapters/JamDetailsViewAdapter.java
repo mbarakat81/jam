@@ -59,6 +59,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     View parentView;
     boolean isMyJam;
     int prevPos = 0;
+    private SharesModel sharesModel;
 
     public JamDetailsViewAdapter(List<SharesModel> data){
         this.data = data;
@@ -66,7 +67,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public JamDetailsViewAdapter(Context context, JamModel data){
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
-        this.isMyJam = data.isMysJam(ParseUser.getCurrentUser().getObjectId());
+        this.isMyJam = data.isMysJam();
         this.jamModel = data;
         this.data = data.getSharesModel();
     }
@@ -107,7 +108,8 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         }else if(holder instanceof SharesViewHolder){
             SharesViewHolder sharesViewHolder = (SharesViewHolder)holder;
-            SharesModel sharesModel = data.get(position - 1);
+            sharesModel = data.get(position - 1);
+            sharesModel.setJamModel(jamModel);
             sharesViewHolder.startDay.setText(HelperClass.getFormatedDateFromString(sharesModel.getStartDay()));
             sharesViewHolder.hiddenJID.setText(sharesModel.getJamId());
             sharesViewHolder.hiddenShareNo.setText(String.valueOf(sharesModel.getShareOrder()));
@@ -117,7 +119,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             sharesViewHolder.addRecName.setText("");
             sharesViewHolder.shareItems = sharesModel.getShareItems();
             sharesViewHolder.sharePayersModels = sharesModel.getSharePayersModels();
-            sharesViewHolder.shareOwnersAdapter = new ShareOwnersAdapter(context, sharesViewHolder.shareItems, isMyJam, parentView,data, jamModel.getjName());
+            sharesViewHolder.shareOwnersAdapter = new ShareOwnersAdapter(context, parentView,sharesModel);
 
             sharesViewHolder.lvParticipants.setAdapter(sharesViewHolder.shareOwnersAdapter);
             sharesViewHolder.cardBack.setVisibility(View.GONE);
@@ -450,7 +452,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                 public void done(ParseException e) {
                                     if (shareItems.size() == 0) {
                                         shareItems = new ArrayList<ShareItem>();
-                                        shareOwnersAdapter = new ShareOwnersAdapter(context, shareItems, isMyJam, view, data, jamModel.getjName());
+                                        shareOwnersAdapter = new ShareOwnersAdapter(context, view, sharesModel);
                                         lvParticipants.setAdapter(shareOwnersAdapter);
                                     }
 

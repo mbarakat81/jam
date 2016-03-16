@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import jam.mbarakat.com.myshares.helpers.HelperClass;
+import jam.mbarakat.com.myshares.helpers.SessionUser;
 
 /**
  * Created by MBARAKAT on 1/31/2016.
@@ -241,8 +242,8 @@ public class JamModel implements Parcelable {
     }
 
 /** helpers methods**/
-    public boolean isMysJam(String currentUserId){
-        return getjOwnerId().equals(currentUserId.toString());
+    public boolean isMysJam(){
+        return getjOwnerId().equals(SessionUser.getUser().getUserId());
     }
 
     /**public boolean isDelivered(){

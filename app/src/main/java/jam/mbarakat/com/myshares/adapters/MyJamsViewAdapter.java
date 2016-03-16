@@ -49,7 +49,7 @@ public class MyJamsViewAdapter extends RecyclerView.Adapter<MyJamsViewAdapter.Ja
         holder.jamId.setText(jamItem.getjId());
         holder.jamName.setText(jamItem.getjName());
         holder.jamAmount.setText(jamItem.getjAmount());
-        if(!jamItem.isMysJam(SessionUser.getUser().getUserId())){
+        if(!jamItem.isMysJam()){
             holder.delete_jam.setVisibility(View.GONE);
             holder.share_jam.setVisibility(View.GONE);
         }else{

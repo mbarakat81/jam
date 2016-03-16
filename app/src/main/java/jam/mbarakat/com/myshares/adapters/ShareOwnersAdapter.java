@@ -31,6 +31,7 @@ import java.util.List;
 import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.helpers.ParseConstants;
 import jam.mbarakat.com.myshares.helpers.SessionUser;
+import jam.mbarakat.com.myshares.modules.JamModel;
 import jam.mbarakat.com.myshares.modules.ShareItem;
 import jam.mbarakat.com.myshares.modules.SharesModel;
 
@@ -39,20 +40,15 @@ import jam.mbarakat.com.myshares.modules.SharesModel;
  */
 public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
     Context mContext;
-    private List<ShareItem> mShareItems;
-    private List<SharesModel> shareModels;
-    boolean isMyJam = true;
-    String jName;
+    private SharesModel shareModel;
     public View parentView;
     ShareItem shareItem;
-    public ShareOwnersAdapter(Context context, List<ShareItem> shareItems, boolean isMyJam, View view, List<SharesModel> shareModels, String jName){
-        super(context, R.layout.shares_owner_layout, shareItems);
+
+    public ShareOwnersAdapter(Context context, View view, SharesModel sharesModel){
+        super(context, R.layout.shares_owner_layout, sharesModel.getShareItems());
         this.mContext = context;
         parentView = view;
-        this.mShareItems = shareItems;
-        this.shareModels = shareModels;
-        this.jName=jName;
-        this.isMyJam = isMyJam;
+        this.shareModel = sharesModel;
     }
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
@@ -76,12 +72,12 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
             shareItemViewHolder = (ShareItemViewHolder) convertView.getTag();
         }
 
-        shareItem = mShareItems.get(position);
+        shareItem = shareModel.getShareItems().get(position);
         final String shareId = shareItem.getShareId();
         final int shareAmount = shareItem.getShareAmount();
 
 
-        if(!isMyJam){
+        if(!shareModel.getJamModel().isMysJam()){
             shareItemViewHolder.deleteShareItem.setVisibility(View.GONE);
             if(shareItem.isMyShare()){
                 shareItemViewHolder.shareViaSocialMedia.setVisibility(View.VISIBLE);
@@ -92,7 +88,10 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
             }
             shareItemViewHolder.notifyUserToReceive.setVisibility(View.GONE);
         }else {
-            shareItemViewHolder.deleteShareItem.setVisibility(View.VISIBLE);
+            if(shareModel.getJamModel().isJamStarted())
+                shareItemViewHolder.deleteShareItem.setVisibility(View.GONE);
+            else
+                shareItemViewHolder.deleteShareItem.setVisibility(View.VISIBLE);
             shareItemViewHolder.shareViaSocialMedia.setVisibility(View.VISIBLE);
             shareItemViewHolder.sharingInfo.setVisibility(View.VISIBLE);
             if(shareItem.isShareTaken()){
@@ -122,7 +121,7 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
                         if (e == null) {
                             parseObject.put("obs", true);
                             parseObject.saveInBackground();
-                            mShareItems.remove(tag);
+                            shareModel.getShareItems().remove(tag);
                             int currentSubSharesSum = Integer.parseInt(shareItemViewHolder.hiddenCurrentJamAmount.getText().toString());
                             currentSubSharesSum -= shareAmount;
                             shareItemViewHolder.hiddenCurrentJamAmount.setText(String.valueOf(currentSubSharesSum));
@@ -148,7 +147,7 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
         shareItemViewHolder.shareViaSocialMedia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareJamWithUser(shareModels.get(0).getJamId(), shareId, v);
+                shareJamWithUser(shareModel.getJamId(), shareId, v);
             }
         });
         final View finalConvertView = convertView;
@@ -191,7 +190,7 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
         ParseObject msg = new ParseObject(ParseConstants.CLASS_MSG);
         msg.put(ParseConstants.KEY_SENDER_ID, SessionUser.getUser().getUserId());
         msg.put(ParseConstants.KEY_SENDER_NAME, SessionUser.getUser().getUserName());
-        msg.put(ParseConstants.KEY_MSG_BODY, mContext.getString(R.string.ntf_receive_msg_body, jName));
+        msg.put(ParseConstants.KEY_MSG_BODY, mContext.getString(R.string.ntf_receive_msg_body, shareModel.getJamModel().getjName()));
         msg.put(ParseConstants.KEY_USERS_IDS, users);
         return msg;
     }

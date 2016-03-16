@@ -14,6 +14,16 @@ public class ShareItem implements Parcelable {
     private String shareOwnerId;
     private int shareAmount;
     private String shareId;
+    private SharesModel parentSharesModel;
+
+    public SharesModel getParentSharesModel() {
+        return parentSharesModel;
+    }
+
+    public void setParentSharesModel(SharesModel parentSharesModel) {
+        this.parentSharesModel = parentSharesModel;
+    }
+
 
     protected ShareItem(Parcel in) {
         shareOwnerName = in.readString();
