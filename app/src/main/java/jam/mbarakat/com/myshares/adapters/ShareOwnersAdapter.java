@@ -54,6 +54,9 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
     public View getView(int position, View convertView, final ViewGroup parent) {
         final ShareItemViewHolder shareItemViewHolder;
         final Typeface tf = Typeface.createFromAsset(mContext.getAssets(), "fonts/sheba.ttf");
+        shareItem = shareModel.getShareItems().get(position);
+        final String shareId = shareItem.getShareId();
+
         if(convertView==null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.shares_owner_layout, null);
             shareItemViewHolder = new ShareItemViewHolder();
@@ -61,22 +64,18 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
             shareItemViewHolder.shareOwnerName.setTypeface(tf);
             shareItemViewHolder.shareAmount = (TextView) convertView.findViewById(R.id.txtShareAmount);
             shareItemViewHolder.shareAmount.setTypeface(tf);
-            shareItemViewHolder.hiddenSubShareId = (EditText) convertView.findViewById(R.id.hiddenSubShareId);
             shareItemViewHolder.deleteShareItem = (ImageView) convertView.findViewById(R.id.deleteShareItem);
             shareItemViewHolder.notifyUserToReceive = (ImageView) convertView.findViewById(R.id.notifyUserToReceive);
             shareItemViewHolder.shareViaSocialMedia = (ImageView) convertView.findViewById(R.id.shareViaSocialMedia);
             shareItemViewHolder.sharingInfo = (ImageView) convertView.findViewById(R.id.sharingInfo);
-            shareItemViewHolder.hiddenCurrentJamAmount = (EditText) parentView.findViewById(R.id.hiddenJAddedAmount);
             convertView.setTag(shareItemViewHolder);
         }else {
             shareItemViewHolder = (ShareItemViewHolder) convertView.getTag();
         }
 
-        shareItem = shareModel.getShareItems().get(position);
-        final String shareId = shareItem.getShareId();
-        final int shareAmount = shareItem.getShareAmount();
-
-
+        shareItemViewHolder.shareOwnerName.setText(shareItem.getShareOwnerName());
+        shareItemViewHolder.shareAmount.setText(String.valueOf(shareItem.getShareAmount()));
+        shareItemViewHolder.deleteShareItem.setTag(position);
         if(!shareModel.getJamModel().isMysJam()){
             shareItemViewHolder.deleteShareItem.setVisibility(View.GONE);
             if(shareItem.isMyShare()){
@@ -100,17 +99,9 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
                 shareItemViewHolder.notifyUserToReceive.setVisibility(View.GONE);
             }
         }
-
-        shareItemViewHolder.shareOwnerName.setText(shareItem.getShareOwnerName());
-        shareItemViewHolder.shareAmount.setText(String.valueOf(shareItem.getShareAmount()));
-        shareItemViewHolder.hiddenSubShareId.setText(shareItem.getShareId());
-        shareItemViewHolder.deleteShareItem.setTag(position);
-
-
         shareItemViewHolder.deleteShareItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final ProgressDialog progress;
                 final int tag = (Integer) view.getTag();
                 progress = ProgressDialog.show(getContext(), "",
@@ -122,9 +113,6 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
                             parseObject.put("obs", true);
                             parseObject.saveInBackground();
                             shareModel.getShareItems().remove(tag);
-                            int currentSubSharesSum = Integer.parseInt(shareItemViewHolder.hiddenCurrentJamAmount.getText().toString());
-                            currentSubSharesSum -= shareAmount;
-                            shareItemViewHolder.hiddenCurrentJamAmount.setText(String.valueOf(currentSubSharesSum));
                             notifyDataSetChanged();
                             progress.dismiss();
                         }
@@ -228,7 +216,6 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
 
     private static class ShareItemViewHolder{
         TextView shareOwnerName, shareAmount;
-        EditText hiddenSubShareId, hiddenCurrentJamAmount;
         ImageView deleteShareItem, shareViaSocialMedia, sharingInfo, notifyUserToReceive;
     }
 }

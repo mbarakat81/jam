@@ -46,91 +46,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="JamDetailsViewAdapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JamDetailsViewAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71800435">
-              <caret line="411" column="15" selection-start-line="411" selection-start-column="15" selection-end-line="411" selection-end-column="15" />
+            <state vertical-scroll-proportion="-10.24138">
+              <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
               <folding>
                 <element signature="e#2102#2103#0" expanded="true" />
                 <element signature="e#2134#2135#0" expanded="true" />
-                <element signature="method#onBindViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
-                <element signature="e#5295#5338#0" expanded="true" />
-                <element signature="method#showHideDeliveredView#0;class#JamDetailsViewAdapter#0" expanded="false" />
-                <element signature="method#hideAddRec#0;class#JamDetailsViewAdapter#0" expanded="false" />
-                <element signature="method#getItemViewType#0;class#JamDetailsViewAdapter#0" expanded="false" />
-                <element signature="method#updateData#0;class#JamDetailsViewAdapter#0" expanded="false" />
+                <element signature="e#4929#4972#0" expanded="true" />
+                <element signature="e#6563#6564#0" expanded="true" />
+                <element signature="e#6599#6600#0" expanded="true" />
                 <element signature="class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
-                <element signature="e#9000#9248#0" expanded="true" />
-                <element signature="e#9247#9248#0" expanded="true" />
-                <element signature="e#9970#10031#0" expanded="true" />
-                <element signature="e#10157#11391#0" expanded="true" />
-                <element signature="e#10757#10842#0" expanded="true" />
-                <element signature="e#10900#11203#0" expanded="true" />
-                <element signature="e#11092#11111#0" expanded="true" />
-                <element signature="e#11202#11203#0" expanded="true" />
-                <element signature="e#11390#11391#0" expanded="true" />
-                <element signature="e#14284#15616#0" expanded="true" />
-                <element signature="e#15615#15616#0" expanded="true" />
-                <element signature="e#15760#15805#0" expanded="true" />
-                <element signature="e#15855#15900#0" expanded="true" />
-                <element signature="e#15977#16020#0" expanded="true" />
-                <element signature="e#16598#16862#0" expanded="true" />
-                <element signature="e#16861#16862#0" expanded="true" />
-                <element signature="e#16994#17435#0" expanded="true" />
-                <element signature="e#17434#17435#0" expanded="true" />
-                <element signature="e#17664#18677#0" expanded="true" />
-                <element signature="e#18095#18643#0" expanded="true" />
-                <element signature="e#18642#18643#0" expanded="true" />
-                <element signature="e#18676#18677#0" expanded="true" />
-                <element signature="e#19080#19107#0" expanded="true" />
-                <element signature="e#19917#19948#0" expanded="true" />
-                <element signature="e#21031#23772#0" expanded="true" />
-                <element signature="e#21634#21647#0" expanded="true" />
-                <element signature="e#23771#23772#0" expanded="true" />
-                <element signature="e#23908#24488#0" expanded="true" />
-                <element signature="e#24487#24488#0" expanded="true" />
-                <element signature="e#24870#24931#0" expanded="true" />
-                <element signature="e#25139#26150#0" expanded="true" />
-                <element signature="e#25672#25757#0" expanded="true" />
-                <element signature="e#25811#26094#0" expanded="true" />
-                <element signature="e#25991#26010#0" expanded="true" />
-                <element signature="e#26093#26094#0" expanded="true" />
-                <element signature="e#26149#26150#0" expanded="true" />
-                <element signature="class#ClickListener#0;class#JamDetailsViewAdapter#0" expanded="false" />
+                <element signature="e#8634#8882#0" expanded="true" />
+                <element signature="e#8881#8882#0" expanded="true" />
+                <element signature="method#createNotificationMsg#0;class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+                <element signature="method#getNotificationMsgBody#0;class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+                <element signature="e#9604#9665#0" expanded="true" />
+                <element signature="method#notifyAllUsers#0;class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+                <element signature="e#9791#11025#0" expanded="true" />
+                <element signature="e#10391#10476#0" expanded="true" />
+                <element signature="e#10534#10837#0" expanded="true" />
+                <element signature="e#10726#10745#0" expanded="true" />
+                <element signature="e#10836#10837#0" expanded="true" />
+                <element signature="e#11024#11025#0" expanded="true" />
+                <element signature="e#13069#15426#0" expanded="true" />
+                <element signature="e#13558#14890#0" expanded="true" />
+                <element signature="e#14889#14890#0" expanded="true" />
+                <element signature="e#15034#15079#0" expanded="true" />
+                <element signature="e#15129#15174#0" expanded="true" />
+                <element signature="e#15251#15294#0" expanded="true" />
+                <element signature="e#15425#15426#0" expanded="true" />
+                <element signature="e#15562#15826#0" expanded="true" />
+                <element signature="e#15825#15826#0" expanded="true" />
+                <element signature="e#15958#16399#0" expanded="true" />
+                <element signature="e#16398#16399#0" expanded="true" />
+                <element signature="e#16978#17005#0" expanded="true" />
+                <element signature="e#17669#17700#0" expanded="true" />
+                <element signature="e#18654#21314#0" expanded="true" />
+                <element signature="e#18873#18886#0" expanded="true" />
+                <element signature="e#21313#21314#0" expanded="true" />
+                <element signature="e#21450#22030#0" expanded="true" />
+                <element signature="e#22029#22030#0" expanded="true" />
+                <element signature="e#22412#22473#0" expanded="true" />
+                <element signature="e#22681#23692#0" expanded="true" />
+                <element signature="e#23214#23299#0" expanded="true" />
+                <element signature="e#23353#23636#0" expanded="true" />
+                <element signature="e#23533#23552#0" expanded="true" />
+                <element signature="e#23635#23636#0" expanded="true" />
+                <element signature="e#23691#23692#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewJamDetailsFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/ViewJamDetailsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-              <folding>
-                <element signature="method#getData#0;class#ViewJamDetailsFragment#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShareOwnersAdapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShareOwnersAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.31683168">
+              <caret line="67" column="101" selection-start-line="67" selection-start-column="101" selection-end-line="67" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7623#7672#0" expanded="true" />
-                <element signature="e#7762#7818#0" expanded="true" />
-                <element signature="e#9176#9262#0" expanded="true" />
-                <element signature="e#9961#10047#0" expanded="true" />
-                <element signature="e#10282#10301#0" expanded="true" />
+                <element signature="e#6933#6982#0" expanded="true" />
+                <element signature="e#7072#7128#0" expanded="true" />
+                <element signature="e#8486#8572#0" expanded="true" />
+                <element signature="e#9271#9357#0" expanded="true" />
+                <element signature="e#9592#9611#0" expanded="true" />
                 <element signature="method#shareJamWithUser#0;class#ShareOwnersAdapter#0" expanded="false" />
-                <element signature="e#10663#10734#0" expanded="true" />
-                <element signature="e#10758#10825#0" expanded="true" />
+                <element signature="e#9973#10044#0" expanded="true" />
+                <element signature="e#10068#10135#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.814815">
+              <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -162,8 +157,8 @@
       <file leaf-file-name="shares_row.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/shares_row.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state vertical-scroll-proportion="-8.206897">
+              <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -2228,13 +2223,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/InboxRecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/shares_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/MyJamsViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/ShareItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/SharesModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/shares_row.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java" />
       </list>
     </option>
   </component>
@@ -2436,6 +2431,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myShares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myShares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2675,6 +2700,9 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_opened_file_path" value="D:/jamKeyStore.jks" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g900h-320892a419c94117" />
+    <property name="DEBUGGABLE_PROCESS" value="jam.mbarakat.com.myshares" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2883,13 +2911,14 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2710356" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819906" sideWeight="0.49676377" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33412322" sideWeight="0.47977346" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33412322" sideWeight="0.47977346" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42061612" sideWeight="0.48462784" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42061612" sideWeight="0.48462784" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.51943463" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3471564" sideWeight="0.51537216" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2908,7 +2937,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2710356" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2960,18 +2988,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>397</line>
-          <properties />
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>403</line>
-          <properties />
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/activities/MainActivity.java</url>
           <line>113</line>
           <properties />
@@ -2997,7 +3013,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>525</line>
+          <line>489</line>
           <properties />
           <option name="timeStamp" value="277" />
         </line-breakpoint>
@@ -3009,20 +3025,36 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java</url>
-          <line>429</line>
+          <line>396</line>
           <properties />
           <option name="timeStamp" value="305" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="353" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java</url>
+          <line>116</line>
+          <properties />
+          <option name="timeStamp" value="354" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="320" />
+      <option name="time" value="355" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
-        <watch expression="shareModel.getJamModel().isJamStarted()" />
-        <watch expression="new Date()" />
+        <watch expression="shareModel.getShareItems()" />
+      </configuration>
+      <configuration name="Remote">
+        <watch expression="shareModel.getShareItems().get(position)" />
+        <watch expression="shareModel.getShareItems()" />
+        <watch expression="sharesModel" />
       </configuration>
     </watches-manager>
   </component>
@@ -3092,6 +3124,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3198,6 +3233,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3205,6 +3241,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3239,6 +3276,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61759084">
           <caret line="49" column="33" selection-start-line="47" selection-start-column="67" selection-end-line="49" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2723#2735#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3271,6 +3312,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.031835206">
           <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3311,6 +3353,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3351,14 +3394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6846011">
           <caret line="44" column="46" selection-start-line="43" selection-start-column="56" selection-end-line="44" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19921875">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3456,18 +3491,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27083334">
           <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/shares_row.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/CurrentJamsFragment.java">
@@ -3505,24 +3530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7623#7672#0" expanded="true" />
-            <element signature="e#7762#7818#0" expanded="true" />
-            <element signature="e#9176#9262#0" expanded="true" />
-            <element signature="e#9961#10047#0" expanded="true" />
-            <element signature="e#10282#10301#0" expanded="true" />
-            <element signature="method#shareJamWithUser#0;class#ShareOwnersAdapter#0" expanded="false" />
-            <element signature="e#10663#10734#0" expanded="true" />
-            <element signature="e#10758#10825#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/modules/JamModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3551,9 +3558,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/shares_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.206897">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/fragments/ViewJamDetailsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.33146068">
           <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding>
             <element signature="method#getData#0;class#ViewJamDetailsFragment#0" expanded="false" />
@@ -3561,57 +3579,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.814815">
+          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/JamDetailsViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71800435">
-          <caret line="411" column="15" selection-start-line="411" selection-start-column="15" selection-end-line="411" selection-end-column="15" />
+        <state vertical-scroll-proportion="-10.24138">
+          <caret line="454" column="0" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
           <folding>
             <element signature="e#2102#2103#0" expanded="true" />
             <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="method#onBindViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
-            <element signature="e#5295#5338#0" expanded="true" />
-            <element signature="method#showHideDeliveredView#0;class#JamDetailsViewAdapter#0" expanded="false" />
-            <element signature="method#hideAddRec#0;class#JamDetailsViewAdapter#0" expanded="false" />
-            <element signature="method#getItemViewType#0;class#JamDetailsViewAdapter#0" expanded="false" />
-            <element signature="method#updateData#0;class#JamDetailsViewAdapter#0" expanded="false" />
+            <element signature="e#4929#4972#0" expanded="true" />
+            <element signature="e#6563#6564#0" expanded="true" />
+            <element signature="e#6599#6600#0" expanded="true" />
             <element signature="class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
-            <element signature="e#9000#9248#0" expanded="true" />
-            <element signature="e#9247#9248#0" expanded="true" />
-            <element signature="e#9970#10031#0" expanded="true" />
-            <element signature="e#10157#11391#0" expanded="true" />
-            <element signature="e#10757#10842#0" expanded="true" />
-            <element signature="e#10900#11203#0" expanded="true" />
-            <element signature="e#11092#11111#0" expanded="true" />
-            <element signature="e#11202#11203#0" expanded="true" />
-            <element signature="e#11390#11391#0" expanded="true" />
-            <element signature="e#14284#15616#0" expanded="true" />
-            <element signature="e#15615#15616#0" expanded="true" />
-            <element signature="e#15760#15805#0" expanded="true" />
-            <element signature="e#15855#15900#0" expanded="true" />
-            <element signature="e#15977#16020#0" expanded="true" />
-            <element signature="e#16598#16862#0" expanded="true" />
-            <element signature="e#16861#16862#0" expanded="true" />
-            <element signature="e#16994#17435#0" expanded="true" />
-            <element signature="e#17434#17435#0" expanded="true" />
-            <element signature="e#17664#18677#0" expanded="true" />
-            <element signature="e#18095#18643#0" expanded="true" />
-            <element signature="e#18642#18643#0" expanded="true" />
-            <element signature="e#18676#18677#0" expanded="true" />
-            <element signature="e#19080#19107#0" expanded="true" />
-            <element signature="e#19917#19948#0" expanded="true" />
-            <element signature="e#21031#23772#0" expanded="true" />
-            <element signature="e#21634#21647#0" expanded="true" />
-            <element signature="e#23771#23772#0" expanded="true" />
-            <element signature="e#23908#24488#0" expanded="true" />
-            <element signature="e#24487#24488#0" expanded="true" />
-            <element signature="e#24870#24931#0" expanded="true" />
-            <element signature="e#25139#26150#0" expanded="true" />
-            <element signature="e#25672#25757#0" expanded="true" />
-            <element signature="e#25811#26094#0" expanded="true" />
-            <element signature="e#25991#26010#0" expanded="true" />
-            <element signature="e#26093#26094#0" expanded="true" />
-            <element signature="e#26149#26150#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#JamDetailsViewAdapter#0" expanded="false" />
+            <element signature="e#8634#8882#0" expanded="true" />
+            <element signature="e#8881#8882#0" expanded="true" />
+            <element signature="method#createNotificationMsg#0;class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+            <element signature="method#getNotificationMsgBody#0;class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+            <element signature="e#9604#9665#0" expanded="true" />
+            <element signature="method#notifyAllUsers#0;class#JamHeaderViewHolder#0;class#JamDetailsViewAdapter#0" expanded="false" />
+            <element signature="e#9791#11025#0" expanded="true" />
+            <element signature="e#10391#10476#0" expanded="true" />
+            <element signature="e#10534#10837#0" expanded="true" />
+            <element signature="e#10726#10745#0" expanded="true" />
+            <element signature="e#10836#10837#0" expanded="true" />
+            <element signature="e#11024#11025#0" expanded="true" />
+            <element signature="e#13069#15426#0" expanded="true" />
+            <element signature="e#13558#14890#0" expanded="true" />
+            <element signature="e#14889#14890#0" expanded="true" />
+            <element signature="e#15034#15079#0" expanded="true" />
+            <element signature="e#15129#15174#0" expanded="true" />
+            <element signature="e#15251#15294#0" expanded="true" />
+            <element signature="e#15425#15426#0" expanded="true" />
+            <element signature="e#15562#15826#0" expanded="true" />
+            <element signature="e#15825#15826#0" expanded="true" />
+            <element signature="e#15958#16399#0" expanded="true" />
+            <element signature="e#16398#16399#0" expanded="true" />
+            <element signature="e#16978#17005#0" expanded="true" />
+            <element signature="e#17669#17700#0" expanded="true" />
+            <element signature="e#18654#21314#0" expanded="true" />
+            <element signature="e#18873#18886#0" expanded="true" />
+            <element signature="e#21313#21314#0" expanded="true" />
+            <element signature="e#21450#22030#0" expanded="true" />
+            <element signature="e#22029#22030#0" expanded="true" />
+            <element signature="e#22412#22473#0" expanded="true" />
+            <element signature="e#22681#23692#0" expanded="true" />
+            <element signature="e#23214#23299#0" expanded="true" />
+            <element signature="e#23353#23636#0" expanded="true" />
+            <element signature="e#23533#23552#0" expanded="true" />
+            <element signature="e#23635#23636#0" expanded="true" />
+            <element signature="e#23691#23692#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jam/mbarakat/com/myshares/adapters/ShareOwnersAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31683168">
+          <caret line="67" column="101" selection-start-line="67" selection-start-column="101" selection-end-line="67" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6933#6982#0" expanded="true" />
+            <element signature="e#7072#7128#0" expanded="true" />
+            <element signature="e#8486#8572#0" expanded="true" />
+            <element signature="e#9271#9357#0" expanded="true" />
+            <element signature="e#9592#9611#0" expanded="true" />
+            <element signature="method#shareJamWithUser#0;class#ShareOwnersAdapter#0" expanded="false" />
+            <element signature="e#9973#10044#0" expanded="true" />
+            <element signature="e#10068#10135#0" expanded="true" />
           </folding>
         </state>
       </provider>

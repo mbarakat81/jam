@@ -24,6 +24,7 @@
                     android:visibility="visible">
 
                 <Button
+                    android:id="@+id/btnDelivered"
                     android:layout_alignParentTop="true"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
@@ -33,11 +34,9 @@
                     android:textStyle="bold"
                     android:gravity="top|center"
                     android:textColor="@android:color/black"
-                    android:clickable="true"
                     android:background="@color/colorPrimary"
                     android:alpha="0.40"
-                    android:id="@+id/btnDelivered"
-                    android:visibility="visible"/>
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/lblShareStartDay"
                     android:layout_width="wrap_content"
@@ -101,26 +100,6 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_below="@+id/addRecName1"/>
-                <Button
-                    android:id="@+id/btnShareDelivered"
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:text="@string/lbl_delivered"
-                    android:clickable="true"
-                    android:layout_marginTop="5dp"
-                    android:paddingTop="5dp"
-                    android:background="@color/colorPrimary"
-                    android:layout_above="@+id/tt"
-                    android:visibility="gone"
-
-                    />
-                    <Button
-                        android:id="@+id/tt"
-                        android:layout_alignParentBottom="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:text="@string/lbl_payers_list"/>
                 <EditText
                     android:id="@+id/hiddenJId"
                     android:layout_width="wrap_content"

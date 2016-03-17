@@ -111,10 +111,6 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             sharesModel = data.get(position - 1);
             sharesModel.setJamModel(jamModel);
             sharesViewHolder.startDay.setText(HelperClass.getFormatedDateFromString(sharesModel.getStartDay()));
-            sharesViewHolder.hiddenJID.setText(sharesModel.getJamId());
-            sharesViewHolder.hiddenShareNo.setText(String.valueOf(sharesModel.getShareOrder()));
-            sharesViewHolder.hiddenJAmount.setText(String.valueOf(sharesModel.getjAmount()));
-            sharesViewHolder.hiddenJAddedAmount.setText(String.valueOf(sharesModel.getAddedAmount()));
             sharesViewHolder.amount.setText("");
             sharesViewHolder.addRecName.setText("");
             sharesViewHolder.shareItems = sharesModel.getShareItems();
@@ -279,10 +275,10 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
     class SharesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        EditText hiddenJID, hiddenShareNo , amount,hiddenJAmount, hiddenJAddedAmount, addRecName;
-        TextView startDay, lblStartDay, backText, lblNotifyAllUsersToPay, flipToBack;
+        EditText amount,addRecName;
+        TextView startDay, lblStartDay, lblNotifyAllUsersToPay, flipToBack;
         ImageView btnAddRecToShare, notifyAllUsersToPay;
-        Button btnShareDelivered, btnDelivered;
+        Button btnDelivered;
         ListView lvParticipants, lvSharePayments;
 
         public View view;
@@ -291,7 +287,6 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         List<SharePayersModel> sharePayersModels = Collections.EMPTY_LIST;
         ShareOwnersAdapter shareOwnersAdapter = null;
         SharePayersAdapter sharePayersAdapter = null;
-        int shareAmountSum = 0;
         int mAmount ;
 
 
@@ -307,15 +302,11 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             this.view = itemView;
             startDay = (TextView) view.findViewById(R.id.txtShareStartDay);
             startDay.setTypeface(tf);
-            backText = (TextView) view.findViewById(R.id.backText);
-            backText.setTypeface(tf);
             lblNotifyAllUsersToPay = (TextView) view.findViewById(R.id.lblNotifyAllUsersToPay);
             lblNotifyAllUsersToPay.setTypeface(tf);
             lblStartDay = (TextView) view.findViewById(R.id.lblShareStartDay);
             lblStartDay.setTypeface(tf);
             btnDelivered = (Button) view.findViewById(R.id.btnDelivered);
-            btnShareDelivered = (Button) view.findViewById(R.id.btnShareDelivered);
-            btnShareDelivered.setTypeface(tf);
             amount = (EditText)view.findViewById(R.id.subShareAmount);
             amount.setTypeface(tf);
             addRecName = (EditText) view.findViewById(R.id.addRecName1);
@@ -366,10 +357,6 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 }
             });
 
-            hiddenJID = (EditText)view.findViewById(R.id.hiddenJId);
-            hiddenShareNo = (EditText)view.findViewById(R.id.hiddenShareNo);
-            hiddenJAmount = (EditText)view.findViewById(R.id.hiddenJAmount);
-            hiddenJAddedAmount = (EditText)view.findViewById(R.id.hiddenJAddedAmount);
             lvParticipants = (ListView) view.findViewById(R.id.lvSharesParticipants);
             lvParticipants.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -392,25 +379,6 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             notifyAllUsersToPay = (ImageView) view.findViewById(R.id.notifyAllUsersToPay);
             btnAddRecToShare = (ImageView)view.findViewById(R.id.btnAddRecToShare);
 
-            btnShareDelivered.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("jShares");
-                    query.whereEqualTo("shares_jamNo", hiddenJID.getText().toString())
-                            .whereEqualTo("share_order", Integer.parseInt(hiddenShareNo.getText().toString()));
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        @Override
-                        public void done(ParseObject parseObject, ParseException e) {
-                            parseObject.put("share_status", true);
-                            parseObject.saveInBackground();
-                            btnShareDelivered.setVisibility(View.GONE);
-                            btnDelivered.setVisibility(View.VISIBLE);
-                            data.get(getPosition()-1).setShareDelivered(true);
-                        }
-                    });
-                }
-            });
-
             btnAddRecToShare.setOnClickListener(new View.OnClickListener() {
                 public ProgressDialog progress;
 
@@ -420,41 +388,33 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                         Toast.makeText(context, R.string.data_filling_issue, Toast.LENGTH_LONG).show();
                     } else {
                         mAmount = Integer.parseInt(amount.getText().toString());
-                        int shareAmount = Integer.parseInt(hiddenJAmount.getText().toString());
-                        //shareAmountSum = (hiddenJAddedAmount.getText().toString().isEmpty()) ? 0 : Integer.parseInt(hiddenJAddedAmount.getText().toString());
-                        //shareAmountSum += mAmount;
+                        final SharesModel sharesModel = jamModel.getSharesModel().get(getPosition()-1);
+                        final List<ShareItem> shareItems = sharesModel.getShareItems();
                         int sum=0;
                         for(ShareItem shareItem : shareItems){
                             sum = sum + shareItem.getShareAmount();
                         }
-                        if ((sum + mAmount) > shareAmount) {
-                            //shareAmountSum -= mAmount;
+                        if ((sum + mAmount) > Integer.parseInt(jamModel.getjAmount())) {
                             Toast.makeText(context, R.string.sub_shares_count_error, Toast.LENGTH_LONG).show();
                         } else {
 
                             progress = ProgressDialog.show(context, "",
                                     "", true);
-                            //hiddenJAddedAmount.setText(String.valueOf(shareAmountSum));
-
                             final String name = addRecName.getText().toString();
                             final String phone = "";
 
                             final ParseObject parseObject = new ParseObject("Share_owners");
-                            parseObject.put("jamId", hiddenJID.getText().toString());
+                            parseObject.put("jamId", jamModel.getjId());
                             parseObject.put("share_owner", addRecName.getText().toString());
                             parseObject.put("share_owner_id", "");
                             parseObject.put("obs", false);
-                            parseObject.put("share_no", Integer.parseInt(hiddenShareNo.getText().toString()));
+                            parseObject.put("share_no", sharesModel.getShareOrder());
                             parseObject.put("share_amount", Integer.parseInt(amount.getText().toString()));
 
                             parseObject.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
-                                    if (shareItems.size() == 0) {
-                                        shareItems = new ArrayList<ShareItem>();
-                                        shareOwnersAdapter = new ShareOwnersAdapter(context, view, sharesModel);
-                                        lvParticipants.setAdapter(shareOwnersAdapter);
-                                    }
+
 
                                     List<ParseObject> parseObjectList = new ArrayList<ParseObject>();
 
@@ -476,18 +436,22 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                         e1.printStackTrace();
                                     }
 
+
                                     shareItems.add(new ShareItem(name
                                             , phone
                                             , Integer.parseInt(amount.getText().toString())
                                             , parseObject.getObjectId()
-                                            , Integer.parseInt(hiddenShareNo.getText().toString())
+                                            , sharesModel.getShareOrder()
                                             , parseObject.getString("share_owner_id")));
 
-                                    shareOwnersAdapter.notifyDataSetChanged();
+                                    jamModel.getSharesModel().get(getPosition()-1).setShareItems(shareItems);
+                                    shareOwnersAdapter = new ShareOwnersAdapter(context, view, jamModel.getSharesModel().get(getPosition()-1));
+                                    lvParticipants.setAdapter(shareOwnersAdapter);
+                                    //shareOwnersAdapter.notifyDataSetChanged();
                                     addRecName.setText("");
                                     addRecName.requestFocus();
                                     amount.setText("");
-                                    data.get(getPosition()-1).setShareItems(shareItems);
+                                    //sharesModel.setShareItems(shareItems);
                                     progress.dismiss();
                                 }
                             });
