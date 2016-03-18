@@ -33,7 +33,8 @@
     <string name="new_jam_share_period">Share Period</string>
     <string name="new_jam_start_day">تاريخ بداية الجمعية</string>
     <string name="new_jam_is_public">أظهر للكل</string>
-    <string name="share_delivery_date">تاريخ تسليم السهم : </string>
+    <string name="share_delivery_date">تاريخ التسليم : </string>
+    <string name="share_order">السهم رقم: %s</string>
     <string name="lbl_current_jam_name">إسم الجمعية</string>
     <string name="lbl_next_jam_date">موعد تسليم السهم</string>
     <string name="lbl_owner">المالك</string>
@@ -77,4 +78,5 @@
     <string name="ntf_receive_msg_body">تنبيه لإستلام سهم جمعية %s</string>
     <string name="alert_done">تم!</string>
     <string name="ntf_from">المرسل : %s</string>
+    <string name="lbl_share_order">dfgdfg</string>
 </resources>

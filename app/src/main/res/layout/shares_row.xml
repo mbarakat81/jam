@@ -37,6 +37,15 @@
                     android:background="@color/colorPrimary"
                     android:alpha="0.40"
                     android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/lblShareOrder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/share_order"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="10dp"
+                        android:textSize="14dp"
+                        android:layout_alignParentRight="true"/>
                 <TextView
                     android:id="@+id/lblShareStartDay"
                     android:layout_width="wrap_content"
@@ -45,7 +54,7 @@
                     android:textColor="@android:color/white"
                     android:layout_marginRight="10dp"
                     android:textSize="14dp"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_toLeftOf="@+id/lblShareOrder"/>
                 <TextView
                     android:id="@+id/txtShareStartDay"
                     android:layout_width="wrap_content"
@@ -100,26 +109,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_below="@+id/addRecName1"/>
-                <EditText
-                    android:id="@+id/hiddenJId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"/>
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/hiddenShareNo"
-                    android:visibility="gone"/>
-                <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/hiddenJAmount"
-                android:visibility="gone"/>
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/hiddenJAddedAmount"
-                    android:visibility="gone"/>
+
             </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/back"

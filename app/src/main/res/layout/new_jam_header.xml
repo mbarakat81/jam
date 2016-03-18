@@ -47,7 +47,7 @@
                 android:id="@+id/txtNewJamAmount1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="15dp"
                 android:layout_toLeftOf="@+id/imgJamValue"
                 android:hint="@string/new_jam_share_value"/>

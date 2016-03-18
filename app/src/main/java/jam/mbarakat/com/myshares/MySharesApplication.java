@@ -1,6 +1,8 @@
 package jam.mbarakat.com.myshares;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -24,6 +26,13 @@ public class MySharesApplication extends Application{
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
     }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
     public static void updateParseInstallation(ParseUser user){
         ParseInstallation installation = ParseInstallation.getCurrentInstallation();
         installation.put(ParseConstants.KEY_USER_ID, user.getObjectId());

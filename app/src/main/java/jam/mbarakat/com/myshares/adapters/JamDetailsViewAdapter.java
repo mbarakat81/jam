@@ -113,16 +113,14 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             sharesViewHolder.startDay.setText(HelperClass.getFormatedDateFromString(sharesModel.getStartDay()));
             sharesViewHolder.amount.setText("");
             sharesViewHolder.addRecName.setText("");
+            sharesViewHolder.lblShareOrder.setText(String.format(context.getResources().getString(R.string.share_order),sharesModel.getShareOrder()));
             sharesViewHolder.shareItems = sharesModel.getShareItems();
             sharesViewHolder.sharePayersModels = sharesModel.getSharePayersModels();
             sharesViewHolder.shareOwnersAdapter = new ShareOwnersAdapter(context, parentView,sharesModel);
-
             sharesViewHolder.lvParticipants.setAdapter(sharesViewHolder.shareOwnersAdapter);
             sharesViewHolder.cardBack.setVisibility(View.GONE);
             sharesViewHolder.cardFace.setVisibility(View.VISIBLE);
             sharesViewHolder.flipToBack.setText(context.getString(R.string.lbl_payers_list));
-
-
             showHideDeliveredView(sharesViewHolder, sharesModel);
         }
         if(position > prevPos){
@@ -276,7 +274,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     class SharesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         EditText amount,addRecName;
-        TextView startDay, lblStartDay, lblNotifyAllUsersToPay, flipToBack;
+        TextView startDay, lblStartDay, lblNotifyAllUsersToPay, flipToBack, lblShareOrder;
         ImageView btnAddRecToShare, notifyAllUsersToPay;
         Button btnDelivered;
         ListView lvParticipants, lvSharePayments;
@@ -304,6 +302,8 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             startDay.setTypeface(tf);
             lblNotifyAllUsersToPay = (TextView) view.findViewById(R.id.lblNotifyAllUsersToPay);
             lblNotifyAllUsersToPay.setTypeface(tf);
+            lblShareOrder = (TextView) view.findViewById(R.id.lblShareOrder);
+            lblShareOrder.setTypeface(tf);
             lblStartDay = (TextView) view.findViewById(R.id.lblShareStartDay);
             lblStartDay.setTypeface(tf);
             btnDelivered = (Button) view.findViewById(R.id.btnDelivered);
@@ -447,11 +447,9 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                     jamModel.getSharesModel().get(getPosition()-1).setShareItems(shareItems);
                                     shareOwnersAdapter = new ShareOwnersAdapter(context, view, jamModel.getSharesModel().get(getPosition()-1));
                                     lvParticipants.setAdapter(shareOwnersAdapter);
-                                    //shareOwnersAdapter.notifyDataSetChanged();
                                     addRecName.setText("");
                                     addRecName.requestFocus();
                                     amount.setText("");
-                                    //sharesModel.setShareItems(shareItems);
                                     progress.dismiss();
                                 }
                             });
