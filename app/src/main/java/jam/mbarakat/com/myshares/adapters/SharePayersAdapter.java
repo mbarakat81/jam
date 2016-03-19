@@ -5,7 +5,10 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,37 +60,57 @@ public class SharePayersAdapter extends ArrayAdapter<SharePayersModel> {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.share_cashing_user, null);
             sharePayersViewHolder = new SharePayersViewHolder();
             sharePayersViewHolder.paid = (ImageView)convertView.findViewById(R.id.paid);
-            sharePayersViewHolder.notifyUserToPay = (ImageView)convertView.findViewById(R.id.notifyUserToPay);
-            sharePayersViewHolder.userPaidAction = (ImageView)convertView.findViewById(R.id.userPaidAction);
-            sharePayersViewHolder.userPaidCancel = (ImageView)convertView.findViewById(R.id.userPaidCancel);
+            sharePayersViewHolder.notifyUserToPay = (ImageButton)convertView.findViewById(R.id.notifyUserToPay);
+            sharePayersViewHolder.userPaymentPaid = (ImageView)convertView.findViewById(R.id.userPaymentPaid);
+            sharePayersViewHolder.userPaymentPending = (ImageView)convertView.findViewById(R.id.userPaymentPending);
             sharePayersViewHolder.txtSharePayer = (TextView)convertView.findViewById(R.id.txtSharePayer);
+            sharePayersViewHolder.txtSharePayer.setTypeface(tf);
             sharePayersViewHolder.txtSharePayer.setTypeface(tf);
             sharePayersViewHolder.lblAskForPayment = (TextView)convertView.findViewById(R.id.lblAskForPayment);
             sharePayersViewHolder.lblAskForPayment.setTypeface(tf);
+            sharePayersViewHolder.txtSharePaidAmount = (TextView)convertView.findViewById(R.id.txtSharePaidAmount);
+            sharePayersViewHolder.txtSharePaidAmount.setTypeface(tf);
             convertView.setTag(sharePayersViewHolder);
         }else {
             sharePayersViewHolder = (SharePayersViewHolder) convertView.getTag();
         }
+
         sharePayersViewHolder.txtSharePayer.setText(jamShare.getSharePayersModels().get(position).getPayerName());
+        sharePayersViewHolder.txtSharePaidAmount.setText(String.valueOf(jamShare.getSharePayersModels().get(position).getAmount()));
+
         if(jamShare.getSharePayersModels().get(position).isPaid()){
-            sharePayersViewHolder.userPaidAction.setVisibility(View.VISIBLE);
-            sharePayersViewHolder.userPaidCancel.setVisibility(View.INVISIBLE);
+            sharePayersViewHolder.userPaymentPaid.setVisibility(View.VISIBLE);
+            sharePayersViewHolder.userPaymentPending.setVisibility(View.INVISIBLE);
             sharePayersViewHolder.notifyUserToPay.setVisibility(View.GONE);
-            sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_cancel_payment);
+            if(!jamShare.getJamModel().isMysJam()){
+                sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_share_paid_user_side);
+            }else{
+                sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_cancel_payment);
+            }
             convertView.setBackgroundColor(mContext.getResources().getColor(R.color.holo_green_dark));
+
         }else{
-            sharePayersViewHolder.userPaidAction.setVisibility(View.INVISIBLE);
-            sharePayersViewHolder.userPaidCancel.setVisibility(View.VISIBLE);
-            if(jamShare.getSharePayersModels().get(position).isPayerVerified())
+            sharePayersViewHolder.userPaymentPaid.setVisibility(View.INVISIBLE);
+            sharePayersViewHolder.userPaymentPending.setVisibility(View.VISIBLE);
+            if(jamShare.getSharePayersModels().get(position).isPayerVerified() && jamShare.getJamModel().isMysJam())
                 sharePayersViewHolder.notifyUserToPay.setVisibility(View.VISIBLE);
             else
                 sharePayersViewHolder.notifyUserToPay.setVisibility(View.GONE);
-            sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_ask_if_paid);
+
+            if(!jamShare.getJamModel().isMysJam()){
+                sharePayersViewHolder.lblAskForPayment.setText("لم يتم التحصيل");
+            }else{
+                sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_ask_if_paid);
+            }
             convertView.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimary));
         }
 
         final View finalConvertView = convertView;
-
+        if(!jamShare.getJamModel().isMysJam()){
+            sharePayersViewHolder.paid.setVisibility(View.GONE);
+        }else{
+            sharePayersViewHolder.paid.setVisibility(View.VISIBLE);
+        }
 
         sharePayersViewHolder.paid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,13 +128,13 @@ public class SharePayersAdapter extends ArrayAdapter<SharePayersModel> {
                             jamShare.getSharePayersModels().get(position).setIsPaid(parseObject.getBoolean("status"));
 
                             if (parseObject.getBoolean("status")) {
-                                sharePayersViewHolder.userPaidAction.setVisibility(View.VISIBLE);
-                                sharePayersViewHolder.userPaidCancel.setVisibility(View.INVISIBLE);
+                                sharePayersViewHolder.userPaymentPaid.setVisibility(View.VISIBLE);
+                                sharePayersViewHolder.userPaymentPending.setVisibility(View.INVISIBLE);
                                 sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_cancel_payment);
                                 finalConvertView.setBackgroundColor(mContext.getResources().getColor(R.color.holo_green_dark));
                             } else {
-                                sharePayersViewHolder.userPaidAction.setVisibility(View.INVISIBLE);
-                                sharePayersViewHolder.userPaidCancel.setVisibility(View.VISIBLE);
+                                sharePayersViewHolder.userPaymentPaid.setVisibility(View.INVISIBLE);
+                                sharePayersViewHolder.userPaymentPending.setVisibility(View.VISIBLE);
                                 sharePayersViewHolder.lblAskForPayment.setText(R.string.lbl_ask_if_paid);
                                 finalConvertView.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimary));
                                 amount = amount * -1;
@@ -130,9 +153,12 @@ public class SharePayersAdapter extends ArrayAdapter<SharePayersModel> {
         sharePayersViewHolder.notifyUserToPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
+                v.startAnimation(shake);
                 ParseObject notifyMsg = createNotificationMsg(jamShare.getSharePayersModels().get(position).getUser_id());
                 notifyUser(notifyMsg, jamShare.getSharePayersModels().get(position).getUser_id());
             }
+
         });
         return convertView;
     }
@@ -167,7 +193,8 @@ public class SharePayersAdapter extends ArrayAdapter<SharePayersModel> {
         });
     }
     private static class SharePayersViewHolder{
-        TextView txtSharePayer, lblAskForPayment;
-        ImageView userPaidAction, userPaidCancel, paid, notifyUserToPay;
+        TextView txtSharePayer, lblAskForPayment, txtSharePaidAmount;
+        ImageView userPaymentPaid, userPaymentPending, paid ;
+        ImageButton notifyUserToPay;
     }
 }

@@ -9,6 +9,8 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -106,30 +108,49 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
                 final int tag = (Integer) view.getTag();
                 progress = ProgressDialog.show(getContext(), "",
                         "", true);
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Share_owners");
-                query.getInBackground(shareId, new GetCallback<ParseObject>() {
-                    public void done(ParseObject parseObject, ParseException e) {
-                        if (e == null) {
-                            parseObject.put("obs", true);
-                            parseObject.saveInBackground();
-                            shareModel.getShareItems().remove(tag);
-                            notifyDataSetChanged();
-                            progress.dismiss();
-                        }
-                    }
-                });
+
                 ParseQuery<ParseObject> deleteFromSharePaidUsers = ParseQuery.getQuery("share_paid_users");
                 deleteFromSharePaidUsers.whereEqualTo("share_payer_id", shareId);
                 deleteFromSharePaidUsers.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> list, ParseException e) {
-                        try {
-                            ParseObject.deleteAll(list);
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
+                        if (e == null) {
+                            boolean cancelDeletion = false;
+                            for(ParseObject parseObject: list){
+                                if(parseObject.getBoolean("status")){
+                                    cancelDeletion = true;
+                                    break;
+                                }
+                            }
+                            if(cancelDeletion){
+                                Toast.makeText(mContext, R.string.msg_delete_cancelation, Toast.LENGTH_LONG).show();
+                                progress.dismiss();
+                            }else{
+                                try {
+                                    ParseObject.deleteAll(list);
+                                } catch (ParseException e1) {
+                                    e1.printStackTrace();
+                                }
+                                ParseQuery<ParseObject> query = ParseQuery.getQuery("Share_owners");
+                                query.getInBackground(shareId, new GetCallback<ParseObject>() {
+                                    public void done(ParseObject parseObject, ParseException e) {
+                                        if (e == null) {
+                                            parseObject.put("obs", true);
+                                            parseObject.saveInBackground();
+                                            shareModel.getShareItems().remove(tag);
+                                            notifyDataSetChanged();
+                                            progress.dismiss();
+                                        }
+                                    }
+                                });
+                            }
                         }
                     }
+
                 });
+
+
+
             }
         });
         shareItemViewHolder.shareViaSocialMedia.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +187,9 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
         shareItemViewHolder.notifyUserToReceive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Animation shake = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
+                v.startAnimation(shake);
                 List<String> users = new ArrayList<>();
                 users.add(shareItem.getShareOwnerId());
                 ParseObject notifyMsg = createNotificationMsg(users);

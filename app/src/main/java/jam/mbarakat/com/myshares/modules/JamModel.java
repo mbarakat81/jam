@@ -282,6 +282,15 @@ public class JamModel implements Parcelable {
         return jamStarted;
     }
 
+    public boolean isOneShareBeenDelivered(){
+        boolean isShareDelivered = false;
+        for(SharesModel sharesModel:getSharesModel()){
+            if(sharesModel.isSharePaid(Integer.parseInt(sharesNo)))
+                return true;
+        }
+        return isShareDelivered;
+    }
+
     public List getJamUsers() throws ParseException {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Share_owners");
         List<String> users = new ArrayList();

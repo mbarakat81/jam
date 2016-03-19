@@ -76,6 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imgJamName"
+                    android:layout_marginTop="5dp"
                     android:layout_toLeftOf="@+id/lblSharesNo"
                     android:inputType="numberDecimal"
                     />
@@ -104,6 +105,7 @@
                 android:id="@+id/txtNewJamAmount1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:inputType="number"
                 android:layout_toLeftOf="@+id/lblNewJamAmount1"
                 android:layout_below="@+id/imgJamSharesNo"/>

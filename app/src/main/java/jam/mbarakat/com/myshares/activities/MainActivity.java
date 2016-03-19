@@ -217,7 +217,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 Button dialogButton = (Button) dialog.findViewById(R.id.btnNewJamPaticipants);
-                // if button is clicked, close the custom dialog
                 dialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -231,8 +230,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -244,12 +241,11 @@ public class MainActivity extends AppCompatActivity {
                 || txtNewJamAmount.getText().toString().equals("")
                 || txtNewJamDate.getText().toString().equals("")
                 || txtSharesNo.getText().toString().equals("")) {
-            Toast.makeText(MainActivity.this, "this is my Toast message!!! =)", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.data_filling_issue, Toast.LENGTH_LONG).show();
 
         } else {
             progress = ProgressDialog.show(context, "",
                     "", true);
-            //fab.setVisibility(View.VISIBLE);
             jamModel = new JamModel(txtNewJamName.getText().toString()
                     , currentUser.getObjectId()
                     , txtNewJamAmount.getText().toString()
@@ -275,25 +271,22 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void done(ParseException e) {
                     if (e == null) {
-                        String jId = parseObject.getObjectId();
-                        saveJamShares(jId
-                                , Integer.parseInt(jamModel.getjAmount())
-                                , Integer.parseInt(jamModel.getSharesNo())
-                                , Integer.parseInt(jamModel.getjPeriod()));
+                        jamModel.setjId(parseObject.getObjectId());
+                        saveJamShares();
                     }
                 }
             });
         }
     }
 
-    private void saveJamShares(final String jamId, final int shareAmount, final int sharesNo, int days) {
+    private void saveJamShares() {
         final List<ParseObject> sharesObject = new ArrayList<>();
         final List<SharesModel> sharesModels = new ArrayList<>();
         int shareOrder = 1;
-        int sumDays = days;
-        for (int i = 0; i < sharesNo; i++) {
+        int sumDays = Integer.parseInt(jamModel.getjPeriod());
+        for (int i = 0; i < Integer.parseInt(jamModel.getSharesNo()); i++) {
             ParseObject jamShares = new ParseObject("jShares");
-            jamShares.put("shares_jamNo", jamId);
+            jamShares.put("shares_jamNo", jamModel.getjId());
             String day = HelperClass.setDate(txtNewJamDate.getText().toString(), sumDays);
             String[] arrDay = day.split("/");
             int _day, month, year;
@@ -304,13 +297,9 @@ public class MainActivity extends AppCompatActivity {
             jamShares.put("share_order", shareOrder);
             jamShares.put("share_status", false);
             jamShares.put("share_paid_amount", 0);
-            sumDays += days;
+            sumDays += Integer.parseInt(jamModel.getjPeriod());
             shareOrder++;
-
-
-
             sharesObject.add(jamShares);
-
         }
 
         ParseObject.saveAllInBackground(sharesObject, new SaveCallback() {
@@ -319,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
                 if (e == null) {
                     for(ParseObject parseObject: sharesObject){
                         SharesModel sharesModel = new SharesModel(parseObject, context);
-                        sharesModel.setjAmount(shareAmount);
+                        sharesModel.setjAmount(Integer.parseInt(jamModel.getjAmount()));
                         sharesModels.add(sharesModel);
                     }
                     jamModel.setSharesModel(sharesModels);
@@ -334,7 +323,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void navigateToLogin() {

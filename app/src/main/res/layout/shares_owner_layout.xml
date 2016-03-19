@@ -11,6 +11,9 @@
         android:layout_height="wrap_content"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
+        android:lines="1"
+        android:maxLength="15"
+        android:ellipsize="end"
         android:layout_marginRight="5dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true" />

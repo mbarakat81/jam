@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -101,9 +102,11 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             jamHeaderViewHolder.sharesNo.setText(jamModel.getSharesNo());
             if(!isMyJam){
                 jamHeaderViewHolder.imgNotifyAllUsers.setVisibility(View.GONE);
+                jamHeaderViewHolder.lblNotify.setVisibility(View.GONE);
             }
             else{
                 jamHeaderViewHolder.imgNotifyAllUsers.setVisibility(View.VISIBLE);
+                jamHeaderViewHolder.lblNotify.setVisibility(View.VISIBLE);
             }
 
         }else if(holder instanceof SharesViewHolder){
@@ -122,6 +125,13 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             sharesViewHolder.cardFace.setVisibility(View.VISIBLE);
             sharesViewHolder.flipToBack.setText(context.getString(R.string.lbl_payers_list));
             showHideDeliveredView(sharesViewHolder, sharesModel);
+            if(jamModel.isMysJam()){
+                sharesViewHolder.lblNotifyAllUsersToPay.setVisibility(View.VISIBLE);
+                sharesViewHolder.notifyAllUsersToPay.setVisibility(View.VISIBLE);
+            }else {
+                sharesViewHolder.lblNotifyAllUsersToPay.setVisibility(View.GONE);
+                sharesViewHolder.notifyAllUsersToPay.setVisibility(View.GONE);
+            }
         }
         if(position > prevPos){
             AnimationUtils.animate(holder, true);
@@ -136,7 +146,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             hideAddRec(true, sharesViewHolder);
             sharesViewHolder.btnDelivered.setVisibility(View.VISIBLE);
         }else{
-            if(!isMyJam || jamModel.isJamStarted()){
+            if(!isMyJam || jamModel.isOneShareBeenDelivered()){
                 hideAddRec(true, sharesViewHolder);
             }else{
                 hideAddRec(false, sharesViewHolder);
@@ -213,6 +223,9 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             imgNotifyAllUsers.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);
+                    v.startAnimation(shake);
                     ParseObject notifyMsg = createNotificationMsg();
                     notifyAllUsers(notifyMsg);
                 }
@@ -274,7 +287,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     class SharesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         EditText amount,addRecName;
-        TextView startDay, lblStartDay, lblNotifyAllUsersToPay, flipToBack, lblShareOrder;
+        TextView startDay, lblStartDay, lblNotifyAllUsersToPay, flipToBack, lblShareOrder, backText;
         ImageView btnAddRecToShare, notifyAllUsersToPay;
         Button btnDelivered;
         ListView lvParticipants, lvSharePayments;
@@ -302,6 +315,8 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             startDay.setTypeface(tf);
             lblNotifyAllUsersToPay = (TextView) view.findViewById(R.id.lblNotifyAllUsersToPay);
             lblNotifyAllUsersToPay.setTypeface(tf);
+            backText = (TextView) view.findViewById(R.id.backText);
+            backText.setTypeface(tf);
             lblShareOrder = (TextView) view.findViewById(R.id.lblShareOrder);
             lblShareOrder.setTypeface(tf);
             lblStartDay = (TextView) view.findViewById(R.id.lblShareStartDay);
@@ -340,7 +355,9 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                         , parseObject.getInt("amount")
                                 ));
                             }
-                            data.get(getPosition() - 1).setSharePayersModels(sharePayersModels);
+                            SharesModel sharesModel = data.get(getPosition() - 1);
+                            sharesModel.setSharePayersModels(sharePayersModels);
+                            sharesModel.setJamModel(jamModel);
                             sharePayersAdapter = new SharePayersAdapter(context, data.get(getPosition() - 1), parentView, jamModel.getjName());
                             lvSharePayments.setAdapter(sharePayersAdapter);
                         }
@@ -414,10 +431,8 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             parseObject.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
-
-
+                                if(e==null){
                                     List<ParseObject> parseObjectList = new ArrayList<ParseObject>();
-
                                     for(SharesModel sharesModel: data){
                                         ParseObject saveToSharePayers = new ParseObject("share_paid_users");
                                         saveToSharePayers.put("share_payer_id",parseObject.getObjectId());
@@ -451,7 +466,11 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                     addRecName.requestFocus();
                                     amount.setText("");
                                     progress.dismiss();
+                                }else {
+                                    Toast.makeText(context, e.getMessage() + "", Toast.LENGTH_LONG).show();
                                 }
+                            }
+
                             });
                         }
                     }
@@ -462,6 +481,8 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 public void onClick(View v) {
                     List<String> users = new ArrayList();
 
+                    Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);
+                    v.startAnimation(shake);
                     for(SharePayersModel sharePayersModel: sharePayersModels){
                         if(sharePayersModel.isPayerVerified() && !sharePayersModel.isPaid())
                             users.add(sharePayersModel.getUser_id());
@@ -487,7 +508,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 public void done(ParseException e) {
                     if (e == null) {
                         ParseQuery<ParseInstallation> parseInstallationParseQuery = ParseInstallation.getQuery();
-                        parseInstallationParseQuery.whereEqualTo(ParseConstants.KEY_USER_ID, users);
+                        parseInstallationParseQuery.whereContainedIn(ParseConstants.KEY_USER_ID, users);
                         ParsePush parsePush = new ParsePush();
                         parsePush.setQuery(parseInstallationParseQuery);
                         parsePush.setMessage(context.getString(R.string.txt_new_notification, SessionUser.getUser().getUserName()));

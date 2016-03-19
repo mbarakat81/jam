@@ -27,16 +27,17 @@
                     android:id="@+id/btnDelivered"
                     android:layout_alignParentTop="true"
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
+                    android:layout_height="70dp"
                     android:text="Delivered"
-                    android:textSize="20dp"
+                    android:textSize="50dp"
                     android:textAllCaps="true"
+                    android:layout_marginTop="60dp"
                     android:textStyle="bold"
                     android:gravity="top|center"
                     android:textColor="@android:color/black"
                     android:background="@color/colorPrimary"
                     android:alpha="0.40"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
                     <TextView
                         android:id="@+id/lblShareOrder"
                         android:layout_width="wrap_content"

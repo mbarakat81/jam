@@ -61,8 +61,8 @@
     <string name="msg_interuuption">لقد تمت مقاطعتك أثاء التعديل, قم بالعوده للصفحة الرئيسية للمتابعة.</string>
     <string name="lbl_payers_list">قائمة المشاركين</string>
     <string name="lbl_back_to_share">عودة الى السهم</string>
-    <string name="lbl_ask_if_paid">هل تم تحصيل الدفعة؟</string>
-    <string name="lbl_cancel_payment">تراجع عن تحصيل الدفعة؟</string>
+    <string name="lbl_ask_if_paid">تم التحصيل ؟</string>
+    <string name="lbl_cancel_payment">إلغاء التحصيل؟</string>
     <string name="new_jam_title">New Jam</string>
     <string name="sd">fdsf</string>
     <string name="banner_ad_unit_id">ca-app-pub-7049990115818203/5559041976</string>
@@ -79,4 +79,6 @@
     <string name="alert_done">تم!</string>
     <string name="ntf_from">المرسل : %s</string>
     <string name="lbl_share_order">dfgdfg</string>
+    <string name="lbl_share_paid_user_side">تم تحصيل المبلغ</string>
+    <string name="msg_delete_cancelation">عليك القيام بإلغاء جميع دفعات المشترك قبل حذفة.</string>
 </resources>
