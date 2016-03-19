@@ -1,7 +1,9 @@
 package jam.mbarakat.com.myshares.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -33,7 +36,6 @@ public class ViewJamDetailsFragment extends Fragment {
     private ProgressDialog progress;
 
     RecyclerView recyclerView;
-    private LinearLayoutManager mLinearLayoutManager;
     JamDetailsViewAdapter adapter;
 
 
@@ -48,7 +50,7 @@ public class ViewJamDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_view_jam_details,container,false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.shareJamDetailsView);
-        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -64,7 +66,8 @@ public class ViewJamDetailsFragment extends Fragment {
 
     public void getData(){
 
-        Intent intent = getActivity().getIntent();
+        Intent intent;
+        intent = getActivity().getIntent();
         jamModel = intent.getParcelableExtra("currentJamModel");
 
         ParseQuery<ParseObject> shareOwners = ParseQuery.getQuery("Share_owners");
@@ -102,4 +105,5 @@ public class ViewJamDetailsFragment extends Fragment {
             }
         });
     }
+
 }

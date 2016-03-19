@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +32,6 @@ import java.util.List;
 import jam.mbarakat.com.myshares.R;
 import jam.mbarakat.com.myshares.helpers.ParseConstants;
 import jam.mbarakat.com.myshares.helpers.SessionUser;
-import jam.mbarakat.com.myshares.modules.JamModel;
 import jam.mbarakat.com.myshares.modules.ShareItem;
 import jam.mbarakat.com.myshares.modules.SharesModel;
 

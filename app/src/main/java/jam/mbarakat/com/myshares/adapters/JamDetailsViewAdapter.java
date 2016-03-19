@@ -1,7 +1,9 @@
 package jam.mbarakat.com.myshares.adapters;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -26,7 +26,6 @@ import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SendCallback;
 
@@ -79,14 +78,13 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         {
             View view = layoutInflater.inflate(R.layout.jam_header, parent, false);
             this.parentView = view;
-            JamHeaderViewHolder holder = new JamHeaderViewHolder(view);
-            return holder;
+            return new JamHeaderViewHolder(view);
         }else if(viewType == TYPE_ITEM)
         {
             View view = layoutInflater.inflate(R.layout.shares_row, parent, false);
             this.parentView = view;
-            SharesViewHolder holder = new SharesViewHolder(view);
-            return holder;
+            SharesViewHolder sharesViewHolder = new SharesViewHolder(view);
+            return sharesViewHolder;
         }
         throw new RuntimeException("there is no type that matches the type " + viewType + " + make sure your using types correctly");
     }
@@ -185,11 +183,6 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return data.size()+1;
     }
 
-    public void updateData(List<SharesModel> sharesModel) {
-        this.data = sharesModel;
-        notifyDataSetChanged();
-    }
-
     class JamHeaderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView lblNewJamName1, lblSharesNo, lblNewJamAmount1, lblNewJamDate1,jamName, jamAmount, sharesNo, jamDate, lblNotify;
@@ -223,16 +216,37 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             imgNotifyAllUsers.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);
-                    v.startAnimation(shake);
-                    ParseObject notifyMsg = createNotificationMsg();
-                    notifyAllUsers(notifyMsg);
+                    showDialog(v);
                 }
             });
 
         }
 
+        private void sendNotificationToAll(View v) {
+            Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);
+            v.startAnimation(shake);
+            ParseObject notifyMsg = createNotificationMsg();
+            notifyAllUsers(notifyMsg);
+        }
+
+        private void showDialog(final View v) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(context);
+            alert.setTitle(R.string.dlg_ntf_title);
+            alert.setMessage(R.string.dlg_ntf_msg);
+            alert.setNegativeButton(R.string.delete_jam_cancel_btn, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    }
+            );
+            alert.setPositiveButton(R.string.dlg_nft_send, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    sendNotificationToAll(v);
+                }
+            });
+            alert.show();
+        }
         public ParseObject createNotificationMsg(){
             ParseObject msg = new ParseObject(ParseConstants.CLASS_MSG);
             try {
@@ -336,14 +350,14 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             flipToBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sharePayersModels = new ArrayList<SharePayersModel>();
+                    sharePayersModels = new ArrayList<>();
                     ParseQuery<ParseObject> sharePaidUsers = ParseQuery.getQuery("share_paid_users");
                     sharePaidUsers.whereEqualTo("share_id", data.get(getPosition() - 1).getShareId())
                             .whereEqualTo("obs", false);
                     sharePaidUsers.findInBackground(new FindCallback<ParseObject>() {
                         @Override
                         public void done(List<ParseObject> list, ParseException e) {
-                            for (ParseObject parseObject : list) {
+                            for (ParseObject parseObject : list)
                                 sharePayersModels.add(new SharePayersModel(
                                         parseObject.getString("share_payer_name")
                                         , parseObject.getString("share_id")
@@ -354,7 +368,6 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                         , parseObject.getString("user_name")
                                         , parseObject.getInt("amount")
                                 ));
-                            }
                             SharesModel sharesModel = data.get(getPosition() - 1);
                             sharesModel.setSharePayersModels(sharePayersModels);
                             sharesModel.setJamModel(jamModel);
@@ -432,7 +445,7 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                 @Override
                                 public void done(ParseException e) {
                                 if(e==null){
-                                    List<ParseObject> parseObjectList = new ArrayList<ParseObject>();
+                                    List<ParseObject> parseObjectList = new ArrayList<>();
                                     for(SharesModel sharesModel: data){
                                         ParseObject saveToSharePayers = new ParseObject("share_paid_users");
                                         saveToSharePayers.put("share_payer_id",parseObject.getObjectId());
@@ -479,20 +492,41 @@ public class JamDetailsViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             notifyAllUsersToPay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    List<String> users = new ArrayList();
-
-                    Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);
-                    v.startAnimation(shake);
-                    for(SharePayersModel sharePayersModel: sharePayersModels){
-                        if(sharePayersModel.isPayerVerified() && !sharePayersModel.isPaid())
-                            users.add(sharePayersModel.getUser_id());
-                    }
-                    ParseObject notifyMsg = createNotificationMsg(users);
-                    notifyUsers(notifyMsg, users);
+                    showDialog(v);
                 }
             });
         }
 
+        private void sendNotificationToAll(View v) {
+            ArrayList users = new ArrayList();
+            Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);
+            v.startAnimation(shake);
+            for(SharePayersModel sharePayersModel: sharePayersModels){
+                if(sharePayersModel.isPayerVerified() && !sharePayersModel.isPaid())
+                    users.add(sharePayersModel.getUser_id());
+            }
+            ParseObject notifyMsg = createNotificationMsg(users);
+            notifyUsers(notifyMsg, users);
+        }
+
+        private void showDialog(final View v) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(context);
+            alert.setTitle(R.string.dlg_ntf_title);
+            alert.setMessage(R.string.dlg_ntf_msg);
+            alert.setNegativeButton(R.string.delete_jam_cancel_btn, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    }
+            );
+            alert.setPositiveButton(R.string.dlg_nft_send, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    sendNotificationToAll(v);
+                }
+            });
+            alert.show();
+        }
         public ParseObject createNotificationMsg(List<String> users){
             ParseObject msg = new ParseObject(ParseConstants.CLASS_MSG);
             msg.put(ParseConstants.KEY_SENDER_ID, SessionUser.getUser().getUserId());

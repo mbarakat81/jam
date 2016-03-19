@@ -176,19 +176,18 @@ public class SharePayersAdapter extends ArrayAdapter<SharePayersModel> {
         msg.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if(e==null){
-                    ParseQuery<ParseInstallation> parseInstallationParseQuery = ParseInstallation.getQuery();
-                    parseInstallationParseQuery.whereEqualTo(ParseConstants.KEY_USER_ID, userId);
-                    ParsePush parsePush = new ParsePush();
-                    parsePush.setQuery(parseInstallationParseQuery);
-                    parsePush.setMessage(mContext.getString(R.string.txt_new_notification, SessionUser.getUser().getUserName()));
-                    parsePush.sendInBackground(new SendCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            Toast.makeText(mContext, R.string.alert_done, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
+                if (e != null) return;
+                ParseQuery<ParseInstallation> parseInstallationParseQuery = ParseInstallation.getQuery();
+                parseInstallationParseQuery.whereEqualTo(ParseConstants.KEY_USER_ID, userId);
+                ParsePush parsePush = new ParsePush();
+                parsePush.setQuery(parseInstallationParseQuery);
+                parsePush.setMessage(mContext.getString(R.string.txt_new_notification, SessionUser.getUser().getUserName()));
+                parsePush.sendInBackground(new SendCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Toast.makeText(mContext, R.string.alert_done, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }

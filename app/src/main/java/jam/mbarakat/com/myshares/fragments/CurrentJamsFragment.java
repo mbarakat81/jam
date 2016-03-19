@@ -223,9 +223,9 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
         });
 
 
-            }
+    }
 
-            private void shareIt(String jamId, String jamCreator, String jamShareValue) {
+    private void shareIt(String jamId, String jamCreator, String jamShareValue) {
                 startProgressDialog(getResources().getString(R.string.progress_title), dialogMsgBody);
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
@@ -235,8 +235,7 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
                 endProgressDialod();
             }
-
-            private void showDialog(final int id) {
+    private void showDialog(final int id) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                 alert.setTitle(R.string.delete_jam_title);
                 alert.setMessage(R.string.delete_jam_msg);
@@ -266,9 +265,8 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
                     }
                 });
                 alert.show();
-            }
-
-            private void deleteJam(ParseObject parseObject, final int id) {
+    }
+    private void deleteJam(ParseObject parseObject, final int id) {
                 parseObject.deleteInBackground(new DeleteCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -291,15 +289,14 @@ public class CurrentJamsFragment extends ListFragment implements MyJamsViewAdapt
                         }
                     }
                 });
-            }
-
-            private void startProgressDialog(String title, String msg) {
+    }
+    private void startProgressDialog(String title, String msg) {
                 progress = ProgressDialog.show(getContext(), "",
                         "", true);
 
-            }
-
-            private void endProgressDialod() {
+    }
+    private void endProgressDialod() {
                 progress.dismiss();
             }
-        }
+
+}

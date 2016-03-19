@@ -16,7 +16,6 @@ import com.parse.SignUpCallback;
 
 import jam.mbarakat.com.myshares.MySharesApplication;
 import jam.mbarakat.com.myshares.R;
-import jam.mbarakat.com.myshares.helpers.SessionUser;
 
 public class SignUpActivity extends AppCompatActivity {
 

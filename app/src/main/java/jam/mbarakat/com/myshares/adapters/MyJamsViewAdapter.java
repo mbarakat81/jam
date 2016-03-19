@@ -15,7 +15,6 @@ import java.util.List;
 
 import jam.mbarakat.com.myshares.anim.AnimationUtils;
 import jam.mbarakat.com.myshares.helpers.HelperClass;
-import jam.mbarakat.com.myshares.helpers.SessionUser;
 import jam.mbarakat.com.myshares.modules.JamModel;
 import jam.mbarakat.com.myshares.R;
 

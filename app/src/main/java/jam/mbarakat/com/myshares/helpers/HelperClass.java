@@ -1,18 +1,11 @@
 package jam.mbarakat.com.myshares.helpers;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.os.Build;
-import android.provider.ContactsContract;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by MBARAKAT on 2/8/2016.

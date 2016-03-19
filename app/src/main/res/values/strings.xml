@@ -81,4 +81,7 @@
     <string name="lbl_share_order">dfgdfg</string>
     <string name="lbl_share_paid_user_side">تم تحصيل المبلغ</string>
     <string name="msg_delete_cancelation">عليك القيام بإلغاء جميع دفعات المشترك قبل حذفة.</string>
+    <string name="dlg_ntf_title">تنبيه الإعضاء</string>
+    <string name="dlg_ntf_msg">سوف يتم تنبيه جميع الأعضاء المتابعين لهذه الجمهية</string>
+    <string name="dlg_nft_send">أرسل</string>
 </resources>
