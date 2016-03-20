@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -31,7 +33,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("samsung-sm_g900h-320892a419c94117")
+                .build();
 
+        mAdView.loadAd(adRequest);
         tf = Typeface.createFromAsset(this.getAssets(), "fonts/sheba.ttf");
         mSignUpTextView = (TextView) findViewById(R.id.txtSignUp);
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {

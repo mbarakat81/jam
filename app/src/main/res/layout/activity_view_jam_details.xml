@@ -8,19 +8,43 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.ViewJamDetailsActivity">
 
-    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-            app:layout_scrollFlags="scroll|enterAlways"
+    <RelativeLayout
+        android:id="@+id/barLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+            <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryDark"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <include layout="@layout/content_view_jam_details" />
+        </android.support.design.widget.AppBarLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBar">
+            <include android:id="@+id/adContent"
+                layout="@layout/ad_home_layout"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+            <include  android:id="@+id/jamContent"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/content_view_jam_details"
+                android:layout_above="@+id/adContent" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 
 
 

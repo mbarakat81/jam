@@ -80,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0 & getIntent().getExtras() == null) {
+            finish();
+            return;
+        }
+
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -87,12 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         mAdView.loadAd(adRequest);
-
-        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0 & getIntent().getExtras() == null) {
-            finish();
-            return;
-        }
-
 
         currentUser = ParseUser.getCurrentUser();
         if (currentUser == null) {

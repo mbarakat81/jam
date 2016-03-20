@@ -48,7 +48,7 @@
     <string name="delete_jam_msg">تأكيد حذف الجمعية؟</string>
     <string name="delete_jam_cancel_btn">إلغاء</string>
     <string name="share_jam_body_msg"> هل ترغب بالمشاركة في جمعية بمبلغ _AMOUNT للسهم الواحد؟ لتحميل البرنامج إدخل على الرابط _LINK </string>
-    <string name="jam_invite_link">https://play.google.com/apps/testing/jam.mbarakat.com.myshares</string>
+    <string name="jam_invite_link">https://play.google.com/store/apps/details?id=jam.mbarakat.com.myshares</string>
     <string name="share_invite_body_msg">تم دعوتك للمشاركه في جمعية , لمتابعة سهمك قم بالدخول على الرابط ادناه</string>
     <string name="share_invite_link">http://bazsmm.com/myjam.html?jamId=_JAMID&amp;shareOwner=_SHAREID</string>
     <string name="progress_title">الرجاء الإنتظار</string>
