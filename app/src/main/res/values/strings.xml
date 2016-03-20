@@ -47,7 +47,8 @@
     <string name="delete_jam_confirm_btn">نعم</string>
     <string name="delete_jam_msg">تأكيد حذف الجمعية؟</string>
     <string name="delete_jam_cancel_btn">إلغاء</string>
-    <string name="share_jam_body_msg">هل ترغب بالمشاركة في جمعية بمبلغ _AMOUNT للسهم الواحد؟ للتفاصيل إكبس على الرابط أدناه</string>
+    <string name="share_jam_body_msg"> هل ترغب بالمشاركة في جمعية بمبلغ _AMOUNT للسهم الواحد؟ لتحميل البرنامج إدخل على الرابط _LINK </string>
+    <string name="jam_invite_link">https://play.google.com/apps/testing/jam.mbarakat.com.myshares</string>
     <string name="share_invite_body_msg">تم دعوتك للمشاركه في جمعية , لمتابعة سهمك قم بالدخول على الرابط ادناه</string>
     <string name="share_invite_link">http://bazsmm.com/myjam.html?jamId=_JAMID&amp;shareOwner=_SHAREID</string>
     <string name="progress_title">الرجاء الإنتظار</string>
@@ -66,6 +67,7 @@
     <string name="new_jam_title">New Jam</string>
     <string name="sd">fdsf</string>
     <string name="banner_ad_unit_id">ca-app-pub-7049990115818203/5559041976</string>
+    <string name="notification_ad">ca-app-pub-7049990115818203/7390748378</string>
     <string-array name="period_array">
         <item>شهري</item>
     </string-array>
@@ -84,4 +86,14 @@
     <string name="dlg_ntf_title">تنبيه الإعضاء</string>
     <string name="dlg_ntf_msg">سوف يتم تنبيه جميع الأعضاء المتابعين لهذه الجمهية</string>
     <string name="dlg_nft_send">أرسل</string>
+    <string name="share_email_native">share email native</string>
+    <string name="share_email_subject">وصلة الإشتراك في جمعية جديدة</string>
+    <string name="share_chooser_text">تابع دفعات سهمك</string>
+    <string name="share_twitter">تويتر</string>
+    <string name="share_facebook">فيسبوك</string>
+    <string name="share_sms">رسالة</string>
+    <string name="share_email_gmail">بريد</string>
+    <string name="share_whatsapp">واتساب</string>
+    <string name="share_viber">فايبر</string>
+    <string name="str_jam_invite">دعوة للمشاركة بجمعية</string>
 </resources>

@@ -1,11 +1,17 @@
 package jam.mbarakat.com.myshares.adapters;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -208,18 +214,18 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
         msg.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if(e==null){
-                        ParseQuery<ParseInstallation> parseInstallationParseQuery = ParseInstallation.getQuery();
-                        parseInstallationParseQuery.whereEqualTo(ParseConstants.KEY_USER_ID, shareItem.getShareOwnerId());
-                        ParsePush parsePush = new ParsePush();
-                        parsePush.setQuery(parseInstallationParseQuery);
-                        parsePush.setMessage(mContext.getString(R.string.txt_new_notification, SessionUser.getUser().getUserName()));
-                        parsePush.sendInBackground(new SendCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                Toast.makeText(mContext, R.string.alert_done, Toast.LENGTH_LONG).show();
-                            }
-                        });
+                if (e == null) {
+                    ParseQuery<ParseInstallation> parseInstallationParseQuery = ParseInstallation.getQuery();
+                    parseInstallationParseQuery.whereEqualTo(ParseConstants.KEY_USER_ID, shareItem.getShareOwnerId());
+                    ParsePush parsePush = new ParsePush();
+                    parsePush.setQuery(parseInstallationParseQuery);
+                    parsePush.setMessage(mContext.getString(R.string.txt_new_notification, SessionUser.getUser().getUserName()));
+                    parsePush.sendInBackground(new SendCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            Toast.makeText(mContext, R.string.alert_done, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
         });
@@ -231,11 +237,62 @@ public class ShareOwnersAdapter extends ArrayAdapter<ShareItem> {
         String link = v.getContext().getResources().getString(R.string.share_invite_link).replace("_JAMID", jamId);
         link = link.replace("_SHAREID", shareId);
         shareBody += "   " + link;
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        String subject = getContext().getResources().getString(R.string.share_email_subject);
+        String msg = shareBody;
+        /*sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        v.getContext().startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        v.getContext().startActivity(Intent.createChooser(sharingIntent, "Share via"));*/
+        onShareClick(msg, subject);
     }
+    public void onShareClick(String text, String subject) {
+        Resources resources = getContext().getResources();
+        Intent emailIntent = new Intent();
+        emailIntent.setAction(Intent.ACTION_SEND);
+        // Native email client doesn't currently support HTML, but it doesn't hurt to try in case they fix it
+        emailIntent.putExtra(Intent.EXTRA_TEXT, text);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.setType("message/rfc822");
 
+        PackageManager pm = getContext().getPackageManager();
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        Intent openInChooser = Intent.createChooser(emailIntent, resources.getString(R.string.share_chooser_text));
+
+        List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+        List<LabeledIntent> intentList = new ArrayList<LabeledIntent>();
+        for (int i = 0; i < resInfo.size(); i++) {
+            // Extract the label, append it, and repackage it in a LabeledIntent
+            ResolveInfo ri = resInfo.get(i);
+            String packageName = ri.activityInfo.packageName.toLowerCase();
+            if(packageName.contains("android.email")) {
+                emailIntent.setPackage(packageName);
+            } else if(packageName.contains("viber") || packageName.contains("whatsapp") || packageName.contains("mms") || packageName.contains("android.gm")) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(packageName, ri.activityInfo.name));
+                intent.setAction(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                if(packageName.contains("viber")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                } else if(packageName.contains("whatsapp")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                } else if(packageName.contains("mms")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                } else if(packageName.contains("android.gm")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    intent.setType("message/rfc822");
+                }
+
+                intentList.add(new LabeledIntent(intent, packageName, ri.loadLabel(pm), ri.icon));
+            }
+        }
+
+        // convert intentList to array
+        LabeledIntent[] extraIntents = intentList.toArray( new LabeledIntent[ intentList.size() ]);
+
+        openInChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, extraIntents);
+        getContext().startActivity(openInChooser);
+    }
     private static class ShareItemViewHolder{
         TextView shareOwnerName, shareAmount;
         ImageView deleteShareItem, shareViaSocialMedia, sharingInfo, notifyUserToReceive;

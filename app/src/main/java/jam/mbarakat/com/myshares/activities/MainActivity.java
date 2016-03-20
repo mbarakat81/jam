@@ -4,8 +4,13 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -51,31 +56,38 @@ import jam.mbarakat.com.myshares.modules.JamModel;
 import jam.mbarakat.com.myshares.modules.SharesModel;
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String PUSHWIZARD_APPKEY = "56dddfdaa3fc27053d8b47ec";
     private static final String GOOGLE_PROJECT_NUMBER = "932288062635";
-
-
+    static final int DATE_DIALOG_ID = 0;
     public static final String TAG = MainActivity.class.getSimpleName();
-    final Context context = this;
-    Typeface tf;
+
+    int mYear, mMonth, mDay;
     int jamSharePeriod;
     Button btnNewJamParticipants;
     EditText txtNewJamName, txtNewJamAmount, txtNewJamDate, txtSharesNo;
     Spinner periodSpinner;
     ProgressDialog progress;
-    int mYear, mMonth, mDay;
-    JamModel jamModel;
     Dialog dialog;
-    static final int DATE_DIALOG_ID = 0;
-    ParseUser currentUser;
-    List<SharesModel> jamSharesObject;
 
+    JamModel jamModel;
+    ParseUser currentUser;
+    final Context context = this;
+    List<SharesModel> jamSharesObject;
+    Typeface tf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("samsung-sm_g900h-320892a419c94117")
+                .build();
+
+        mAdView.loadAd(adRequest);
+
         if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0 & getIntent().getExtras() == null) {
             finish();
             return;
@@ -227,9 +239,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         GoogleApiClient client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
     }
 
     private void CreateNewJam(final Dialog dialog) {
@@ -302,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    for(ParseObject parseObject: sharesObject){
+                    for (ParseObject parseObject : sharesObject) {
                         SharesModel sharesModel = new SharesModel(parseObject, context);
                         sharesModel.setjAmount(Integer.parseInt(jamModel.getjAmount()));
                         sharesModels.add(sharesModel);
@@ -392,5 +401,55 @@ public class MainActivity extends AppCompatActivity {
                 PushWizard.GEOLOCATION_PROCESSING_MODE.OFF //comment out on SDK 1.0.3
         );
         //the null param can be a String array for Tags
+    }
+
+    public void onShareClick(String text, String subject) {
+        Resources resources = getResources();
+        Intent emailIntent = new Intent();
+        emailIntent.setAction(Intent.ACTION_SEND);
+        // Native email client doesn't currently support HTML, but it doesn't hurt to try in case they fix it
+        emailIntent.putExtra(Intent.EXTRA_TEXT, text);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.setType("message/rfc822");
+
+        PackageManager pm = getPackageManager();
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        Intent openInChooser = Intent.createChooser(emailIntent, resources.getString(R.string.share_chooser_text));
+
+        List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+        List<LabeledIntent> intentList = new ArrayList<LabeledIntent>();
+        for (int i = 0; i < resInfo.size(); i++) {
+            // Extract the label, append it, and repackage it in a LabeledIntent
+            ResolveInfo ri = resInfo.get(i);
+            String packageName = ri.activityInfo.packageName.toLowerCase();
+            if(packageName.contains("android.email")) {
+                emailIntent.setPackage(packageName);
+            } else if(packageName.contains("viber") || packageName.contains("whatsapp") || packageName.contains("mms") || packageName.contains("android.gm")) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(packageName, ri.activityInfo.name));
+                intent.setAction(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                if(packageName.contains("viber")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                } else if(packageName.contains("whatsapp")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                } else if(packageName.contains("mms")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                } else if(packageName.contains("android.gm")) {
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    intent.setType("message/rfc822");
+                }
+
+                intentList.add(new LabeledIntent(intent, packageName, ri.loadLabel(pm), ri.icon));
+            }
+        }
+
+        // convert intentList to array
+        LabeledIntent[] extraIntents = intentList.toArray( new LabeledIntent[ intentList.size() ]);
+
+        openInChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, extraIntents);
+        startActivity(openInChooser);
     }
 }

@@ -15,3 +15,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-dontwarn android.net.SSLCertificateSocketFactory
+-dontwarn android.app.Notification
+-dontwarn okio.**

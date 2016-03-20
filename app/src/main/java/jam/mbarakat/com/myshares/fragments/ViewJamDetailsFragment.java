@@ -65,7 +65,6 @@ public class ViewJamDetailsFragment extends Fragment {
     }
 
     public void getData(){
-
         Intent intent;
         intent = getActivity().getIntent();
         jamModel = intent.getParcelableExtra("currentJamModel");
